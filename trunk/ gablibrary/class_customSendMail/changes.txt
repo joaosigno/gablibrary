@@ -1,0 +1,7 @@
+Version 1.5
+ - Converted to support ASPEmail
+
+Version 1.0
+
+- htmlmail is on by default
+- the body gets a style from the settings. so verdana is default font for example.

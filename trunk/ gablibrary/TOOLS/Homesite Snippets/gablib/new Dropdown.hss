@@ -1,0 +1,10 @@
+sql = "SELECT "
+	set dd = new Dropdown
+	with dd
+		.datasource = sql
+		.dataTextField = "id"
+		.dataValueField = "name"
+		.name = "dropdown"
+		.draw()
+	end with
+	set dd = nothing

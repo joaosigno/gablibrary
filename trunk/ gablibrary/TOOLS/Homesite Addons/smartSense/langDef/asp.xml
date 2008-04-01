@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<root>
+	<elements>
+		<el>
+			<display>Response</display>
+			<childElements>
+				<el>
+					<display>Cookies()</display>
+					<help>Response.Cookies(name)[(key)|.attribute]=value</help>
+				</el>
+				<el>
+					<display>Buffer</display>
+					<help>response.Buffer[=flag]</help>
+				</el>
+				<el>
+					<display>CacheControl</display>
+					<help>response.CacheControl[=control_header]</help>
+				</el>
+				<el>
+					<display>Charset</display>
+					<help>response.Charset[=charsetname]</help>
+				</el>
+				<el type="p">
+					<display>ContentType</display>
+					<insert>ContentType=</insert>
+					<help>response.ContentType[=contenttype]</help>
+					<childElements>
+						<el>
+							<display>text/css</display>
+							<insert>"text/css"</insert>
+						</el>
+						<el>
+							<display>text/HTML</display>
+							<insert>"text/HTML"</insert>
+						</el>
+						<el>
+							<display>text/plain</display>
+							<insert>"text/plain"</insert>
+						</el>
+						<el>
+							<display>text/richtext</display>
+							<insert>"text/richtext"</insert>
+						</el>
+						<el>
+							<display>text/xml</display>
+							<insert>"text/xml"</insert>
+						</el>
+						<el>
+							<display>image/GIF</display>
+							<insert>"image/GIF"</insert>
+						</el>
+						<el>
+							<display>image/JPEG</display>
+							<insert>"image/JPEG"</insert>
+						</el>
+						<el>
+							<display>image/JPEG</display>
+							<insert>"image/JPEG"</insert>
+						</el>
+						<el>
+							<display>application/pdf</display>
+							<insert>"application/pdf"</insert>
+						</el>
+						<el>
+							<display>application/zip</display>
+							<insert>"application/zip"</insert>
+						</el>
+						<el>
+							<display>application/vnd.ms-excel</display>
+							<insert>"application/vnd.ms-excel"</insert>
+						</el>
+					</childElements>
+				</el>
+				<el type="p">
+					<display>Expires</display>
+					<insert>Expires=</insert>
+					<help>response.Expires[=number]
+	number = The time in minutes before the page expires 
+	-1 =  the page will never be cached
+	</help>
+				<childElements>
+					<el>
+						<display>-1 (Never to be cached)</display>
+						<insert>-1</insert>
+					</el>
+					<el>
+						<display>1440 (24 h)</display>
+						<insert>1440</insert>
+					</el>
+				</childElements>
+				</el>
+				<el>
+					<display>ExpiresAbsolute</display>
+					<insert>ExpiresAbsolute=</insert>
+				</el>
+				<el><display>IsClientConnected</display></el>
+				<el>
+					<display>PICS</display>
+					<insert>PICS()</insert>
+				</el>
+				<el>
+					<display>Status</display>
+					<insert>Status=</insert>
+				</el>
+				<el type="m">
+					<display>AddHeader</display>
+					<insert>AddHeader "",""</insert>
+				</el>
+				<el type="m">
+					<display>AppendToLog</display>
+					<insert>AppendToLog ""</insert>
+				</el>
+				<el type="m"><display>BinaryWrite</display></el>
+				<el type="m"><display>Clear</display></el>
+				<el type="m"><display>End</display></el>
+				<el type="m"><display>Flush</display></el>
+				<el type="m">
+					<display>Redirect</display>
+					<insert>Redirect ""</insert>
+				</el>
+				<el type="m">
+					<display>Write </display>
+					<insert>Write ""</insert>
+				</el>
+			</childElements>
+		</el>
+		<el>
+			<display>Request</display>
+			<childElements>
+				<el><display>ClientCertificate</display></el>
+				<el>
+					<display>Cookies</display>
+					<insert>Cookies("")=""</insert>
+					<help>variablename=Request.Cookies(name)[(key)|.attribute]</help>
+				</el>
+				<el>
+					<display>Form</display>
+					<insert>Form("")</insert>
+					<help>Request.Form(element)[(index)|.Count]</help>
+				</el>
+				<el>
+					<display>QueryString</display>
+					<insert>QueryString("")</insert>
+					<help>Request.QueryString(variable)[(index)|.Count]</help>
+				</el>
+				<el type="p">
+					<display>ServerVariables</display>
+					<insert>ServerVariables</insert>
+					<childElements>
+						<el>
+							<display>ALL_HTTP</display>
+							<insert>("ALL_HTTP")</insert>
+						</el>
+						<el>
+							<display>ALL_RAW</display>
+							<insert>("ALL_RAW")</insert>
+						</el>
+						<el>
+							<display>APPL_MD_PATH</display>
+							<insert>("APPL_MD_PATH")</insert>
+						</el>
+						<el>
+							<display>APPL_PHYSICAL_PATH</display>
+							<insert>("APPL_PHYSICAL_PATH")</insert>
+						</el>
+						<el>
+							<display>AUTH_PASSWORD</display>
+							<insert>("AUTH_PASSWORD")</insert>
+						</el>
+						<el>
+							<display>AUTH_TYPE</display>
+							<insert>("AUTH_TYPE")</insert>
+						</el>
+						<el>
+							<display>AUTH_USER</display>
+							<insert>("AUTH_USER")</insert>
+						</el>
+						<el>
+							<display>CERT_COOKIE</display>
+							<insert>("CERT_COOKIE")</insert>
+						</el>
+						<el>
+							<display>CERT_FLAGS</display>
+							<insert>("CERT_FLAGS")</insert>
+						</el>
+						<el>
+							<display>CERT_ISSUER</display>
+							<insert>("CERT_ISSUER")</insert>
+						</el>
+						<el>
+							<display>CERT_KEYSIZE</display>
+							<insert>("CERT_KEYSIZE")</insert>
+						</el>
+						<el>
+							<display>CERT_SECRETKEYSIZE</display>
+							<insert>("CERT_SECRETKEYSIZE")</insert>
+						</el>
+						<el>
+							<display>CERT_SERIALNUMBER</display>
+							<insert>("CERT_SERIALNUMBER")</insert>
+						</el>
+						<el>
+							<display>CERT_SERVER_ISSUER</display>
+							<insert>("CERT_SERVER_ISSUER")</insert>
+						</el>
+						<el>
+							<display>CERT_SERVER_SUBJECT</display>
+							<insert>("CERT_SERVER_SUBJECT")</insert>
+						</el>
+						<el>
+							<display>CERT_SUBJECT</display>
+							<insert>("CERT_SUBJECT")</insert>
+						</el>
+						<el>
+							<display>CONTENT_LENGTH</display>
+							<insert>("CONTENT_LENGTH")</insert>
+						</el>
+						<el>
+							<display>CONTENT_TYPE</display>
+							<insert>("CONTENT_TYPE")</insert>
+						</el>
+						<el>
+							<display>GATEWAY_INTERFACE</display>
+							<insert>("GATEWAY_INTERFACE")</insert>
+						</el>
+						<el>
+							<display>HTTP_ACCEPT</display>
+							<insert>("HTTP_ACCEPT")</insert>
+						</el>
+						<el>
+							<display>HTTP_ACCEPT_LANGUAGE</display>
+							<insert>("HTTP_ACCEPT_LANGUAGE")</insert>
+							</el>
+						<el>
+							<display>HTTP_COOKIE</display>
+							<insert>("HTTP_COOKIE")</insert>
+						</el>
+						<el>
+							<display>HTTP_REFERER</display>
+							<insert>("HTTP_REFERER")</insert>
+						</el>
+						<el>
+							<display>HTTP_USER_AGENT</display>
+							<insert>("HTTP_USER_AGENT")</insert>
+						</el>
+						<el>
+							<display>HTTPS</display>
+							<insert>("HTTPS")</insert>
+						</el>
+						<el>
+							<display>HTTPS_KEYSIZE</display>
+							<insert>("HTTPS_KEYSIZE")</insert>
+						</el>
+						<el>
+							<display>HTTPS_SECRETKEYSIZE</display>
+							<insert>("HTTPS_SECRETKEYSIZE")</insert>
+						</el>
+						<el>
+							<display>HTTPS_SERVER_ISSUER</display>
+							<insert>("HTTPS_SERVER_ISSUER")</insert>
+						</el>
+						<el>
+							<display>HTTPS_SERVER_SUBJECT</display>
+							<insert>("HTTPS_SERVER_SUBJECT")</insert>
+						</el>
+						<el>
+							<display>INSTANCE_ID</display>
+							<insert>("INSTANCE_ID")</insert>
+						</el>
+						<el>
+							<display>INSTANCE_META_PATH</display>
+							<insert>("INSTANCE_META_PATH")</insert>
+						</el>
+						<el>
+							<display>LOCAL_ADDR</display>
+							<insert>("LOCAL_ADDR")</insert>
+						</el>
+						<el>
+							<display>LOGON_USER</display>
+							<insert>("LOGON_USER")</insert>
+						</el>
+						<el>
+							<display>PATH_INFO</display>
+							<insert>("PATH_INFO")</insert>
+						</el>
+						<el>
+							<display>PATH_TRANSLATED</display>
+							<insert>("PATH_TRANSLATED")</insert>
+						</el>
+						<el>
+							<display>QUERY_STRING</display>
+							<insert>("QUERY_STRING")</insert>
+						</el>
+						<el>
+							<display>REMOTE_ADDR</display>
+							<insert>("REMOTE_ADDR")</insert>
+						</el>
+						<el>
+							<display>REMOTE_HOST</display>
+							<insert>("REMOTE_HOST")</insert>
+						</el>
+						<el>
+							<display>REMOTE_USER</display>
+							<insert>("REMOTE_USER")</insert>
+						</el>
+						<el>
+							<display>REQUEST_METHOD</display>
+							<insert>("REQUEST_METHOD")</insert>
+						</el>
+						<el>
+							<display>SCRIPT_NAME</display>
+							<insert>("SCRIPT_NAME")</insert>
+						</el>
+						<el>
+							<display>SERVER_NAME</display>
+							<insert>("SERVER_NAME")</insert>
+						</el>
+						<el>
+							<display>SERVER_PORT</display>
+							<insert>("SERVER_PORT")</insert>
+						</el>
+						<el>
+							<display>SERVER_PORT_SECURE</display>
+							<insert>("SERVER_PORT_SECURE")</insert>
+						</el>
+						<el>
+							<display>SERVER_PROTOCOL</display>
+							<insert>("SERVER_PROTOCOL")</insert>
+						</el>
+						<el>
+							<display>SERVER_SOFTWARE</display>
+							<insert>("SERVER_SOFTWARE")</insert>
+						</el>
+						<el>
+							<display>URL</display>
+							<insert>("URL")</insert>
+						</el>
+					</childElements>
+				</el>
+				<el><display>Totalbytes</display></el>
+				<el type="m"><display>BinaryRead()</display></el>
+			</childElements>
+		</el>
+		<el><display>Request("")</display></el>
+		<el>
+			<display>Application</display>
+			<childElements>
+				<el type="m">
+					<display>Contents</display>
+					<childElements>
+						<el type="m">
+							<display>Remove</display>
+							<insert>Remove()</insert>
+						</el>
+						<el type="m">
+							<display>RemoveAll</display>
+							<insert>RemoveAll()</insert>
+						</el>
+					</childElements>
+				</el>
+				<el type="m"><display>Contents("")</display></el>
+				<el type="m">
+					<display>StaticObjects</display>
+					<insert>StaticObjects()</insert>
+				</el>
+				<el><display>Lock</display></el>
+				<el><display>Unlock</display></el>
+			</childElements>
+		</el>
+		<el><display>Application("")</display></el>
+		<el>
+			<display>Session</display>
+			<childElements>
+				<el type="m">
+					<display>Contents</display>
+					<childElements>
+						<el type="m">
+							<display>Remove</display>
+							<insert>Remove()</insert>
+						</el>
+						<el type="m">
+							<display>RemoveAll</display>
+							<insert>RemoveAll()</insert>
+						</el>
+					</childElements>
+				</el>
+				<el type="m"><display>Contents("")</display></el>
+				<el type="m">
+					<display>StaticObjects</display>
+					<insert>StaticObjects()</insert>
+				</el>
+				<el>
+					<display>CodePage</display>
+					<insert>CodePage=</insert>
+					<childElements>
+						<el>
+							<display>1252 - American English and most European languages</display>
+							<insert>1252</insert>
+						</el>
+						<el>
+							<display>932 - Japanese Kanji</display>
+							<insert>932</insert>
+						</el>
+					</childElements>
+				</el>
+				<el>
+					<display>LCID</display>
+					<insert>LCID=</insert>
+					<childElements>
+						<el>
+							<display>1053 - Date form: 2001-12-11</display>
+							<insert>1053</insert>
+						</el>
+						<el>
+							<display>2048 - Date form: 12/11/2001</display>
+							<insert>2048</insert>
+						</el>
+						<el>
+							<display>1036 - Date form: 11/12/2001</display>
+							<insert>1036</insert>
+						</el>
+						<el>
+							<display>3079 - Date form: 11.12.2001</display>
+							<insert>3079</insert>
+						</el>
+						<el>
+							<display>2057 - Date form: 11/12/2001</display>
+							<insert>2057</insert>
+						</el>
+					</childElements>
+				</el>
+				<el><display>SessionID</display></el>
+				<el>
+					<display>Timeout</display>
+					<insert>Timeout=</insert>
+				</el>
+				<el type="m"><display>Abandon</display></el>
+			</childElements>
+		</el>
+		<el>
+			<display>Session()</display>
+			<insert>Session("name")</insert>
+			<actions><![CDATA[
+			cursorLeft(2,0);
+			cursorLeft(4,1);
+			]]></actions>
+		</el>
+		<el>
+			<display>Server</display>
+			<childElements>
+				<el type="p">
+					<display>ScriptTimeout</display>
+					<insert>ScriptTimeout=200</insert>
+				</el>
+				<el type="m">
+					<display>CreateObject</display>
+					<insert>CreateObject()</insert>
+				</el>
+				<el type="m">
+					<display>Execute</display>
+					<insert>Execute()</insert>
+				</el>
+				<el type="m">
+					<display>GetLastError</display>
+					<insert>GetLastError()</insert>
+				</el>
+				<el type="m">
+					<display>HTMLEncode</display>
+					<insert>HTMLEncode("")</insert>
+				</el>
+				<el type="m">
+					<display>MapPath</display>
+					<insert>MapPath("")</insert>
+				</el>
+				<el type="m">
+					<display>Transfer</display>
+					<insert>Transfer("")</insert>
+				</el>
+				<el type="m">
+					<display>URLEncode</display>
+					<insert>URLEncode("")</insert>
+				</el>
+			</childElements>
+		</el>
+		<el type="resWord"><display>Call</display></el>
+		<el type="resWord"><display>Class</display></el>
+		<el type="resWord"><display>Const</display></el>
+		<el type="resWord"><display>Dim</display></el>
+		<el type="resWord"><display>Call</display></el>
+		<el type="resWord"><display>Call</display></el>
+		<el type="resWord"><display>Erase</display></el>
+		<el type="resWord"><display>Execute</display></el>
+		<el type="resWord"><display>ExecuteGlobal</display></el>
+		<el type="resWord"><display>Exit</display></el>
+		<el type="resWord"><display>For</display></el>
+		<el type="resWord"><display>Function</display></el>
+		<el type="resWord"><display>If</display></el>
+		<el type="resWord"><display>Next</display></el>
+		<el type="resWord"><display>On Error</display></el>
+		<el type="resWord"><display>Option Explicit</display></el>
+		<el type="resWord"><display>Private</display></el>
+		<el type="resWord"><display>Property Get</display></el>
+		<el type="resWord"><display>Property Let</display></el>
+		<el type="resWord"><display>Property Set</display></el>
+		<el type="resWord"><display>Public</display></el>
+		<el type="resWord"><display>Randomize</display></el>
+		<el type="resWord"><display>ReDim</display></el>
+		<el type="resWord"><display>Rem</display></el>
+		<el type="resWord"><display>Select</display></el>
+		<el type="resWord"><display>Set</display></el>
+		<el type="resWord"><display>Stop</display></el>
+		<el type="resWord"><display>Sub</display></el>
+		<el type="resWord"><display>Then</display></el>
+		<el type="resWord"><display>To</display></el>
+		<el type="resWord"><display>While</display></el>
+		<el type="resWord"><display>With</display></el>
+	</elements>
+	<common>
+	</common>
+	<reservedWords>	
+	</reservedWords>
+</root>

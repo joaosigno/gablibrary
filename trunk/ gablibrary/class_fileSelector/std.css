@@ -1,0 +1,63 @@
+.fileSelector {
+	border:2px inset #eee;
+	overflow:auto;
+	padding:5;
+	background-color:#fff;
+}
+
+.fileSelector div {
+	font:13px microsoft sans serif;
+}
+
+.fileSelector .folder {
+	cursor:pointer;
+}
+
+.fileSelector .folder a:hover {
+	color:#648BCB;
+	text-decoration:underline;
+}
+.fileSelector .folder a, .fileSelector .folder a *  {
+	color:black;
+	text-decoration:none;
+}
+
+.fileSelector .selectedFolder a, .fileSelector .selectedFolder a:hover {
+	color:blue;
+}
+
+/* the indent for folders, files, etc. */
+.fileSelector .idt {
+	margin-left:7;
+	padding-left:1;
+	
+}
+.fileSelector .vtl {
+	background-position:0 0;
+}
+.fileSelector .idt2 {
+	margin-left:17;
+}
+
+.fileSelector .numberOfFiles {
+	color:#aaa;
+	font-size:10px;
+}
+.fileSelector .s {
+	background-color:#eee;
+}
+
+/* the only inputs are checkboxes and radiobuttons */
+.fileSelector input {
+	vertical-align:middle;
+	margin-left:-2;
+}
+.fileSelector img {
+	border:0;
+	vertical-align:middle;
+	margin-right:2;
+	margin-top:2px;
+}
+.fileSelector .file {
+	white-space:nowrap;
+}

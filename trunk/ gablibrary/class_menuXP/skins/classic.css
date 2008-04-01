@@ -1,0 +1,69 @@
+.XPMenutable {	BACKGROUND-COLOR:#DBD8D1 }
+
+.MainMenu {
+	BORDER-LEFT: #ffffff 1px solid; 
+	BORDER-BOTTOM: #c5c5c5 1px solid; 
+	BORDER-TOP: #ffffff 1px solid; 
+	FONT-SIZE:11px; 
+	COLOR: white; 
+	FONT-FAMILY: Tahoma,Arial,sans-serif; 
+	TEXT-DECORATION: none;
+}
+
+.menu {
+	BORDER: #DBD8D1 1px solid;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	padding:3px;
+	WIDTH: 100%;
+	COLOR: black;
+	FONT-FAMILY: Tahoma, Arial, sans-serif;
+	HEIGHT: 100%;
+	BACKGROUND-COLOR: #DBD8D1;
+	TEXT-DECORATION: none;
+}
+
+.menu:link {
+	COLOR: black;
+}
+
+.menu:visited {
+	COLOR: black;
+}
+
+.menu:hover {
+	BACKGROUND-COLOR: #b6bdd2;
+	Color:black;
+	TEXT-DECORATION: none;
+}
+
+.Main {
+	BORDER: #DBD8D1 1px solid;
+	padding:4px 0px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	WIDTH: 100%;
+	COLOR: black;
+	FONT-FAMILY: Tahoma, Arial, sans-serif;
+	HEIGHT: 100%;
+	BACKGROUND-COLOR: #DBD8D1;
+	TEXT-DECORATION: none;
+}
+
+.Main:link {
+	COLOR: black;
+}
+
+.Main:visited {
+	COLOR: black;
+}
+
+.Main:hover {
+	BACKGROUND-COLOR: #b6bdd2;
+	Color:black;
+	TEXT-DECORATION: none;
+}
+
+.mainMenuPointActive {
+	color:#122D98;
+}

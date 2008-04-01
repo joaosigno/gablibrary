@@ -1,0 +1,4 @@
+v1.1
+
+- enableAdding-property introduced. nice functionality if you want to add an item to a dropdown.
+- stringbuilder is now by default true

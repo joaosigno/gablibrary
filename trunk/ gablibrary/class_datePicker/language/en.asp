@@ -1,0 +1,16 @@
+<%
+const DP_LANG_PREV_YEAR				= "Jump one year backwards"
+const DP_LANG_NEXT_YEAR				= "Jump one year forward"
+const DP_LANG_PREV_MONTH				= "Jump one month backwards"
+const DP_LANG_NEXT_MONTH				= "Jump one month forward"
+const DP_LANG_TODAY_HELP				= "Jump to todays date"
+const DP_LANG_GO_TODAY					= "go to today"
+const DP_LANG_TODAY					= "today"
+const DP_LANG_CANCEL					= "Cancel"
+const DP_LANG_CANCEL_HELP				= "Click here to close the calendar without selecting any date"
+const DP_LANG_WEEK_OF_YEAR				= "week of the year"
+const DP_LANG_SELECT_TODAY				= "select today"
+const DP_LANG_SELECT_TODAY_HELP		= "Click here to select todays date"
+const DP_LANG_CLICK_TO_SELECT			= "Click to select:"
+const DP_LANG_CURRENTLY_SELECTED		= "currently selected"
+%>

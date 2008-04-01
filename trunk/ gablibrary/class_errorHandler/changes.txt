@@ -1,0 +1,18 @@
+
+v2.0
+- ajaxed introduced. the page can render content and be used for each own ajax requests. return() and returnValue() methods
+	are used within callbacks to return JSON for the communication between ASP and javascript. when using ajaxed an init() method
+	is required within the page. This is called before main() and before callback(). Try to stick to this habbit using init() in your
+	pages to initialize security, etc.
+
+v1.0
+- clicking on the header shows the error in an alertbox. just for the case that the whole error is not on the screen (for whatever what reason)
+- it uses a helper var which is taken from session("GL_lastErrorHelperVar"). so whenever you want to track some helper var
+	its recommended to set this var each time before some special error occurs. e.g. getRecordset uses this mechanism.
+	helper var can be easily copied from a textarea (usefull when working with modals)
+- ErrorHandler is not loaded automatically with the lib.
+- it required the texttemplate now because errorMail.html is used to send the mail
+- seperated styles and languages
+- when buffering is on then just the error is shown because buffer is cleared before. this makes the error always look nice.
+- it is used now as the error for all errors when using the 500-100.asp from ERRRORPAGES
+- changed the error handler completely

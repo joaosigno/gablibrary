@@ -1,0 +1,6 @@
+
+v 0.99
+- remember filters, paging, etc. remembering is solved using session
+
+v 0.98
+- old good working drawtable

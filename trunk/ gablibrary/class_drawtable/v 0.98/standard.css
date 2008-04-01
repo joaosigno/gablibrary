@@ -1,0 +1,23 @@
+/***** FOR THE TABLE-CLASS ************************************************/
+
+TD,SELECT,INPUT										{ font-family:Arial;font-size:8pt; }
+
+.small												{ font-size:8pt;font-style:italic; }
+.head,.head:hover,.head:visited						{ font-family:Tahoma;font-size:8pt;color:#ffffff;background-color:#BB0606;font-weight:bold;text-decoration:none; }
+.headline 											{ color:#BB0606;font-family:tahoma;background-color:#E1E1E1;font-size:16px;font-weight:bold;padding-left:10px;letter-spacing:1px; } 
+.searchField										{ background-color:#FFFFFF;font-family:Verdana,Arial,Helvetica; font-size:9pt; color:#B9B9B9; width:100%; border: 1px solid #838383; }
+.headlineBG											{ background-color:#E1E1E1; }
+.tableBgColor1Class									{ background-color:#F0F0F0; }
+.tableBgColor2Class									{ background-color:#FFFFFF; }
+.tableMouseoverColor								{ background-color:#FCF1A7; }
+.found 												{ color:#F07800; }
+.currentSort										{ color:#D4D0C8; font-weight:bold; font-size:7pt;letter-spacing:-1px;font-family:arial; }
+.pagingLink,.pagingLink:visited						{ color:#3E3E3E;text-decoration:none; }
+.pagingCurrentPage,.pagingCurrentPage:visited		{ color:#BB0606;font-weight:bold; }
+.pagingPrevNext,.pagingPrevNext:visited				{ color:#3E3E3E;font-size:10pt;text-decoration:none;letter-spacing:-2px; }
+.filterBG											{ background-color:#FEE8E7; }
+.dotting											{ border-top:1px dotted #6A6A6A; }
+.button												{ background-color:#F4F4F4;font-family:Verdana,Arial,Helvetica; font-size:7pt; color:#313142; border: 1px groove #B9B9B9;background-image:url();padding:0px; }
+.tableFooterBG										{ background-color:#E1E1E1; }
+.button_common										{ background-color:#F4F4F4;font-family:Verdana,Arial,Helvetica; font-size:7pt; color:#313142; border: 1px groove #B9B9B9;background-image:url();padding:0px; }
+.filterDropdown										{ width:100% }

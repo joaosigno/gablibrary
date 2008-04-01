@@ -1,0 +1,112 @@
+﻿.boxMain {
+	position:absolute;
+	border:1px solid black;
+	border-bottom:0px;
+	width:250px;
+	height:auto;
+	background-color:#FFFFE7;
+	z-index:10000;
+	visibility:hidden;
+	padding-right:10px;
+}
+
+.boxBottomLine {
+	position:absolute;
+	background-color:black;
+	left:3px;
+	height:1px;
+	width:100%;
+	bottom:-1px;
+	overflow:hidden;
+}
+
+.boxTitle {
+	margin-left:35px;
+	margin-top:9px;
+	font-weight:bold;
+	font-size:8pt;
+	font-family:verdana;
+}
+
+.boxText {
+	margin-top:7px;
+	margin-left:15px;
+	margin-bottom:11px;
+	font-size:8pt;
+	font-family:verdana;
+}
+
+.infoImage {
+	position:absolute;
+	background-image:url(icons/tooltip_info.gif);
+	width:16px;
+	height:16px;
+	left:12px;
+	top:8px;
+}
+
+.boxBorder {
+	border:0px;
+	position:absolute;
+	background-repeat:no-repeat;
+	background-color:#eee;
+	overflow:hidden;
+	width:5px;
+	height:5px;
+}
+
+.boxASize {
+	background-color:transparent;
+	z-index:10001;
+	width:20px;
+	height:19px;
+}
+
+.boxArrowRB {
+	background-image:url(icons/tooltip_arrowR.gif);
+	right:15px;
+	bottom:-19px;
+}
+
+.boxArrowLB {
+	background-image:url(icons/tooltip_arrowL.gif);
+	left:15px;
+	bottom:-19px;
+}
+
+.boxArrowRT {
+	background-image:url(icons/tooltip_arrow_upR.gif);
+	right:15px;
+	top:-19px;
+}
+
+.boxArrowLT {
+	background-image:url(icons/tooltip_arrow_upL.gif);
+	left:15px;
+	top:-19px;
+}
+
+.boxLB {
+	background-image:url(icons/tooltip_lb.gif);
+	left:-1px;
+	bottom:-1px;
+}
+
+.boxRB {
+	background-image:url(icons/tooltip_rb.gif);
+	right:-1px;
+	bottom:-1px;
+	z-index:1000;
+}
+
+.boxLT {
+	background-image:url(icons/tooltip_lt.gif);
+	left:-1px;
+	top:-1px;
+}
+
+.boxRT {
+	background-image:url(icons/tooltip_rt.gif);
+	right:-1px;
+	top:-1px;
+}

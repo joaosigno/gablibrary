@@ -1,0 +1,243 @@
+* {
+	font-size:12px;
+	font-family:arial;
+	color:#333;
+}
+
+body {
+	margin:0px;
+	padding:10px;
+}
+
+p {
+	font-size:14px;
+	text-align:justify;
+	margin:0px;
+}
+
+li {
+	vertical-align:middle;
+}
+
+input, select, textarea {
+	font-size:12px;
+}
+
+.info {
+	color:#000;
+}
+.info *, .info {
+	font-size:10px;
+}
+
+.endline, #endline {
+	margin:10px 0px;
+	padding:5px;
+	text-align:center;
+}
+.p100 {
+	width:100%;
+}
+.endline .button, #endline .button {
+	width:100px;
+}
+
+.label, .label * {
+	color:#4A4A4A;
+	font-weight:bold;
+}
+td.label {
+	width:160px;
+	padding-right:15px;
+	text-align:right;
+}
+legend {
+	padding:3px 10px;
+}
+legend, legend * {	
+	font-size:14px;
+	font-weight:bold;
+	color:#0D6BAE;
+}
+
+ /* makes a hand cursor */
+ .hand {
+ 	cursor:pointer;
+ }
+ 
+/* header 1 */
+h1, .hl {
+    margin:4px 0px 7px 0px;
+	font-family:Tahoma;
+	font-size:16px;
+	font-weight:bold;
+	text-align:left !important;
+}
+
+/* header 2 */
+h2, .hl2 {
+	font-weight:bold;
+    padding:3px;
+    margin-bottom:10px;
+	font-size:13px;
+}
+
+/* header 3 */
+h3, hl3 {
+	margin:3px 0px;
+}
+h3, h3 *, h3 a:active, h3 a:link, h3 a:visited, h3 a:hover {
+	margin:3px 0px;
+	font-size:15px;
+	font-weight:normal;
+	color:#003162;
+	font-weight:bold;
+}
+
+/* seperation line */
+hr {
+	border:0px;
+	border-bottom:solid 1px #ccc;
+	width:100%;
+	margin:0px;
+}
+
+/* building forms */
+form.form {
+	margin-top:10px;
+	text-align:center;
+}
+form.form fieldset {
+	display:block;
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+}
+form.form fieldset .content {
+	text-align:left;
+	margin:10px;
+}
+
+/* ALL buttons must use this class */
+.button {
+	height:27px;
+	padding:0px 10px;
+	margin:0px 5px;
+	font-size:13px;
+}
+
+/* to display programming code, etc. */
+.code {
+	font-family:courier;
+	font-size:12pt;
+}
+
+.small, .small * {
+	font-size:11px;
+}
+
+a, a:visited, a:active, a:link, a * {
+	color:#174A75;
+	text-decoration:underline;
+}
+
+a:hover, a:hover * {
+	background-color:#174A75;
+	color:#fff !important;
+	text-decoration:none;
+}
+
+/* the page footer on every page */
+#pageFooter {
+	margin:40px 0px;
+	text-align:center;
+	color:#808080;
+	background:#fff;
+	line-height:1.7em;
+}
+
+#pageFooter, #pageFooter a {
+	font-size:10px;
+	font-weight:normal;
+}
+
+#developerToolbar, #developerToolbar * {
+	color:#ccc;
+	font-size:9px;
+	text-align:center;
+}
+
+/* the style to display errors in */
+.error, .error *, a.error:active, a.error:link, a.error:visited, a.error:hover {
+	color:#E10000;
+}
+/* if its a div then we make a padding .. otherwise we dont want a padding. */
+div.error {
+	padding:5px;
+}
+.error ul, ul.error {
+	list-style-image:none !important;
+}
+input.error {
+	border:1px solid #E10000;
+}
+
+/* the style to display success messages in */
+.success, .success * {
+	color:#00CC33;
+}
+
+/* sets the format for the mandatory char (e.g. '*') */
+.mandatory {
+	font-family:verdana;
+	font-size:12px;
+	padding-left:3px;
+	padding-right:3px;
+	color:#F58218;
+	font-weight: bold;
+}
+
+/* The appearence of standard images */ 
+.image {
+	border:solid 1px #000000;
+}
+	
+/* how does a readonly input looks like */
+input.readonly {
+	color:#aaa;
+}
+.onlyForPrint {
+	display:none;
+}
+
+/* definition for tables */
+.table {
+	border-collapse:collapse;
+	border:1px outset #aaa;
+	background-color:#fff;
+}
+.table td {
+	border:1px solid #aaa;
+	padding:3px;
+	background-color:#fff;
+}
+.table * {
+	font-size:11px;
+}
+.table th {
+	padding:3px;
+	border-color:#969ba3;
+	background:#fff url(/gab_Library/standardapp/images/table_bg.gif)
+}
+.table th, .table th * {
+	color:#000;
+}
+
+/* lists */
+ul {
+	list-style-image:url(/gab_Library/standardapp/images/bullet.gif);
+}
+li {
+	vertical-align:middle;
+}

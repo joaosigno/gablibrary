@@ -1,0 +1,5 @@
+v 1.0
+- languages.asp renamed to en.asp and moved to a folder "lang"
+- stylesheet can be set by cssLocation property
+- init.asp introduced... hence the calculator files (which instantiate it) should be created be its own for each application
+- "i" is the accesskey now for inserting the value

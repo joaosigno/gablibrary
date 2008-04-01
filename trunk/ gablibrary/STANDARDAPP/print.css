@@ -1,0 +1,6 @@
+.notForPrint {
+	display:none;
+}
+.onlyForPrint {
+	display:block;
+}

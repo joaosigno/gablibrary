@@ -1,0 +1,20 @@
+.GLMultipleDropdown {
+	border:2px inset #ddd;
+	text-align:left;
+}
+.dropdownNewActive {
+	background-color:#F8F8F8;
+	border-top:1px solid #5a5a5a;
+	border-right:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	Xmargin-left:2px;
+	padding:0px;
+}
+.dropdownNewInActive {
+	background-color:#F8F8F8;
+	border-top:1px solid #ddd;
+	border-right:1px solid #5a5a5a;
+	border-bottom:1px solid #5a5a5a;
+	Xmargin-left:2px;
+	padding:0px;
+}

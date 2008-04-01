@@ -1,0 +1,104 @@
+﻿VERSION 1.1
+
+March 2008
+- all umlaute have been changed to their html entities to fully support UTF-8. there might be some in javascript alert.
+	they dont parse the entities correctly and therefore on this places it should be changed into "oe", "ae", etc.
+	if you come across something like this then just change it. Applies mainly to the components which are also translated to german
+- added dropdownAutosplit property to the drawtables filter class. turning this off will solve problems with ':' in your filters'SQL query
+- lib.getScalar uses str.parse now... e.g. it has not treated floats correctly till now
+- lib.exec function added. init() sub for ajaxed is only called now if it exists. if does not exist then nothing happens.
+	furhtermore you can use the lib.exec yourself if you want to call functions dependent on their existence
+- updated to prototype 1.6.0.2 (ajaxed works with it)
+- gablib.callback uses all form params if automatically if there is a form called "frm" and no params are given manually.
+- rowUp (alt+arrow up), rowDown (alt+arrow down) and copyRow (alt + page down) homesite scripts added.
+- str.URL (nicer build of urls) and str.parse (nice one for parsing! - if you expect a given datatype and only this datatype) added
+- str.matching added ... a quicker way to evaluate regular expression against a string
+- updated to JSON 1.4.1
+- customSendMail supports also ASPEmail now. Default is still JMail
+- added webservicesHost into the consts again. This is only for backwards compatibility if you are using the 0.3 version of webservice.
+	if you have old webservice then just use the old version of webservice and it works fine. must be supported because other
+	3rd party clients rely on this form of webservice (e.g. word macros, etc.)
+
+VERSION 1.0
+
+16.03.2007
+- the framework supports UTF-8 now which can be set in the gablibraryconfig. by default its turned on but if its turned off the
+	system default is used (usually iso-8859-1)
+- lib.version returns the version of the gablib installation
+
+02.03.2007
+- classes can be registered using lib.registerClass(). lib.require can require a class within a page.
+	- debugging console shows the registered classes.
+	- ATTENTION: page must be the first file which is included. must be at the TOP!
+	- the whole registering thing makes it easier to use classes of the gablibrary. when a developer requires a specific class
+		he can use the lib.require method and the client gets an error if it is not available.
+- debugging console can interpret validateable instances now. so its easier to debug e.g. page.addDebugVar("frm.validator", frm.validator)
+
+22.01.2007
+- some exceptions added to library-class. e.g. empty SQL in getRecordset
+- number of database accesses is now shown by default in the debugConsole
+
+15.01.2007
+- protected all demos with onlyWebDev, so that no one can access it. security!
+
+05.01.2007
+- created new class_dates
+- datepicker is configurable via gablibConfig
+- lib.weekOfTheYear is now in the dates class
+
+21.12.2006
+- consts.STDAPP introduced, which lets you get files from standard applications
+- ICONS foldes moved to STANDARDAPP because these icons are part of a standard application
+
+10.11.2006
+- lib.getGUID() introduced....
+- str.SQLSafe() introduced...
+
+8.11.2006
+- gab_LibraryConfig introduced. this makes it possible now to completele seperate settings for each
+	class (mainly constructor inits) into a seperate logic location. 
+
+31.10.2006
+- gablib console introduced (with regex, etc.)
+
+28.10.2006
+- loadJSCore in the page introduced. when not using the page for drawing the core can be loaded with this call anyway
+
+27.10.2006
+- lib.custom.logError signature changed
+- consts.errorLogging introduced
+- disableErrorHandling removed. this is now ideally handled by the 500-100.asp page
+- 500-100 error added. 
+- developerToolbar added. appereance needs to be specified within the standard stylesheet. (id=developerToolbar)
+- ErrorHandler rewritten and it is not anymore included by default.
+- lib.custom.isWebadmin() introduced. so e.g. errors are not shown for common users anymore
+- pageHeader.asp and pageFooter.asp are now in the customLib.
+	- this makes the page now completely updateable and not custom anymore.
+- HTTPHeader is obsolete now but it has been just used for using response.redirect.
+	- buffering property introduced. buffering is by default true. reason: 500-100.asp errors.
+- "contentsub" property of page removed.
+- lib.browser introduced
+
+25.09.2006
+
+- framesetter directly embedded into the page now. framesetURL introduced
+	- so its not necessary to change the framesetter.asp anymore (because its gone), everything implemented in the page
+- Form-class introduced. see demo!
+- javascript function "openModal" introduced => opens modal directly beside the mouse.
+- lib.page introduced which always holds the currently executing page.
+- str.getHiddenInput introduced
+- "documentHolder" introduced
+- lib.getFileIcon() introduced (moved out from the fileSelector).
+- icons folder introduced.
+- go to definition script.
+- server-mapping in homesite ... enables browsing the site directly in homesite
+- POSTFIX-class attribute added. this is here to support intellisense for instances of the commented class.
+- favicon support added.
+- smartSense introduced, with an autogenerator. intelisense is supported now.
+- "OBSOLETE!" keyword introduced. use it for membervariables, properties and methods (in the short description)
+- lib.getScalar() introduced!
+- logger indexfile has been changed in the logger-class (INCLUDE-reference changed!!!)
+- str.appendSlashIfNeeded() renamed to ensureSlash()
+- license added. gab_library is not GNU anymore
+- consts.userFiles added. this helps to seperate the code from the files which user might upload via applications
+- lib.RF(), lib.RFHas(), lib.RFE(), lib.getFromQS(), lib.QS(), lib.error() introduced. 

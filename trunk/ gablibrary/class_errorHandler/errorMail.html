@@ -1,0 +1,106 @@
+[ ERROR ] - <<< FILENAME >>>
+<style>
+	h2 {
+		font-size:14pt;
+		font-weight:bold;
+		padding:3px;
+		background-color:#eee;
+	}
+	td, td * {
+		font-size:11px;
+	}
+</style>
+<h2>General</h2>
+
+<table>
+<tr>
+	<td nowrap><strong>During:</strong></td>
+	<td><<< DURING >>></td>
+</tr>
+<tr valign="top">
+	<td nowrap><strong>Debug variable:</strong></td>
+	<td><<< DEBUGVAR >>></td>
+</tr>
+<tr valign="top">
+	<td nowrap><strong>Alternative text:</strong></td>
+	<td><<< ALTERNATIVETEXT >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Category:</strong></td>
+	<td><<< CATEGORY >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>File:</strong></td>
+	<td><<< FILE >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Description:</strong></td>
+	<td><<< DESCRIPTION >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Line, Column:</strong></td>
+	<td><<< ERR_LINE >>>, <<< ERR_COLUMN >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Number:</strong></td>
+	<td><<< NUMBER >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Code:</strong></td>
+	<td><<< CODE >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>ASP Description:</strong></td>
+	<td><<< ASP_DESCRIPTION >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Source:</strong></td>
+	<td><<< SOURCE >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Referred URL:</strong></td>
+	<td><<< REFERRED_URL >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>User agent:</strong></td>
+	<td><<< USER_AGENT >>></td>
+</tr>
+</table>
+
+<h2>Request</h2>
+<table>
+<tr>
+	<td nowrap><strong>Request method:</strong></td>
+	<td><<< REQUEST_METHOD >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Requested URL:</strong></td>
+	<td><<< REQUESTED_URL >>></td>
+</tr>
+<tr>
+	<td nowrap><strong>Querystring:</strong></td>
+	<td><<< QUERYSTRING >>></td>
+</tr>
+</table>
+
+<h2>Form collection</h2>
+<table>
+<tr valign="top">
+	<td nowrap><strong>Form collection:</strong></td>
+	<td>
+		<<< BLOCK FORMFIELDS >>>
+		<div><<< NAME >>>: <<< VALUE >>></div>
+		<<< ENDBLOCK FORMFIELDS >>>
+	</td>
+</tr>
+</table>
+
+<h2>Session variables</h2>
+<table>
+<<< BLOCK SESSIONS >>>
+<tr valign="top">
+	<td nowrap><strong><<< NAME >>>:</strong></td>
+	<td><<< VALUE >>> (<<< TYPE >>>)</td>
+</tr>
+<<< ENDBLOCK SESSIONS >>>
+</table>

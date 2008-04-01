@@ -1,0 +1,83 @@
+
+POSSIBLE COMMENT-TAGS
+--------------------------------
+* classes (try to follow the order):
+
+@CLASSTITLE (title of the class)
+@CREATOR (creator(s))
+@CREATEDON (when was it created)
+@CDESCRIPTION (nice description)
+@STATICNAME (is this class static in the gablib? when yes then what is its instances' name)
+@POSTFIX (a postfix which is recommended to be added at the end of the var when creating an instance of the class. for intellisense!)
+@VERSION (version of the class, imported for versioning)
+@REQUIRES (what classes need to be included when using this class)
+@FRIENDOF (defines a class which is needed in order to use the class properly! it makes no sense to use it without. Example: Dropdownitem for dropdown)
+
+example:
+'************************************************************
+'' @CLASSTITLE:		Drawtable
+'' @CREATOR:		Hugo Boss
+'' @CDESCRIPTION:	describe exactly what it does
+'' @VERSION:		1.0
+'' @REQUIRES:		Dropdown
+'' @POSTFIX:		table
+'************************************************************
+
+* methods (try to follow the order):
+
+@SDESCRIPTION (a brief description)
+@DESCRIPTION (just if necessary for better understanding provide a detailed description)
+@PARAM (description of a parameter. this line may be used more than once. it should always include the type of the param and a description)
+@RETURN (it should always include the returntype and a description)
+
+example:
+'************************************************************
+'' @SDESCRIPTION:	short description
+'' @DESCRIPTION:	long descr
+'' @PARAM:			paramName [bool]: description of it
+'' @RETURN:			[string] the type which will be returned
+'************************************************************
+
+* commenting properties
+public foo ''[string] foo makes this and that
+
+* types
+types should be always in brackets like [bool], [string], etc.
+
+*obsolete
+mark obsolete methods, properties, etc. with the keyword "OBSOLETE!"
+
+
+VERSIONING
+--------------------------------
+example on how to create a new version of e.g. DrawTable
+1. copy whole drawtable into a folder named as the current version is. with trailing "v " e.g. "v 2.2"
+2. the folder should be within the drawtable folder. this let us use different version if we want to
+3. change the version number of the drawtable class
+4. create a new changes.txt if not available in the folder of the class.
+	if available then use the existing.
+	create a new line at the top with the new version number and add the changes below this line.
+	example:
+	v 2.3
+	- this is new because its better
+	- and this as well but its obsolete
+5. when a new version will be created start at the first step again.
+
+CREATING A NEW CLASS
+--------------------------------
+1. create an index.asp in a folder called "demo" within the class. in this file should be a typicall example of how to use
+	the control, class, etc.
+2. files containing a class should be prefixed with class_ e.g. class_foo.asp
+	this means that class_foo.asp holds just a class called Foo.
+3. create get/let properties just if necessary. use common member-variables instead.
+4. structure of the class
+	.classname
+	.private member variables
+	.private properties
+	.public member variables
+	.public properties
+	.constructor
+	.destructor
+	.public methods
+	.private methods
+ 

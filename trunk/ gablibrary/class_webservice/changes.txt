@@ -1,0 +1,15 @@
+v0.4
+- complete restructuring of the webservice
+	- class can generate and consume a generated webservice
+	- structure of a WS is
+		ENVELOPE
+			HEADER
+			BODY
+	- header holds always information about the WS itself. the body the actual data. old webservices will be generated with this class
+	but the content will appear in the body.
+	- all webservices are shown and can be tested within the gablib-Console
+	- every webservice must have the extension .webservice
+	- its mandatory to load the generatepage with the webservice
+
+v 0.3
+- requires the ErrorHandler now

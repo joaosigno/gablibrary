@@ -1,0 +1,244 @@
+.calendar {
+	width:100%;
+	padding:0px;
+	margin:0px;
+	background-color:white;
+	border:1px solid black;
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+
+.footerLine {
+	margin-top:4px;
+	border-top:0px;
+}
+
+.calendarHeadline {
+	padding-top:6px;
+	padding-bottom:6px;
+	text-align:center;
+	background-color:#ddd;
+}
+
+.footline {
+}
+
+hr {
+	border:2px groove white;
+	height:2px;
+}
+
+.icon {
+	padding:0px;
+	margin:2px;
+	height:15px;
+	width:auto;
+	border:0px;
+	cursor:pointer;
+}
+
+.handCursor {
+	cursor:pointer;
+}
+
+.cursorCommon {
+	cursor:default;
+}
+
+/***************************************************************************************************
+* Weekday-names. => headlines of the calendar
+***************************************************************************************************/
+.weekdayName {
+	text-align:center;
+	background-color:#bbb;
+	padding:4px;
+	border-bottom:2px solid black;
+}
+
+.weekdayName a, .weekdayName a:link, .weekdayName a:active, .weekdayName a:visited, .weekdayName a:hover {
+	color:black;
+	text-decoration:none;
+}
+ 
+.weekdayNameWeekend {
+	background-color:#ef0000;
+}
+
+.weekdayNameWeekend a, .weekdayNameWeekend a:link, .weekdayNameWeekend a:active, .weekdayNameWeekend a:visited, .weekdayNameWeekend, .weekdayNameWeekend a:hover {
+	color:white;
+	text-decoration:none;
+}
+
+.seventhOfPage {
+	width:14%;
+}
+.fifthOfPage {
+	width:19.99%;
+}
+
+.monthCorner {
+	background-color:#bbb;
+}
+
+.whiteRightBorder {
+	border-right:1px solid #fff;
+}
+
+.weekNumber a, .weekNumber a:link, .weekNumber a:active, .weekNumber a:visited, .weekNumber {
+	background-color:#bbb;
+	text-align:right;
+	padding:2px;
+	color:white;
+}
+
+/***************************************************************************************************
+* Day Contents
+***************************************************************************************************/
+.weekViewDay td {
+	border-top:1px solid #E7E3E7;
+	border-right:1px solid #BDBABD;
+}
+
+.calendarDay {
+	background-color:#fff;
+}
+
+.calendarToday {
+	background-color:#fff7d6;
+}
+
+.calendarHoliday {
+	background-color:#fff3f7;
+}
+
+.holidayName {
+	background-color:#ef0000;
+	color:#fff;
+	text-align:center;
+	padding:2px;
+	font-size:7pt;
+	height:17px;
+}
+
+.todaysTime {
+	text-align:center;
+	padding:2px;
+	font-size:8pt;
+	background-color:#ffba21;
+	font-weight:bold;
+	color:white;
+	height:17px;
+}
+
+.holidayNameOtherMonth {
+	background-color:#ccc;
+}
+
+.monthDay {
+	height:90;
+	border:1px solid #000;
+}
+
+.monthDayText {
+	padding:2px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.otherMonth {
+	background-color:#eee;
+}
+
+.otherMonthText {
+	color:#aaa;
+	font-weight:normal;
+}
+
+.yearDays td {
+	border:1px solid #636163;
+}
+
+/***************************************************************************************************
+* timeline
+***************************************************************************************************/
+
+.calendarTimeline {
+	background-color:white;
+}
+
+.calendarTimelineHour {
+	width:16.61%;
+	border-left:1px solid #ccc;
+	padding:2px;
+	padding-left:6px;
+	color:#aaa;
+}
+
+/***************************************************************************************************
+* everything for the control-panel
+***************************************************************************************************/
+
+.navButton {
+	height:19px;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	color:#848284;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:transparent;
+	cursor:pointer;
+}
+
+.navi {
+	margin-right:5px;
+}
+
+.goToDateButton {
+	width:85px;
+	font-size:9px;
+	height:18px;
+	border:0px;
+	padding:0px;
+	margin:0px;
+	cursor:pointer;
+}
+
+/***************************************************************************************************
+* all for the daymenu
+***************************************************************************************************/
+
+#dayMenu {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:160px;
+	border:2px groove #eee;
+	visibility:hidden;
+	background-color:#D6CFCE;
+	z-index:5000;
+}
+
+.dayMenuItem {
+	border:0px;
+	padding:2px;
+	width:100%;
+	
+	font-size:8pt;
+	font-family:arial;
+	cursor:pointer;
+	background-color:#D6CFCE;
+}
+
+#dayMenuItemHeadline {
+	background-color:white;
+	text-align:center;
+	color:black;
+	font-weight:bold;
+	border-bottom:3px groove gray;
+}
+
+.dayMenuItemHover {
+	background-color:darkblue;
+	color:white;
+}

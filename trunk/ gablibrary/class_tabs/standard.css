@@ -1,0 +1,33 @@
+/***** CLASS-CSS ************************************************/
+
+.tab {
+	font-family:Verdana,Arial,Helvetica;
+	font-size:8pt; 
+	color:#313142;
+}
+
+.tab_inactive { 
+	background-color:#F1EEF6;
+	border: 1px groove #B9B9B9;
+	border-bottom:1px dotted #999999;
+	background-image:url();
+	padding:3px;
+	cursor:pointer;
+}
+
+.tab_active { 
+	background-color:#fff;
+	font-weight:bold;
+	border: 2px groove #B9B9B9;
+	border-bottom:1px solid #fff;
+	background-image:url();
+	padding:5px;
+}
+
+.tab_end_line {
+	border-bottom:1px solid #000000;
+}
+
+.tab_line {
+	border-bottom:1px solid #000000;
+}
