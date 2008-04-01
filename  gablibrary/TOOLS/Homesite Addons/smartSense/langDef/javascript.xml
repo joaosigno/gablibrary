@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+	<elements>
+		<el>
+			<display>window</display>
+			<childElements>
+				<el>
+					<display>clientInformation</display>
+					<help>Returns a navigator object</help>
+				</el>
+				<el>
+					<display>closed</display>
+					<help>Returns a Boolean value that indicates whether the window is closed or not</help>
+				</el>
+				<el>
+					<display>complete</display>
+					<help>Returns a Boolean value that indicates whether the window is finished loading or not</help>
+				</el>
+				<el>
+					<display>dataTransfer</display>
+					<help>Returns predefined clipboard formats that can be used when transferring data</help>
+				</el>
+				<el>
+					<display>defaultStatus</display>
+					<help>Sets or returns the default message in the status bar</help>
+				</el>
+				<el>
+					<display>dialogArguments</display>
+					<help>Sets or returns the arguments in a dialog box created by showModalDialog() or showModelessDialog()</help>
+				</el>
+				<el>
+					<display>dialogHeight</display>
+					<help>Sets or returns the height of a dialog box</help>
+				</el>
+				<el>
+					<display>dialogLeft</display>
+					<help>Sets or returns the left coordinate of a dialog box</help>
+				</el>
+				<el>
+					<display>dialogTop</display>
+					<help>Sets or returns the top coordinate of a dialog box</help>
+				</el>
+				<el>
+					<display>dialogWidth</display>
+					<help>Sets or returns the width of a dialog box</help>
+				</el>
+				<el>
+					<display>document</display>
+					<insert>document.</insert>
+					<help>Returns the document object</help>
+				</el>
+				<el>
+					<display>event</display>
+					<childElements>
+						<el>
+							<display>altKey</display>
+							<help>Returns whether the Alt key is pressed or not</help>
+						</el>
+						<el type="o">
+							<display>bookmarks</display>
+							<help>A collection of Microsoft ADO bookmarks connected to the rows effected by the events</help>
+						</el>
+						<el type="o">
+							<display>boundElements</display>
+							<help>A collection of all elements on a page which are bound to a data test</help>
+						</el>
+						<el>
+							<display>button</display>
+							<help>Returns which mouse button is pressed</help>
+						</el>
+						<el>
+							<display>cancelBubble</display>
+							<help>Sets or retrieves whether the current should bubble up the hierarchy or not</help>
+						</el>
+						<el>
+							<display>clientX</display>
+							<help>Returns the x coordinate of the cursor</help>
+						</el>
+						<el>
+							<display>clientY</display>
+							<help>Returns the y coordinate of the cursor</help>
+						</el>
+						<el>
+							<display>ctrlKey</display>
+							<help>Returns whether the Ctrl key is pressed or not</help>
+						</el>
+						<el>
+							<display>dataFld</display>
+							<help>Returns the data column affected by the oncellchange event</help>
+						</el>
+						<el>
+							<display>fromElement</display>
+							<help>Returns the object that the cursor is exiting</help>
+						</el>
+						<el>
+							<display>keyCode</display>
+							<help>Sets or returns the Unicode of the key pressed</help>
+						</el>
+						<el>
+							<display>offsetX</display>
+							<help>Returns the horizontal coordinate of the cursor</help>
+						</el>
+						<el>
+							<display>offsetY</display>
+							<help>Returns the vertical coordinate of the cursor</help>
+						</el>
+						<el>
+							<display>propertyName</display>
+							<help>Returns the name of the property that has changed</help>
+						</el>
+						<el>
+							<display>reason</display>
+							<help>Returns the reason for completion for a data source object</help>
+						</el>
+						<el>
+							<display>recordset</display>
+							<help>Returns a recordset</help>
+						</el>
+						<el>
+							<display>repeat</display>
+							<help>Returns whether the event is to be repeated or not</help>
+						</el>
+						<el>
+							<display>returnValue</display>
+							<help>Sets or returns the value that will be returned from the event</help>
+						</el>
+						<el>
+							<display>screenX</display>
+							<help>Returns the x coordinate of the cursor, relative to the screen</help>
+						</el>
+						<el>
+							<display>screenY</display>
+							<help>Returns the y coordinate of the cursor, relative to the screen</help>
+						</el>
+						<el>
+							<display>shiftKey</display>
+							<help>Returns whether the Shift key is pressed or not</help>
+						</el>
+						<el>
+							<display>srcElement</display>
+							<help>Returns the object that fired the event</help>
+						</el>
+						<el>
+							<display>srcFilter</display>
+							<help>Returns the filter object that fired the onfilterchange event</help>
+						</el>
+						<el>
+							<display>srcUrn</display>
+							<help>Returns the universal resource name of the behavior that fired the event</help>
+						</el>
+						<el>
+							<display>toElement</display>
+							<help>Returns the object the user moves to</help>
+						</el>
+						<el>
+							<display>type</display>
+							<help>Returns the name of the eventtype</help>
+						</el>
+						<el>
+							<display>x</display>
+							<help>Returns the cursor's x coordinate</help>
+						</el>
+						<el>
+							<display>y</display>
+							<help>Returns the cursor's y coordinate</help>
+						</el>
+					</childElements>
+				</el>
+				<el>
+					<display>event</display>
+					<help>Returns the event object</help>
+				</el>
+				<el>
+					<display>history</display>
+					<insert>history.</insert>
+					<help>Returns previously visited URLs</help>
+				</el>
+				<el>
+					<display>length</display>
+					<help>Returns the number of frames in a window</help>
+				</el>
+				<el>
+					<display>location</display>
+					<insert>location.</insert>
+					<help>Returns the current URL</help>
+				</el>
+				<el>
+					<display>name</display>
+					<help>Sets or returns the name of the window</help>
+				</el>
+				<el>
+					<display>navigator</display>
+					<help>Returns a navigator object</help>
+				</el>
+				<el>
+					<display>offscreenBuffering</display>
+					<help>Indicates whether objects are offscreen before displayed</help>
+				</el>
+				<el type="m">
+					<display>onBlur</display>
+					<insert>onBlur=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of a Blur event when an window loses focus.</help>
+				</el>
+				<el type="m">
+					<display>onDragDrop</display>
+					<insert>onDragDrop=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of a DragDrop event.</help>
+				</el>
+				<el type="m">
+					<display>onError</display>
+					<insert>onError=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of an Error event.</help>
+				</el>
+				<el type="m">
+					<display>onFocus</display>
+					<insert>onFocus=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of a Focus event.</help>
+				</el>
+				<el type="m">
+					<display>onload</display>
+					<insert>onload=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of a Load event.</help>
+				</el>
+				<el type="m">
+					<display>onMove</display>
+					<insert>onMove=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of a Move event.</help>
+				</el>
+				<el type="m">
+					<display>onResize</display>
+					<insert>onResize=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of a Resize event.</help>
+				</el>
+				<el type="m">
+					<display>onUnload</display>
+					<insert>onUnload=</insert>
+					<help>This event handler executes some specified JavaScript code on the occurrence of an Unload event.</help>
+				</el>
+				<el type="m">
+					<display>open()</display>
+				</el>
+				<el>
+					<display>opener</display>
+					<help>Sets or returns the object that opened the current window</help>
+				</el>
+				<el>
+					<display>parent</display>
+					<help>Returns the parent object of the current frame</help>
+				</el>
+				<el>
+					<display>returnValue</display>
+					<help>Sets or returns the return value from a dialog box</help>
+				</el>
+				<el>
+					<display>screen</display>
+					<help>Returns an object that gives you information about the user's screen</help>
+				</el>
+				<el>
+					<display>screenLeft</display>
+					<help>Returns the coordinates of the left edge of the client's screen</help>
+				</el>
+				<el>
+					<display>screenTop</display>
+					<help>Returns the coordinates of the top edge of the client's screen</help>
+				</el>
+				<el>
+					<display>self</display>
+					<help>Returns the current window object</help>
+				</el>
+				<el>
+					<display>status</display>
+					<help>Sets or returns the message in the status bar</help>
+				</el>
+				<el>
+					<display>top</display>
+					<help>Returns the topmost window object</help>
+				</el>
+				<el type="m">
+					<display>alert()</display>
+					<insert>alert("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+					<help>Displays an alert box with a message and an OK button</help>
+				</el>
+				<el>
+					<display>attachEvent()</display>
+					<help>Attaches the function to an event. The function will be called every time the event is fired</help>
+				</el>
+				<el>
+					<display>blur()</display>
+					<help>Window loses focus</help>
+				</el>
+				<el>
+					<display>clearInterval()</display>
+					<help>Clears the setInterval() method</help>
+				</el>
+				<el>
+					<display>clearTimeout()</display>
+					<help>Clears the setTimeout() method</help>
+				</el>
+				<el>
+					<display>close()</display>
+					<help>Closes the current window</help>
+				</el>
+				<el type="m">
+					<display>confirm()</display>
+					<insert>confirm("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+					<help>Displays a confirm box with a message, a Cancel and an OK button</help>
+				</el>
+				<el type="m">
+					<display>detachEvent()</display>
+					<help>Detaches a function from an event</help>
+				</el>
+				<el type="m">
+					<display>execScript()</display>
+					<help>Enables you to execute a script</help>
+				</el>
+				<el type="m">
+					<display>focus()</display>
+					<help>Sets focus on a specified window</help>
+				</el>
+				<el type="m">
+					<display>moveBy()</display>
+					<help>Moves the window's position. From the current position</help>
+				</el>
+				<el type="m">
+					<display>moveTo()</display>
+					<help>Moves the window to a specified position</help>
+				</el>
+				<el type="m">
+					<display>navigate()</display>
+					<help>Window navigates to a specified URL</help>
+				</el>
+				<el type="m">
+					<display>open()</display>
+					<insert>open("", "")</insert>
+					<actions><![CDATA[
+						cursorLeft(6,0);]]>
+					</actions>
+					<help>Opens a new window</help>
+				</el>
+				<el>
+					<display>print()</display>
+					<help>Prints the window's document</help>
+				</el>
+				<el type="m">
+					<display>prompt()</display>
+					<insert>prompt("", "")</insert>
+					<actions><![CDATA[
+						cursorLeft(6,0);]]>
+					</actions>
+					<help>Displays a prompt box with a message and an input field</help>
+				</el>
+				<el type="m">
+					<display>resizeBy()</display>
+					<help>Resizes the window, by the specified x and y offsets</help>
+				</el>
+				<el type="m">
+					<display>resizeTo()</display>
+					<insert>resizeTo(w, h)</insert>
+					<actions><![CDATA[
+						cursorLeft(4,0);
+						cursorLeft(1,1);
+						]]>
+					</actions>
+					<help>Resizes the window to a specified value</help>
+				</el>
+				<el type="m">
+					<display>scrollBy()</display>
+					<help>Scrolls the window, from the current scroll position</help>
+				</el>
+				<el type="m">
+					<display>scrollTo()</display>
+					<help>Scrolls the window to a specified position</help>
+				</el>
+				<el type="m">
+					<display>setInterval()</display>
+					<help>An expression is valuated each time the specified interval occurs</help>
+				</el>
+				<el type="m">
+					<display>setTimeout()</display>
+					<help>An expression is valuated after the specified timeout has occurred</help>
+				</el>
+				<el type="m">
+					<display>showHelp()</display>
+					<help>Displays a specified help file</help>
+				</el>
+				<el type="m">
+					<display>showModalDialog()</display>
+					<help>Displays a modal dialog box that shows a specified HTML document</help>
+				</el>
+				<el type="m">
+					<display>showModelessDialog()</display>
+					<help>Displays a modeless dialog box that shows a specified HTML document</help>
+				</el>
+				</childElements>
+		</el>
+		<el>
+			<display>navigator</display>
+			<childElements>
+				<el>
+					<display>appCodeName</display>
+					<help>Returns the code name of the browser</help>
+				</el>
+				<el>
+					<display>appMinorVersion</display>
+					<help>Returns the minor version of the browser</help>
+				</el>
+				<el>
+					<display>appName</display>
+					<help>Returns the name of the browser</help>
+				</el>
+				<el>
+					<display>appVersion</display>
+					<help>Returns the platform and the version of the browser</help>
+				</el>
+				<el>
+					<display>browserLanguage</display>
+					<help>Returns the current browser language</help>
+				</el>
+				<el>
+					<display>cookieEnabled</display>
+					<help>Returns whether cookies are enabled or not</help>
+				</el>
+				<el>
+					<display>cpuClass</display>
+					<help>Returns a string that indicates the CPU class of the browser's system</help>
+				</el>
+				<el type="m"><display>javaEnabled()</display></el>
+				<el>
+					<display>onLine</display>
+					<help>Returns whether the system is on line or not</help>
+				</el>
+				<el>
+					<display>platform</display>
+					<help>Returns the platform of the browser</help>
+				</el>
+				<el><display>plugin</display>
+					<childElements>
+						<el><display>description</display></el>
+						<el><display>filename</display></el>
+						<el><display>length</display></el>
+						<el><display>name</display></el>
+					</childElements>
+				</el>
+				<el>
+					<display>systemLanguage</display>
+					<help>Returns the default language for the system</help>
+				</el>
+				<el>
+					<display>userAgent</display>
+					<help>Returns the HTTP user-agent</help>
+				</el>
+				<el>
+					<display>userLanguage</display>
+					<help>Returns the current user language</help>
+				</el>
+			</childElements>
+		</el>
+		<el>
+			<display>document</display>
+			<childElements>
+				<el>
+					<display>form</display>
+					<childElements>
+						<el><display>button</display>
+							<childElements>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>click()</display></el>
+							</childElements>
+						</el>
+					</childElements>
+					<el>
+						<display>checkbox</display>
+						<childElements>
+							<el><display>checked</display></el>
+							<el><display>defaultChecked</display></el>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>click()</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>hidden</display>
+						<childElements>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>password</display>
+						<childElements>
+							<el><display>defaultValue</display></el>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>radio</display>
+						<childElements>
+							<el><display>checked</display></el>
+							<el><display>defaultChecked</display></el>
+							<el><display>length</display></el>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>click()</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>reset</display>
+						<childElements>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>click()</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>select</display>
+						<childElements>
+							<el><display>length</display></el>
+							<el><display>name</display></el>
+							<el><display>options[]</display></el>
+							<el><display>selectedIndex</display></el>
+							<el><display>text</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>blur()</display></el>
+							<el type="m"><display>focus()</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>submit</display>
+						<childElements>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>click()</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>text</display>
+						<childElements>
+							<el><display>defaultValue</display></el>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>blur()</display></el>
+							<el type="m"><display>focus()</display></el>
+							<el type="m"><display>select()</display></el>
+						</childElements>
+					</el>
+					<el>
+						<display>textarea</display>
+						<childElements>
+							<el><display>defaultValue</display></el>
+							<el><display>name</display></el>
+							<el><display>type</display></el>
+							<el><display>value</display></el>
+							<el type="m"><display>blur()</display></el>
+							<el type="m"><display>focus()</display></el>
+							<el type="m"><display>select()</display></el>
+						</childElements>
+					</el>
+					<el><display>action</display></el>
+					<el><display>elements[]</display></el>
+					<el><display>encoding</display></el>
+					<el><display>length</display></el>
+					<el><display>method</display></el>
+					<el type="m"><display>reset()</display></el>
+					<el type="m"><display>submit()</display></el>
+					<el><display>target</display></el>
+				</el>
+				<el>
+					<display>image</display>
+					<childElements>
+						<el><display>border</display></el>
+						<el><display>complete</display></el>
+						<el><display>height</display></el>
+						<el><display>hspace</display></el>
+						<el><display>lowsrc</display></el>
+						<el><display>name</display></el>
+						<el><display>prototype</display></el>
+						<el><display>src</display></el>
+						<el><display>vspace</display></el>
+						<el><display>width</display></el>
+					</childElements>
+				</el>
+				<el>
+					<display>images</display>
+					<childElements>
+						<el><display>length</display></el>
+					</childElements>
+				</el>
+				<el>
+					<display>link</display>
+					<childElements>
+						<el><display>hash</display></el>
+						<el><display>host</display></el>
+						<el><display>hostname</display></el>
+						<el>
+							<display>href</display>
+							<insert>href=''</insert>
+							<actions><![CDATA[
+								cursorLeft(1,0);]]>
+							</actions>
+						</el>
+						<el><display>pathname</display></el>
+						<el><display>port</display></el>
+						<el><display>protocol</display></el>
+						<el><display>search</display></el>
+						<el><display>target</display></el>
+					</childElements>
+				</el>
+				<el>
+					<display>location</display>
+					<insert>location.</insert>
+				</el>
+				<el><display>alinkColor</display></el>
+				<el><display>anchors[]</display></el>
+				<el><display>bgColor</display></el>
+				<el><display>cookie</display></el>
+				<el><display>embeds</display></el>
+				<el><display>fgColor</display></el>
+				<el><display>forms[]</display></el>
+				<el><display>lastModified</display></el>
+				<el><display>linkColor</display></el>
+				<el><display>links[]</display></el>
+				<el><display>referrer</display></el>
+				<el><display>title</display></el>
+				<el><display>vlinkColor</display></el>
+				<el type="m"><display>clear()</display></el>
+				<el type="m"><display>close()</display></el>
+				<el type="m"><display>open()</display></el>
+				<el type="m">
+					<display>write()</display>
+					<insert>write("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+				<el type="m">
+					<display>writeln()</display>
+					<insert>writeln("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+				<el type="m">
+					<display>getElementById()</display>
+					<insert>getElementById("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+				<el type="m">
+					<display>getElementsByTagName()</display>
+					<insert>getElementsByTagName("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+			</childElements>
+		</el>
+		<el>
+			<display>history</display>
+			<childElements>
+				<el><display>length</display></el>
+				<el type="m"><display>back()</display></el>
+				<el type="m"><display>forward()</display></el>
+				<el type="m"><display>go()</display></el>
+			</childElements>
+		</el>
+		<el>
+			<display>location</display>
+			<childElements>
+				<el><display>hash</display></el>
+				<el><display>host</display></el>
+				<el><display>hostname</display></el>
+				<el>
+					<display>href</display>
+					<insert>href=''</insert>
+					<actions><![CDATA[
+						cursorLeft(1,0);]]>
+					</actions>
+				</el>
+				<el><display>pathname</display></el>
+				<el><display>port</display></el>
+				<el><display>protocol</display></el>
+				<el><display>search</display></el>
+				<el type="m"><display>reload()</display></el>
+				<el type="m">
+					<display>replace()</display>
+					<insert>replace("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+			</childElements>
+		</el>
+		<el>
+			<display>Math</display>
+			<childElements>
+				<el><display>E</display></el>
+				<el><display>LN2</display></el>
+				<el><display>LN10</display></el>
+				<el><display>LOG2E</display></el>
+				<el><display>LOG10E</display></el>
+				<el><display>PI</display></el>
+				<el><display>SQRT1_2</display></el>
+				<el><display>SQRT2</display></el>
+				<el type="m"><display>abs()</display></el>
+				<el type="m"><display>acos()</display></el>
+				<el type="m"><display>asin()</display></el>
+				<el type="m"><display>atan()</display></el>
+				<el type="m"><display>ceil()</display></el>
+				<el type="m"><display>cos()</display></el>
+				<el type="m"><display>exp()</display></el>
+				<el type="m"><display>floor()</display></el>
+				<el type="m"><display>log()</display></el>
+				<el type="m"><display>max()</display></el>
+				<el type="m"><display>min()</display></el>
+				<el type="m"><display>pow()</display></el>
+				<el type="m"><display>random()</display></el>
+				<el type="m"><display>round()"</display></el>
+				<el type="m"><display>sin()</display></el>
+				<el type="m"><display>sqrt()</display></el>
+				<el type="m"><display>tan()</display></el>
+			</childElements>
+		</el>
+		<el type="o"><display>Array()</display></el>
+		<el type="o"><display>Date()</display></el>
+		<el type="resWord"><display>abstract</display></el>
+		<el type="m">
+			<display>alert()</display>
+			<insert>alert("")</insert>
+			<actions><![CDATA[
+				cursorLeft(2,0);]]>
+			</actions>
+		</el>
+		<el type="resWord"><display>boolean</display></el>
+		<el type="resWord"><display>byte</display></el>
+		<el type="resWord"><display>case</display></el>
+		<el type="resWord"><display>catch</display></el>
+		<el type="resWord"><display>char</display></el>
+		<el type="resWord"><display>class</display></el>
+		<el type="resWord"><display>const</display></el>
+		<el type="resWord"><display>break</display></el>
+		<el type="resWord"><display>default</display></el>
+		<el type="resWord"><display>do</display></el>
+		<el type="resWord"><display>double</display></el>
+		<el type="resWord"><display>extends</display></el>
+		<el type="resWord"><display>false</display></el>
+		<el type="resWord"><display>final</display></el>
+		<el type="resWord"><display>finally</display></el>
+		<el type="resWord"><display>float</display></el>
+		<el type="m">
+			<display>for()</display>
+			<insert><![CDATA[for (i = 0; i <= n; i++){ }]]></insert>
+			<help>for (initialization; test; increment)
+   statements</help>
+   			<actions><![CDATA[
+				cursorLeft(9,0);
+				cursorLeft(1,1);
+				]]>
+			</actions>
+		</el>		
+		<el type="resWord">
+			<display>function()</display>
+			<insert><![CDATA[function fnName(){
+}]]></insert>
+			<actions><![CDATA[
+			cursorLeft(5,0);
+			cursorLeft(6,1);
+			]]></actions>
+		</el>
+		<el type="resWord"><display>goto</display></el>
+		<el type="resWord"><display>implements</display></el>
+		<el type="resWord"><display>import</display></el>
+		<el type="resWord"><display>instanceof</display></el>
+		<el type="resWord"><display>int</display></el>
+		<el type="resWord"><display>interface</display></el>
+		<el type="resWord"><display>long</display></el>
+		<el type="resWord"><display>native</display></el>
+		<el type="resWord"><display>new</display></el>
+		<el type="resWord"><display>null</display></el>
+		<el type="resWord"><display>package</display></el>
+		<el type="resWord"><display>private</display></el>
+		<el type="resWord"><display>protected</display></el>
+		<el type="resWord"><display>public</display></el>
+		<el type="resWord"><display>return</display></el>
+		<el type="resWord"><display>short</display></el>
+		<el type="resWord"><display>static</display></el>
+		<el type="resWord"><display>super</display></el>
+		<el type="m">
+			<display>switch</display>
+			<insert>switch(n){ 
+	case 1: 
+		a=1
+		break
+}		
+			</insert>
+			</el>
+		<el type="resWord"><display>synchronized</display></el>
+		<el type="resWord"><display>throw</display></el>
+		<el type="resWord"><display>throws</display></el>
+		<el type="resWord"><display>transient</display></el>
+		<el type="resWord"><display>true</display></el>
+		<el type="resWord">
+			<display>try</display>
+			<insert><![CDATA[try{
+
+}
+catch(err){
+
+}]]></insert>
+		</el>
+		<el type="resWord"><display>var</display></el>
+		<el type="resWord"><display>void</display></el>
+		<RexEl>
+			<pattern><![CDATA[function\s([a-zA-Z0-9]+)\s*\(]]></pattern>
+			<trimStart>9</trimStart>
+			<trimEnd>1</trimEnd>
+			<type>m</type>
+			<scanAllDocs>1</scanAllDocs>
+			<extensions>js</extensions>
+			<displayCode><![CDATA[%match%()]]></displayCode>
+			<insertCode><![CDATA[%match%();]]></insertCode>
+		</RexEl>
+	</elements>
+	<common>
+		<el>
+			<display>Date</display>
+			<childElements>
+				<el><display>prototype</display></el>
+				<el type="m"><display>getDate()</display></el>
+				<el type="m"><display>getDay()</display></el>
+				<el type="m"><display>getHours()</display></el>
+				<el type="m"><display>getMinutes()</display></el>
+				<el type="m"><display>getMonth()</display></el>
+				<el type="m"><display>getSeconds()</display></el>
+				<el type="m"><display>getTime()</display></el>
+				<el type="m"><display>getTimezoneOffset()</display></el>
+				<el type="m"><display>getYear()</display></el>
+				<el type="m">
+					<display>parse()</display>
+					<insert>parse("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+				<el type="m"><display>setDate()</display></el>
+				<el type="m"><display>setHours()</display></el>
+				<el type="m"><display>setMinutes()</display></el>
+				<el type="m"><display>setMonth()</display></el>
+				<el type="m"><display>setSeconds()</display></el>
+				<el type="m"><display>setTime()</display></el>
+				<el type="m"><display>setYear()</display></el>
+				<el type="m"><display>toGMTString()</display></el>
+				<el type="m"><display>toLocaleString()</display></el>
+				<el type="m"><display>UTC()</display></el>
+			</childElements>
+		</el>
+		<el>
+			<display>String</display>
+			<childElements>
+				<el type="m"><display>length</display></el>
+				<el type="m"><display>prototype</display></el>
+				<el type="m"><display>anchor()</display></el>
+				<el type="m"><display>big()</display></el>
+				<el type="m"><display>blink()</display></el>
+				<el type="m"><display>bold()</display></el>
+				<el type="m"><display>charAt()</display></el>
+				<el type="m"><display>fixed()</display></el>
+				<el type="m">
+					<display>fontcolor()</display>
+				</el>
+				<el type="m"><display>fontsize()</display></el>
+				<el type="m"><display>indexOf()</display></el>
+				<el type="m"><display>italics()</display></el>
+				<el type="m"><display>lastIndexOf()</display></el>
+				<el type="m"><display>link()</display></el>
+				<el type="m"><display>small()</display></el>
+				<el type="m">
+					<display>split()</display>
+					<insert>split("")</insert>
+					<actions><![CDATA[
+						cursorLeft(2,0);]]>
+					</actions>
+				</el>
+				<el type="m"><display>strike()</display></el>
+				<el type="m"><display>sub()</display></el>
+				<el type="m"><display>substring()</display></el>
+				<el type="m"><display>sup()</display></el>
+				<el type="m"><display>toLowerCase()</display></el>
+				<el type="m"><display>toUpperCase()</display></el>
+			</childElements>
+		</el>
+		<el>
+			<display>Array</display>
+			<childElements>
+				<el type="m"><display>constructor</display></el>
+				<el type="m"><display>length</display></el>
+				<el type="m"><display>prototype</display></el>
+				<el type="m"><display>concat()</display></el>
+				<el type="m"><display>join()</display></el>
+				<el type="m"><display>reverse()</display></el>
+				<el type="m"><display>shift()</display></el>
+				<el type="m"><display>slice()</display></el>
+				<el type="m"><display>sort()</display></el>
+				<el type="m"><display>splice()</display></el>
+				<el type="m"><display>toLocaleString()</display></el>
+				<el type="m"><display>toString()</display></el>
+				<el type="m"><display>unshift()</display></el>
+				<el type="m"><display>valueOf()</display></el>
+			</childElements>
+		</el>
+		<el>
+			<display>style</display>
+			<childElements>
+				<el type="m"><display>getAttribute()</display></el>
+				<el type="m"><display>getExpression()</display></el>
+				<el type="m"><display>item()</display></el>
+				<el type="m"><display>removeExpression()</display></el>
+				<el type="m"><display>setAttribute()</display></el>
+				<el type="m"><display>setExpression()</display></el>
+				<el><display>azimuth</display></el>
+				<el><display>background</display></el>
+				<el><display>backgroundAttachment</display></el>
+				<el>
+					<display>backgroundColor</display>
+					<insert>backgroundColor=</insert>
+					<childElements>
+						<RexEl>
+							<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+							<trimStart>0</trimStart>
+							<trimEnd>0</trimEnd>
+							<type></type>
+							<scanAllDocs>1</scanAllDocs>
+							<extensions>css</extensions>
+							<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+							<insertCode><![CDATA['%match%']]></insertCode>
+						</RexEl>
+					</childElements>
+				</el>
+				<el><display>backgroundImage</display></el>
+				<el><display>backgroundPosition</display></el>
+				<el><display>backgroundPositionX</display></el>
+				<el><display>backgroundPositionY</display></el>
+				<el><display>backgroundRepeat</display></el>
+				<el><display>behavior</display></el>
+				<el><display>border</display></el>
+				<el><display>borderBottom</display></el>
+				<el><display>borderBottomColor</display></el>
+				<el><display>borderBottomStyle</display></el>
+				<el><display>borderBottomWidth</display></el>
+				<el><display>borderCollapse</display></el>
+				<el><display>borderColor</display></el>
+				<el><display>borderLeft</display></el>
+				<el><display>borderLeftColor</display></el>
+				<el><display>borderLeftStyle</display></el>
+				<el><display>borderLeftWidth</display></el>
+				<el><display>borderRight</display></el>
+				<el><display>borderRightColor</display></el>
+				<el><display>borderRightStyle</display></el>
+				<el><display>borderRightWidth</display></el>
+				<el><display>borderSpacing</display></el>
+				<el><display>borderStyle</display></el>
+				<el><display>borderTop</display></el>
+				<el><display>borderTopColor</display></el>
+				<el><display>borderTopStyle</display></el>
+				<el><display>borderTopWidth</display></el>
+				<el><display>borderWidth</display></el>
+				<el><display>bottom</display></el>
+				<el><display>boxSizing</display></el>
+				<el><display>captionSide</display></el>
+				<el><display>cellSpacing</display></el>
+				<el><display>clear</display></el>
+				<el><display>clip</display></el>
+				<el><display>bottom</display></el>
+				<el><display>left</display></el>
+				<el><display>right</display></el>
+				<el><display>top</display></el>
+				<el>
+					<display>className</display>
+					<insert>className=</insert>
+					<childElements>
+						<RexEl>
+							<pattern><![CDATA[\.([a-zA-Z0-9]+)\s*\{]]></pattern>
+							<trimStart>1</trimStart>
+							<trimEnd>1</trimEnd>
+							<type>style</type>
+							<scanAllDocs>1</scanAllDocs>
+							<extensions>css</extensions>
+							<insertCode><![CDATA['%match%';]]></insertCode>
+						</RexEl>
+					</childElements>
+				</el>				
+				<el><display>color</display></el>
+				<el><display>colorProfile</display></el>
+				<el><display>columnSpan</display></el>
+				<el><display>content</display></el>
+				<el><display>counterIncrement</display></el>
+				<el><display>counterReset</display></el>
+				<el><display>cssFloat</display></el>
+				<el><display>cssText</display></el>
+				<el><display>cue</display></el>
+				<el><display>cueAfter</display></el>
+				<el><display>cueBefore</display></el>
+				<el><display>cursor</display></el>
+				<el><display>direction</display></el>
+				<el><display>display</display></el>
+				<el><display>elevation</display></el>
+				<el><display>emptyCells</display></el>
+				<el><display>filter</display></el>
+				<el><display>float</display></el>
+				<el><display>floatStyle</display></el>
+				<el><display>font</display></el>
+				<el><display>fontFamily</display></el>
+				<el><display>fontSize</display></el>
+				<el><display>fontSizeAdjust</display></el>
+				<el><display>fontStretch</display></el>
+				<el><display>fontStyle</display></el>
+				<el><display>fontVariant</display></el>
+				<el><display>fontWeight</display></el>
+				<el><display>height</display></el>
+				<el><display>imeMode</display></el>
+				<el><display>important</display></el>
+				<el><display>layoutGrid</display></el>
+				<el><display>layoutGridChar</display></el>
+				<el><display>layoutGridCharSpacing</display></el>
+				<el><display>layoutGridLine</display></el>
+				<el><display>layoutGridMode</display></el>
+				<el><display>layoutGridType</display></el>
+				<el><display>left</display></el>
+				<el><display>length</display></el>
+				<el><display>letterSpacing</display></el>
+				<el><display>lineBreak</display></el>
+				<el><display>lineHeight</display></el>
+				<el><display>listStyle</display></el>
+				<el><display>listStyleImage</display></el>
+				<el><display>listStylePosition</display></el>
+				<el><display>listStyleType</display></el>
+				<el><display>margin</display></el>
+				<el><display>marginBottom</display></el>
+				<el><display>marginLeft</display></el>
+				<el><display>marginRight</display></el>
+				<el><display>marginTop</display></el>
+				<el><display>markerOffset</display></el>
+				<el><display>marks</display></el>
+				<el><display>maxHeight</display></el>
+				<el><display>maxWidth</display></el>
+				<el><display>minHeight</display></el>
+				<el><display>minWidth</display></el>
+				<el><display>orphans</display></el>
+				<el><display>outline</display></el>
+				<el><display>outlineColor</display></el>
+				<el><display>outlineStyle</display></el>
+				<el><display>outlineWidth</display></el>
+				<el><display>overflow</display></el>
+				<el><display>overflowX</display></el>
+				<el><display>overflowY</display></el>
+				<el><display>padding</display></el>
+				<el><display>paddingBottom</display></el>
+				<el><display>paddingLeft</display></el>
+				<el><display>paddingRight</display></el>
+				<el><display>paddingTop</display></el>
+				<el><display>page</display></el>
+				<el><display>pageBreakAfter</display></el>
+				<el><display>pageBreakBefore</display></el>
+				<el><display>pageBreakInside</display></el>
+				<el><display>pause</display></el>
+				<el><display>pauseAfter</display></el>
+				<el><display>pauseBefore</display></el>
+				<el><display>pitch</display></el>
+				<el><display>pitchRange</display></el>
+				<el><display>pixelBottom</display></el>
+				<el><display>pixelHeight</display></el>
+				<el><display>pixelLeft</display></el>
+				<el><display>pixelRight</display></el>
+				<el><display>pixelTop</display></el>
+				<el><display>pixelWidth</display></el>
+				<el><display>playDuring</display></el>
+				<el><display>posBottom</display></el>
+				<el><display>posHeight</display></el>
+				<el><display>position</display></el>
+				<el><display>posLeft</display></el>
+				<el><display>posRight</display></el>
+				<el><display>posTop</display></el>
+				<el><display>posWidth</display></el>
+				<el><display>quotes</display></el>
+				<el><display>renderingIntent</display></el>
+				<el><display>richness</display></el>
+				<el><display>right</display></el>
+				<el><display>rowSpan</display></el>
+				<el><display>rubyAlign</display></el>
+				<el><display>rubyOverhang</display></el>
+				<el><display>rubyPosition</display></el>
+				<el><display>scrollbar3dLightColor</display></el>
+				<el><display>scrollbarArrowColor</display></el>
+				<el><display>scrollbarBaseColor</display></el>
+				<el><display>scrollbarDarkShadowColor</display></el>
+				<el><display>scrollbarFaceColor</display></el>
+				<el><display>scrollbarHighlightColor</display></el>
+				<el><display>scrollbarShadowColor</display></el>
+				<el><display>size</display></el>
+				<el><display>speak</display></el>
+				<el><display>speakDate</display></el>
+				<el><display>speakHeader</display></el>
+				<el><display>speakNumeral</display></el>
+				<el><display>speakPunctuation</display></el>
+				<el><display>speakTime</display></el>
+				<el><display>speechRate</display></el>
+				<el><display>stress</display></el>
+				<el><display>styleFloat</display></el>
+				<el><display>tableLayout</display></el>
+				<el><display>textAlign</display></el>
+				<el><display>textAutospace</display></el>
+				<el><display>textDecoration</display></el>
+				<el><display>textDecorationBlink</display></el>
+				<el><display>textDecorationLineThrough</display></el>
+				<el><display>textDecorationNone</display></el>
+				<el><display>textDecorationOverline</display></el>
+				<el><display>textDecorationUnderline</display></el>
+				<el><display>textIndent</display></el>
+				<el><display>textJustify</display></el>
+				<el><display>textKashidaSpace</display></el>
+				<el><display>textShadow</display></el>
+				<el><display>textTransform</display></el>
+				<el><display>textUnderlinePosition</display></el>
+				<el><display>top</display></el>
+				<el><display>unicodeBidi</display></el>
+				<el><display>verticalAlign</display></el>
+				<el><display>visibility</display></el>
+				<el><display>voiceFamily</display></el>
+				<el><display>volume</display></el>
+				<el><display>whiteSpace</display></el>
+				<el><display>widows</display></el>
+				<el><display>width</display></el>
+				<el><display>wordBreak</display></el>
+				<el><display>wordSpacing</display></el>
+				<el><display>wordWrap</display></el>
+				<el><display>writingMode</display></el>
+				<el><display>zIndex</display></el>
+				<el><display>zoom</display></el>
+			</childElements>
+		</el>
+		
+	</common>
+	<types>
+		<el name="s">
+			<type>String.</type>
+		</el>
+		<el name="d">
+			<type>Date.</type>
+		</el>
+		<el name="a">
+			<type>Array.</type>
+		</el>
+	</types>
+</root>

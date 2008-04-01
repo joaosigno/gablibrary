@@ -1,0 +1,6 @@
+<%
+const CALC_MODAL_W = 213
+const CALC_MODAL_H = 251
+const CUSTOM_CALC_MODAL_W = 300
+const CUSTOM_CALC_MODAL_H = 251
+%>

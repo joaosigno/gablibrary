@@ -1,0 +1,131 @@
+body {
+	overflow:auto;
+	background-color:#eee;
+}
+
+.headline {
+	padding:5px;
+	text-align:center;
+	background-color:#C6C3E7;
+	border-bottom:2px groove #bbb;
+}
+
+.weekdayName {
+	font-weight:bold;
+	text-align:center;
+	background-color:#bbb;
+	padding:4px;
+}
+
+.weekdayNameWeekend {
+	color:white;
+	background-color:#EF0000;
+}
+
+.calendar {
+	padding:0px;
+	margin:0px;
+	background-color:white;
+	margin-top:10px;
+	margin-bottom:10px;
+	border:1px solid black;
+}
+
+.calendarDay {
+	font-family:tahoma;
+	font-size:9px;
+	font-weight:bold;
+	color:#0000a0;
+		
+	width:35px;
+	height:25px;
+	
+	background-color:#DEDBDE;
+	border-left: 1px #ffffff solid;
+	border-top: 1px #ffffff solid;
+	border-right: 1px #000000 solid;
+	border-bottom: 1px #000000 solid;
+	cursor:pointer;
+}
+
+.calendarDaySelected {
+	border:2px groove #ccc;
+	background-color:#ccc;
+	font-size:12px;
+}
+
+.calendarDayToday {
+	text-decoration:underline;
+	color:brown;
+}
+
+.calendarDayWeekend {
+	background-color:#aaa;
+}
+
+.calendarDayField {
+	text-align:center;
+}
+
+.holidayDay {
+	color:red;
+}
+
+.otherMonth {
+	color:#808080;
+	font-weight:normal;
+	border:0px;
+	background-color:white;
+}
+
+.weekNumber {
+	text-align:right;
+	width:20px;
+	padding-right:5px;
+	color:#fff;
+	font-size:7pt;
+	font-family:arial;
+	background-color:#bbb;
+}
+
+select {
+	font-size:7pt;
+}
+
+.navButton {
+	height:19px;
+	padding:0px;
+	margin:0px;
+	border:0px;
+	font-weight:bold;
+	font-size:10pt;
+	background-color:transparent;
+	cursor:pointer;
+}
+
+.jumpToToday {
+	font-size:7pt;
+}
+
+.endline {
+	width:100%;
+	text-align:right;
+	padding:4px;
+	border-top:2px groove #bbb;
+	background-color:#ddd;
+}
+
+.bottom {
+	position:absolute;
+	bottom:0px;
+}
+
+.calendarHover {
+	border:3px solid red;
+}
+
+#dateDisplay {
+	padding:0px;
+	font-family:arial;
+	font-size:10px;
+}

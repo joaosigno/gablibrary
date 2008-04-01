@@ -1,0 +1,9 @@
+/* this styles will always be loaded */
+td.TableSortedAscending a {
+	padding-left:15px;
+	background:url("/gab_Library/STANDARDPP/icons/sortasc.gif") no-repeat center left;
+}
+td.TableSortedDescending a {
+	padding-left:15px;
+	background:url("/gab_Library/STANDARDPP/icons/sortdesc.gif") no-repeat center left;
+}

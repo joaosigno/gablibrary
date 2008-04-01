@@ -1,0 +1,96 @@
+* {
+	font-family : arial, helvetica, sans-serif;
+	font-size:11px;
+	color:#000;
+}
+
+.obsolete, .obsolete * {
+	color:#aaa;
+	font-style:italic;
+}
+
+.default{
+	padding:3px 0 3px 27px;
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;
+	background-image: url(images/properties.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+
+.objectNode{
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;	
+	padding:3px 0 3px 27px;
+	background-image: url(images/object.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+
+.reservedWord{
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;	
+	padding:3px 0 3px 27px;
+	background-image: url(images/reservedWords.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+
+.propertie{
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;	
+	padding:3px 0 3px 27px;
+	background-image: url(images/properties.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+
+.method{
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;	
+	padding:3px 0 3px 27px;
+	background-image: url(images/method.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+
+.style{
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;	
+	padding:3px 0 3px 27px;
+	background-image: url(images/style.gif);
+	background-repeat: no-repeat;
+	background-position: 2px 3px;
+}
+
+.selected{
+	background-color:#cccccc;
+	
+}
+
+.list{
+	width:100%;
+	height:248px;
+	overflow-y:auto;
+	border:1px solid black;
+}
+.top{
+	background-color:Navy;
+	height: 19px;
+	width: 100%;
+	overflow:hidden;
+	font-size : 11px;	
+	font-weight: bold;
+	color:#fff;
+	padding: 2px 2px 2px 5px
+}
+
+.info{
+	color : #5a5a5a;	
+	padding:3px;	
+	border-bottom:1px solid #aaaaaa;	
+	cursor:default;	
+	background:#ffffdf;	
+	font-weight:bold;
+}
+

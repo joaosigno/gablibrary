@@ -1,0 +1,39 @@
+body {
+	overflow:auto;
+}
+
+.description {
+	color:#000;
+	font-size:9px;
+}
+
+a 			{font-size:9px; font-family:Helvetia; margin-left:10px; }
+a:link 		{ color:#84AE6B; text-decoration:none;  }
+a:visited 	{ color:#84AE6B; text-decoration:none; }
+a:hover 	{ color:#84AE6B; text-decoration:none; }
+a:active 	{ color:#84AE6B; }
+
+
+.percent {
+	margin-left:5px;
+}
+
+.barUsed {
+	background-image:url(/gab_Library/class_logger/analyzer/images/barUsed.gif);
+}
+
+.barUsedEnd {
+	background-image:url(/gab_Library/class_logger/analyzer/images/barUsedEnd.gif);
+	background-repeat:no-repeat;
+	width:2px;
+}
+
+.bar {
+	background-image:url(/gab_Library/class_logger/analyzer/images/barBg.gif);
+}
+
+.barEnd {
+	background-image:url(/gab_Library/class_logger/analyzer/images/barEnd.gif);
+	background-repeat:no-repeat;
+	width:1px;
+}

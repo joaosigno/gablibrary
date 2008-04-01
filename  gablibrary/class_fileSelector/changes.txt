@@ -1,0 +1,4 @@
+v 1.0
+- foldersSelectable attribute introduced. its possible to select folder now. by default its false.
+	- folders must end with an /
+- showFiles property introduced. useful when just showing folders to select. 

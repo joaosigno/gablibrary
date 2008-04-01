@@ -1,0 +1,93 @@
+body {
+	overflow:auto;
+	background-color:#eee;
+}
+
+#headline {
+	padding:5px;
+	text-align:center;
+	background-color:#6169ba;
+	border-bottom:2px groove #bbb;
+}
+
+.endline {
+	position:absolute;
+	bottom:0px;
+	
+	width:100%;
+	text-align:right;
+	padding:4px;
+	border-top:2px groove #bbb;
+	background-color:#ddd;
+}
+
+#calculatorDisplay {
+	width:100%;
+	border:3px groove white;
+	font-size:18pt;
+	color:black;
+	font-weight:bold;
+	font-family:tahoma;
+	text-align:right;
+	font-family:courier;
+}
+
+.calculatorButton {
+	font-family:tahoma;
+	font-size:11px;
+	color:#0000a0;
+		
+	width:35px;
+	height:25px;
+	
+	margin:2px;
+	
+	background-color:#DEDBDE;
+	border-left: 1px #ffffff solid;
+	border-top: 1px #ffffff solid;
+	border-right: 1px #000000 solid;
+	border-bottom: 1px #000000 solid;
+	cursor:pointer;
+}
+
+.calculatorButtonClicked {
+	border-right: 1px #ffffff solid;
+	border-bottom: 1px #ffffff solid;
+	border-left: 1px #000000 solid;
+	border-top: 1px #000000 solid;
+}
+
+.calculatorButtonCustom {
+	font-weight:bold;
+	background-color:#DEDBDE;
+	height:19px;
+	margin:1px;
+	padding:0px;
+	font-size:9px;
+}
+
+.calculatorButtonDoubleWidth {
+	width:74px;
+}
+
+.calculatorButtonHover {
+	border:3px solid red;
+}
+
+.calculatorButtonNumber {
+	color:red;
+	font-weight:bold;
+}
+
+.calcButtons {
+	position:absolute;
+	right:0px;
+	padding:4px;
+	background-color:#fff;
+}
+
+.customButtons {
+	position:absolute;
+	left:0px;
+	padding:4px;
+}

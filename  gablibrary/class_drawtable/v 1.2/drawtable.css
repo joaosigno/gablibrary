@@ -1,0 +1,18 @@
+/* this styles will always be loaded */
+
+div.tableContainer {
+	overflow: auto;
+	margin: 0 auto;
+}
+
+/* works only in IE */
+.tableContainer thead td {
+	position:relative; 
+	top: expression(document.getElementById("drawtable").scrollTop-2);
+}
+
+/* this is just for Firefox */
+html>body .tableContainer tbody {
+	overflow:auto;
+	overflow-x: hidden;
+}

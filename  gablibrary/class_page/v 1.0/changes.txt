@@ -1,0 +1,17 @@
+20.02.2007
+- charset property added. utf-8 is the default now and therefore pages should accept all languages.
+- contentType property added
+- plain property added. useful for ajax request when updating a page with HTML of a requested page.
+- prototypeJS library included. can be loaded with loadPrototypeJS-property. default is false
+	when using any ajax calls the page automatically displays a loader icon in the right-bottom of the page.
+
+15.01.2006
+- onlyWebDev introduced. page is only available for a webdev then
+
+v1.0
+21.12.2006
+- standardapp integration! forceStandardApp - property forces the page to load standard appereance for the page
+
+11.12.2006
+- for IE7: if page is a modalDialog then the <base target=_self> is made automatically into the head-tag.
+	there is a need to check exisiting pages and remove the base target. 

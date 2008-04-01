@@ -1,0 +1,7 @@
+v 1.1
+- made changes to style sheet, buttons and javascript so it works in firefox (Still in beta)
+- added config.asp which includes the location of the Calendar CSS location and constants 
+- added attributes ... additional parameters for the day cell td
+- added HLattributes ... additional parameters for the head line div in each cell
+- added onPreDayCreated ... raised before the day has been written
+

@@ -1,0 +1,84 @@
+body {
+	background:url(/gab_library/standardapp/images/modal_bg.gif);
+	padding:0px;
+}
+.headline, #headline {
+	padding:0px;
+	background:#174a75 url(/gab_library/standardapp/images/headline_bg.gif);
+	background-position:top right;
+	background-repeat:no-repeat;
+	height:52px;
+	border-bottom:2px outset #000;
+}
+.headline h1, #headline h1 {
+	color:#fff;
+	font-size:18pt;
+	font-weight:bold;
+	margin-left:10px;
+}
+.headline h2, #headline h2 {
+	color:#fff;
+	font-size:12pt;
+	margin-left:10px;
+}
+.endline *, #endline *, .endline, #endline {
+	color:#fff;
+}
+.endline, #endline {
+	border:0px;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	background:url(/gab_library/standardapp/images/endline_bg.gif);
+	padding-top:8px;
+	text-align:left;
+	height:40px;
+	margin-bottom:0px;
+}
+.endline button, .endline input, #endline button, #endline input {
+	margin:0px 3px;
+	color:#000;
+}
+.endline .button, #endline .button {
+	height:23px;
+	margin-right:10px;
+	width:90px;
+	font-size:11px;
+}
+td.label {
+	width:auto;
+}
+fieldset {
+	xbackground-color:#fff;
+	padding:5px;
+	margin-bottom:10px;
+}
+#content {
+	overflow:auto;
+	height:expression(document.body.clientHeight-byID('headline').offsetHeight-byID('endline').offsetHeight);
+	padding:14px;
+}
+/* error in the headline */
+#headline div.error * {
+	color:#fff;
+}
+#headline div.error ul {
+	margin:5px;
+	margin-left:20;
+}
+#headline div.error {
+	background-color:#E10000;
+	color:#fff;
+	border-top:solid 2px #fff;
+}
+
+@media print {
+	
+	#content {
+		overflow:visible;
+	}
+	
+	.endline, #endline {
+		display:none;
+	}
+}

@@ -1,0 +1,59 @@
+.spinnerControlButtons {
+	position:absolute;
+}
+
+.spinnerControlButtonDown {
+	top:9px;
+	left:-4px;
+	width:14px;
+	height:9px;
+}
+
+.spinnerControlButtonUp {
+	top:1px;
+	left:-4px;
+	width:14px;
+	height:9px;
+}
+
+.spinnerControlButtonLeft {
+	top:1px;
+	left:0px;
+	width:14px;
+	height:17px;
+}
+
+.spinnerControlButtonRight {
+	top:1px;
+	left:-4px;
+	width:14px;
+	height:17px;
+}
+
+.spinnerControlButton {
+	position:absolute;
+	horizontal-align:center;
+	border:0px;
+	cursor:hand;
+}
+
+.spinnerBoxLR {
+	border:1px solid #848284;
+	border-right:0px;
+	border-left:0px;
+	text-align:center;
+	background-color:white;
+	font-family:Verdana, Arial, Helvetica;
+	font-size:8pt;
+	color:#041F7B;
+}
+
+.spinnerBoxTD {
+	border:1px solid #848284;
+	border-right:0px;
+	text-align:center;
+	background-color:white;
+	font-family:Verdana, Arial, Helvetica;
+	font-size:8pt;
+	color:#041F7B;
+}

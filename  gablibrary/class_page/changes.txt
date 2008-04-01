@@ -1,0 +1,19 @@
+20.02.2007
+- doctype property added. there was always a buggy doctype which has to stay now but its possible to change it to a proper one
+- codepage set to 65001 and charset utf-8.
+- contentType property added
+- plain property added. useful for ajax request when updating a page with HTML of a requested page.
+- prototypeJS library included. can be loaded with loadPrototypeJS-property. default is false
+	when using any ajax calls the page automatically displays a loader icon in the right-bottom of the page.
+- pageEnterEffectDuration is OBSOLETE now
+	
+15.01.2006
+- onlyWebDev introduced. page is only available for a webdev then
+
+v1.0
+21.12.2006
+- standardapp integration! forceStandardApp - property forces the page to load standard appereance for the page
+
+11.12.2006
+- for IE7: if page is a modalDialog then the <base target=_self> is made automatically into the head-tag.
+	there is a need to check exisiting pages and remove the base target. 

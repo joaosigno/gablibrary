@@ -1,0 +1,27 @@
+v 1.0.7
+- excelexport runs now with the new ExcelExporter
+
+v 1.0.6
+- bug fixed: replaced quotes in the excel-display-string with &quot; - not slower
+- addUrlJS added - can be used instead of addurl to use a javascript instead of an location.href
+- property getFieldLinkID added; might be useful
+
+v 1.0.5
+- displayfunction didnt work with quotes. quotes are replace now. could be slower now.
+- addToOutput function automatically adds a linebreak after adding.
+- hiddenFieldfunction made for better codeview => all hiddenfields replaced with the function
+- "autoDelete" member added. you can turn auto-deletion off and handle the delete process yourself
+- "isInModal" member added. its helpful to manage things differntly between modal a common page. 
+	till now its important for excel-export because it wont work without that.
+- there used to be a bug on excelexport if the content had single-quotes (') => bug fixed
+
+v 1.0
+- "select all" for radiobuttoncolumns
+- "search all" textfield also displays the remembered value.
+- "remembering"- functionallity exported to seperated object (file)
+
+v 0.99
+- remember filters, paging, etc. remembering is solved using session
+
+v 0.98
+- old good working drawtable

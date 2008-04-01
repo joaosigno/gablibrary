@@ -1,0 +1,18 @@
+
+v 1.0 (20.03.2007)
+- saveUnique property added. it allows to save files even if they exist. the file is index like file(0).txt file(1).txt, etc.
+- fixed BUG with not allowed chars in the filename and/or extension. e.g. comma, etc.
+- some refactoring done.
+
+v 0.3 (25.09.2006)
+
+- default maxsize is 100KB
+- default uploadPath is consts.userFiles
+- when using the fileuploader now, you can easily access formfields via lib.RF() 
+	instead of uploaderObj.form, etc. page.isPostback() is working as well out-of-the-box now
+- allowedExtensions also accepts commaseperation with space
+- upload() used to return filename or boolean (false) when not sucessful. now it can just return a string. empty if not successfull.
+- fieldname introduced and filename is OBSOLETE now.
+- file-property removed because it was unneseccary
+- sets the form-object to the library automatically. this allows you to still use the the page.isPostback(), lib.RF, etc.
+- some refactoring, restructuring

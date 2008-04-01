@@ -1,0 +1,35 @@
+﻿<!--#include virtual="/gab_Library/class_page/generatePage.asp"-->
+<!--#include virtual="/gab_Library/class_webservice/webservice.asp"-->
+<!--#include virtual="/gab_Library/class_errorHandler/errorHandler.asp"-->
+<!--#include virtual="/gab_Library/class_textTemplate/textTemplate.asp"-->
+<%
+'******************************************************************************************
+'* Creator: 	Michael Rebec
+'* Created on: 	2006-11-08 16:15
+'* Description: -
+'* Input:		-
+'******************************************************************************************
+
+set WS = new Webservice
+with WS
+	.onlyWebDev = true
+	.description = "Demo Webservice"
+	.method = "get"
+	
+	set p = new WebserviceParameter
+	p.name = "ID"
+	p.dataType = "string"
+	'p.defaultValue = 0
+	.addParam(p)
+	
+	.generate()
+end with
+set WS = nothing
+
+'******************************************************************************************
+'* main 
+'******************************************************************************************
+sub main()
+	WS.XMLDOM.appendChild(WS.getNewNode("test", "dasdäää"))
+end sub
+%>

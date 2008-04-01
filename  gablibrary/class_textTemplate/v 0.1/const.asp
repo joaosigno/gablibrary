@@ -1,0 +1,5 @@
+<%
+const DEFAULT_PLACEHOLDER_BEGIN		= "<<< "
+const DEFAULT_PLACEHOLDER_END		= " >>>"
+DEFAULT_LINEBREAK					= chr(13)
+%>

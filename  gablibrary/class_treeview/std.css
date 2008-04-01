@@ -1,0 +1,41 @@
+.treeview {
+	border:2px inset #eee;
+	overflow:auto;
+	padding:5;
+}
+
+.treeview div {
+	font:13px microsoft sans serif;
+}
+
+.treeview .folder {
+	cursor:pointer;
+}
+
+.treeview .folder a:hover {
+	color:#648BCB;
+	text-decoration:underline;
+}
+.treeview .folder a  {
+	color:black;
+	text-decoration:none;
+}
+
+.treeview .selectedFolder a, .treeview .selectedFolder a:hover {
+	color:blue;
+}
+
+/* the indent for folders, files, etc. */
+.treeview .idt {
+	margin-left:7;
+	padding-left:1;
+	
+}
+.treeview .idt2 {
+	margin-left:17;
+}
+.treeview img {
+	border:0;
+	vertical-align:middle;
+	margin-right:2;
+}

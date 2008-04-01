@@ -1,0 +1,46 @@
+#GLErrorContainer, #GLErrorContainer * {
+	font-size:8pt;
+	font-family:verdana;
+}
+
+#GLErrorContainer p, #GLErrorContainer ul * {
+	margin:0;
+	padding:0;
+	font-size:9pt;
+}
+#GLErrorContainer ul {
+	margin-left:20px;
+}
+
+#GLErrorHeadline {
+	color:#fff;
+	padding:2px;
+	cursor:pointer;
+	font-size:9pt;
+}
+
+#GLErrorContainer {
+	position:absolute;
+	border:3px solid #f00;
+	width:330px;
+	background-color:#f00;
+}
+
+#GLErrorDetailsContainer {
+	border:2px inset #fff;
+	overflow:auto;
+	height:200px;
+	background-color:#fff;
+}
+
+#GLErrorDetails {
+	padding:7px;
+}
+
+#GLErrorDetails label {
+	font-weight:bold;
+}
+
+#GLErrorDetails textarea {
+	font-size:10px;
+}

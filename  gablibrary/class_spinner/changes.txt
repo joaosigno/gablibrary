@@ -1,0 +1,10 @@
+v 1.0
+- fixed mousewheel bug -> When using the spinners in a scrollable window then the window has been scrolled as well
+- mouse wheel functionality can be deactivated now
+- OBSOLETE "firstInstance" -> uses the lib.page.loadJavascript, ...
+
+v 0.2
+- first update - can't remember what had been fixed
+
+v 0.1
+- first implementation

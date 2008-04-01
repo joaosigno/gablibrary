@@ -1,0 +1,44 @@
+.table {
+	background-color: #FFF;
+}
+
+.MainMenu {
+	border:1px solid #DBD8D1;
+	border-top:0px;
+	FONT-SIZE:11px;
+	FONT-FAMILY: Tahoma,Verdana,Arial,sans-serif; 
+	TEXT-DECORATION: none;
+}
+
+.menu {
+	border:1px solid #DBD8D1;
+	border-top:0px;
+	padding:4px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 11px;
+	WIDTH: 100%;
+	FONT-FAMILY: Tahoma, Arial, sans-serif;
+	BACKGROUND-COLOR: #fff;
+	TEXT-DECORATION: none;
+	padding:5px 20px;
+}
+
+.menu:link, .menu:active, .menu:visited {
+	color:#000;
+	text-decoration:none;
+}
+
+.main, a.main:link, a.main:hover, a.main:active, a.main:visited {
+	color:#000;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+	padding:5px 8px;
+	WIDTH: 100%;
+	HEIGHT: 100%;
+	BACKGROUND-COLOR: #EFEFEF;
+}
+
+.mainMenuPointActive {
+	/*color:green;*/
+}

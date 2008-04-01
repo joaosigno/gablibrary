@@ -1,0 +1,5 @@
+v 0.2
+- objects can now be added (TODO: not completly finished)
+
+v 0.1
+- mostly like the .net arraylist control

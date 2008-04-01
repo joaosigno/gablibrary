@@ -1,0 +1,13 @@
+GAB_LIBRARY LICENSE
+GabLibrary Copyright (C) 2003
+
+* GabLibrary is not free available and cannot be used/modified
+without an approval of the owner (Michal Gabrukiewicz - gabru@grafix.at)
+
+* It is not allowed to redistribute/sell the library itself without permission
+of the owner.
+
+* You may not copy, modify, sublicense, or distribute the Program except 
+as expressly provided under this License
+
+STATUS: 25.09.2006

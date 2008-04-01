@@ -1,0 +1,15 @@
+
+v1.2
+- consts.asp removed
+- all unused blocks and vars will be removed after parsing. (can be set with cleanParse property)
+- varname allow only letter, numbers and "_"
+- vars are now case insensitive
+- blocks added.
+	blocks are used as the follows:
+	<<< BLOCK TEST >>>
+		<<< VALUE >>>...
+	<<< BLOCKEND TEST >>>
+- added save and content property which allows to save templates and get the content of them
+
+v1.1
+- added firstline, restofbody. this functionality allows us to store e.g. the subject of an email in the firstline

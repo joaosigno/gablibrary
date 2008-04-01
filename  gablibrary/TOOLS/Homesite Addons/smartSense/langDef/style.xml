@@ -1,0 +1,1022 @@
+<?xml version="1.0"?>
+<root>
+	<elements>
+		<el type="style"><display>background:</display></el>
+		<el type="style">
+			<display>background-attachment:</display>
+			<childElements>
+				<el type="style"><display>scroll;</display></el>
+				<el type="style"><display>fixed;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>background-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>background-image:</display>
+			<insert>background-image: url(url);</insert>
+			<actions><![CDATA[
+			cursorLeft(2,0);
+			cursorLeft(3,1);
+			]]></actions>
+		</el>
+		<el type="style">
+			<display>background-position:</display>
+			<childElements>
+				<el type="style"><display>top;</display></el>
+				<el type="style"><display>center;</display></el>
+				<el type="style"><display>bottom;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>background-repeat:</display>
+			<childElements>
+				<el type="style"><display>repeat-x;</display></el>
+				<el type="style"><display>repeat-y;</display></el>
+				<el type="style"><display>no-repeat;</display></el>
+				<el type="style"><display>repeat;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>border:</display>
+			<childElements>
+				<el type="style"><display>1px solid #000;</display></el>
+				<el type="style"><display>1px dashed #ccc;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>border-collapse:</display>
+			<childElements>
+				<el type="style"><display>collapse;</display></el>
+				<el type="style"><display>separate;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>border-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>border-style:</display>
+			<childElements>
+				<el type="style"><display>none;</display></el>
+				<el type="style"><display>dotted;</display></el>
+				<el type="style"><display>dashed;</display></el>
+				<el type="style"><display>solid;</display></el>
+				<el type="style"><display>double;</display></el>
+				<el type="style"><display>groove;</display></el>
+				<el type="style"><display>ridge;</display></el>
+				<el type="style"><display>inset;</display></el>
+				<el type="style"><display>outset;</display></el>
+				<el type="style"><display>hidden;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>border-width:</display>
+			<childElements>
+				<el type="style"><display>1px;</display></el>
+				<el type="style"><display>2px;</display></el>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>thin;</display></el>
+				<el type="style"><display>medium;</display></el>
+				<el type="style"><display>thick;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>bottom:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>caption-side:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>top;</display></el>
+				<el type="style"><display>bottom;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>clear:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+				<el type="style"><display>both;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>clip:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>content:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>open-quote;</display></el>
+				<el type="style"><display>close-quote;</display></el>
+				<el type="style"><display>no-open-quote;</display></el>
+				<el type="style"><display>no-close-quote;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>counter-incremen:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>counter-reset:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>cue-after:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>cue-befor:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>cursor:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style"><display>cross-hair;</display></el>
+				<el type="style"><display>default;</display></el>
+				<el type="style"><display>pointer;</display></el>
+				<el type="style">
+					<display>hand (IE only)</display>
+					<insert>hand;</insert>
+				</el>
+				<el type="style"><display>move;</display></el>
+				<el type="style"><display>e-resize;</display></el>
+				<el type="style"><display>ne-resize;</display></el>
+				<el type="style"><display>nw-resize;</display></el>
+				<el type="style"><display>n-resize;</display></el>
+				<el type="style"><display>se-resize;</display></el>
+				<el type="style"><display>sw-resize;</display></el>
+				<el type="style"><display>s-resize;</display></el>
+				<el type="style"><display>w-resize;</display></el>
+				<el type="style"><display>text;</display></el>
+				<el type="style"><display>wait;</display></el>
+				<el type="style"><display>help;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>direction:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>ltr;</display></el>
+				<el type="style"><display>rtl;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>display:</display>
+			<childElements>
+				<el><display>inherit;</display></el>
+				<el><display>inline;</display></el>
+				<el><display>block;</display></el>
+				<el><display>list-item;</display></el>
+				<el><display>run-in;</display></el>
+				<el><display>compact;</display></el>
+				<el><display>marker;</display></el>
+				<el><display>inline-table;</display></el>
+				<el><display>table-row-group;</display></el>
+				<el><display>table-header-group;</display></el>
+				<el><display>table-footer-group;</display></el>
+				<el><display>table-row;</display></el>
+				<el><display>table-column-group;</display></el>
+				<el><display>table-column;</display></el>
+				<el><display>table-cell;</display></el>
+				<el><display>table-caption;</display></el>
+				<el><display>table;</display></el>
+				<el><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>elevation:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>below;</display></el>
+				<el type="style"><display>level;</display></el>
+				<el type="style"><display>above;</display></el>
+				<el type="style"><display>higher;</display></el>
+				<el type="style"><display>lower;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>empty-cells:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>show;</display></el>
+				<el type="style"><display>hide;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>float:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-family:</display>
+			<childElements>
+				<el type="style"><display>Verdana, Geneva, Arial, Helvetica, sans-serif;</display></el>
+				<el type="style"><display>Arial, Helvetica, sans-serif;</display></el>
+				<el type="style">
+					<display>Trebuchet MS, Lucida Grande ,arial, helvetica;</display>
+					<insert>Trebuchet MS, Lucida Grande ,arial, helvetica, sans-serif;</insert>
+				</el>
+				<el type="style">
+					<display>Courier New, Courier, monospace;</display>
+					<insert>"Courier New", Courier, monospace;</insert>
+				</el>
+				<el type="style">
+					<display>MS Serif, New York, serif;</display>
+					<insert>"MS Serif", "New York", serif;</insert>
+				</el>
+				<el type="style">
+					<display>Times New Roman, Times, serif;</display>
+					<insert>"Times New Roman", Times, serif;</insert>
+				</el>
+				<el type="style">
+					<display>MS Sans Serif, Geneva, sans-serif;</display>
+					<insert>"MS Sans Serif", Geneva, sans-serif;</insert>
+				</el>
+				
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-size:</display>
+			<childElements>
+				<el type="style"><display>1em;</display></el>
+				<el type="style"><display>70%;</display></el>
+				<el type="style"><display>8px;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>12px;</display></el>
+				<el type="style"><display>14px;</display></el>
+				<el type="style"><display>16px;</display></el>
+				<el type="style"><display>20px;</display></el>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>xx-small;</display></el>
+				<el type="style"><display>x-small;</display></el>
+				<el type="style"><display>small;</display></el>
+				<el type="style"><display>medium;</display></el>
+				<el type="style"><display>large;</display></el>
+				<el type="style"><display>x-large;</display></el>
+				<el type="style"><display>xx-large;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-size-adjust:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-stretch:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>wider;</display></el>
+				<el type="style"><display>narrower;</display></el>
+				<el type="style"><display>ultra-condensed;</display></el>
+				<el type="style"><display>extra-condensed;</display></el>
+				<el type="style"><display>condensed;</display></el>
+				<el type="style"><display>semi-condensed;</display></el>
+				<el type="style"><display>semi-expanded;</display></el>
+				<el type="style"><display>expanded;</display></el>
+				<el type="style"><display>extra-expanded;</display></el>
+				<el type="style"><display>ultra-expanded;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-style:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>italic;</display></el>
+				<el type="style"><display>oblique;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-variant:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>small-caps;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>font-weight:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>bolder;</display></el>
+				<el type="style"><display>bold;</display></el>
+				<el type="style"><display>lighter;</display></el>
+				<el type="style"><display>100;</display></el>
+				<el type="style"><display>200;</display></el>
+				<el type="style"><display>300;</display></el>
+				<el type="style"><display>400;</display></el>
+				<el type="style"><display>500;</display></el>
+				<el type="style"><display>600;</display></el>
+				<el type="style"><display>700;</display></el>
+				<el type="style"><display>800;</display></el>
+				<el type="style"><display>900;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>height:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>100%;</display></el>
+				<el type="style"><display>80%;</display></el>
+				<el type="style"><display>50%;</display></el>
+				<el type="style"><display>100px;</display></el>
+				<el type="style"><display>200px;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style">
+					<display>expression (IE only)</display>
+					<insert>expression(document.body.offsetHeight - 100);</insert>
+				</el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>left:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>0;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style">
+					<display>expression (IE only)</display>
+					<insert>expression(document.body.offsetWidth - 100);</insert>
+				</el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>letter-spacing:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>1 em;</display></el>
+				<el type="style"><display>2 em;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>15px;</display></el>
+				<el type="style"><display>normal;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>line-height:</display>
+			<childElements>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>15px;</display></el>
+				<el type="style"><display>20px;</display></el>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>list-style-image:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display> url();</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>list-style-position:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>inside;</display></el>
+				<el type="style"><display>outside;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>list-style-type:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>disc;</display></el>
+				<el type="style"><display>circle;</display></el>
+				<el type="style"><display>square;</display></el>
+				<el type="style"><display>decimal-leading-zero;</display></el>
+				<el type="style"><display>decimal;</display></el>
+				<el type="style"><display>lower-roman;</display></el>
+				<el type="style"><display>upper-roman;</display></el>
+				<el type="style"><display>lower-greek;</display></el>
+				<el type="style"><display>lower-alpha;</display></el>
+				<el type="style"><display>lower-latin;</display></el>
+				<el type="style"><display>upper-alpha;</display></el>
+				<el type="style"><display>upper-latin;</display></el>
+				<el type="style"><display>hebrew;</display></el>
+				<el type="style"><display>armenian;</display></el>
+				<el type="style"><display>georgian;</display></el>
+				<el type="style"><display>cjk-ideographic;</display></el>
+				<el type="style"><display>hiragana-iroha;</display></el>
+				<el type="style"><display>hiragana;</display></el>
+				<el type="style"><display>katakana-iroha;</display></el>
+				<el type="style"><display>katakana;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>margin:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>0 0 0 0;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>margin-bottom:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>margin-left:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>margin-right:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>margin-top:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>marker-offset:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>marks:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>crop;</display></el>
+				<el type="style"><display>cross;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>max-height:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>100px;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>max-width:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>100px;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>min-height:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>100px;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>min-width:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>100px;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>orphans:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>outline-color:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>invert;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>outline-style:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+				<el type="style"><display>dotted;</display></el>
+				<el type="style"><display>dashed;</display></el>
+				<el type="style"><display>solid;</display></el>
+				<el type="style"><display>double;</display></el>
+				<el type="style"><display>groove;</display></el>
+				<el type="style"><display>ridge;</display></el>
+				<el type="style"><display>inset;</display></el>
+				<el type="style"><display>outset;</display></el>
+				<el type="style"><display>hidden;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>outline-width:</display>
+			<childElements>
+				<el type="style"><display>1px</display></el>
+				<el type="style"><display>2px</display></el>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>thin;</display></el>
+				<el type="style"><display>medium;</display></el>
+				<el type="style"><display>thick;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>overflow:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>visible;</display></el>
+				<el type="style"><display>hidden;</display></el>
+				<el type="style"><display>scroll;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>padding:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>0 0 0 0;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>padding-bottom:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>padding-left:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>padding-right:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>padding-top:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>3px;</display></el>
+				<el type="style"><display>5px;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>page:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>page-break-after:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style"><display>always;</display></el>
+				<el type="style"><display>avoid;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>page-break-before:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style"><display>always;</display></el>
+				<el type="style"><display>avoid;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>page-break-inside:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>avoid;</display></el>
+				<el type="style"><display>auto;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>position:</display>
+			<childElements>
+				<el><display>inherit;</display></el>
+				<el><display>static;</display></el>
+				<el><display>relative;</display></el>
+				<el><display>absolute;</display></el>
+				<el><display>fixed;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>right:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>0;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style">
+					<display>expression (IE only)</display>
+					<insert>expression(document.body.offsetWidth - 100);</insert>
+				</el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-face-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-shadow-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-highlight-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-3dlight-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-darkshadow-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-track-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>scrollbar-arrow-color:</display>
+			<childElements>
+				<RexEl>
+					<pattern><![CDATA[(#[a-fA-F0-9]+)]]></pattern>
+					<trimStart>0</trimStart>
+					<trimEnd>0</trimEnd>
+					<type></type>
+					<scanAllDocs>1</scanAllDocs>
+					<extensions>css</extensions>
+					<displayCode><![CDATA[<span style='border:1px solid #000000;background-color:%match%;width:50px;'>&nbsp;</span>&nbsp;&nbsp;%match% ]]></displayCode>
+					<insertCode><![CDATA[%match%;]]></insertCode>
+				</RexEl>
+			</childElements>
+		</el>				
+		<el type="style">
+			<display>text-align:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>left;</display></el>
+				<el type="style"><display>right;</display></el>
+				<el type="style"><display>center;</display></el>
+				<el type="style"><display>justify;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>text-decoration:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>none;</display></el>
+				<el type="style"><display>underline;</display></el>
+				<el type="style"><display>overline;</display></el>
+				<el type="style"><display>line-through;</display></el>
+				<el type="style"><display>blink;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>text-indent:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>20px;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>text-shadow</display>
+		</el>
+		<el type="style">
+			<display>text-transform:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>capitalize;</display></el>
+				<el type="style"><display>uppercase;</display></el>
+				<el type="style"><display>lowercase;</display></el>
+				<el type="style"><display>none;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>top:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>0;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style">
+					<display>expression (IE only)</display>
+					<insert>expression(document.body.offsetHeight - 100);</insert>
+				</el>				
+			</childElements>
+		</el>
+		<el type="style">
+			<display>unicode-bidi:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>embed;</display></el>
+				<el type="style"><display>bidi-override;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>vertical-align:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>baseline;</display></el>
+				<el type="style"><display>sub;</display></el>
+				<el type="style"><display>super;</display></el>
+				<el type="style"><display>top;</display></el>
+				<el type="style"><display>text-top;</display></el>
+				<el type="style"><display>middle;</display></el>
+				<el type="style"><display>bottom;</display></el>
+				<el type="style"><display>text-bottom;</display></el>
+				<el type="style"><display>90%;</display></el>
+				<el type="style"><display>10px;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>visibility:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>visible;</display></el>
+				<el type="style"><display>hidden;</display></el>
+				<el type="style"><display>collapse;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>white-space:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>pre;</display></el>
+				<el type="style"><display>nowrap;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>width:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>100%;</display></el>
+				<el type="style"><display>80%;</display></el>
+				<el type="style"><display>50%;</display></el>
+				<el type="style"><display>100px;</display></el>
+				<el type="style"><display>200px;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style">
+					<display>expression (IE only)</display>
+					<insert>expression(document.body.offsetWidth - 100);</insert>
+				</el>	
+			</childElements>
+		</el>
+		<el type="style">
+			<display>word-spacing:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>normal;</display></el>
+				<el type="style"><display>10px;</display></el>
+				<el type="style"><display>20px;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>z-index:</display>
+			<childElements>
+				<el type="style"><display>inherit;</display></el>
+				<el type="style"><display>auto;</display></el>
+				<el type="style"><display>1;</display></el>
+				<el type="style"><display>2;</display></el>
+				<el type="style"><display>3;</display></el>
+				<el type="style"><display>4;</display></el>
+				<el type="style"><display>5;</display></el>
+				<el type="style"><display>6;</display></el>
+				<el type="style"><display>7;</display></el>
+				<el type="style"><display>8;</display></el>
+				<el type="style"><display>9;</display></el>
+				<el type="style"><display>10;</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>a:</display>
+			<childElements>
+				<el type="style"><display>link</display></el>
+				<el type="style"><display>visited</display></el>
+				<el type="style"><display>active</display></el>
+				<el type="style"><display>hover</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>div:</display>
+			<childElements>
+				<el type="style"><display>link</display></el>
+				<el type="style"><display>visited</display></el>
+				<el type="style"><display>active</display></el>
+				<el type="style"><display>hover</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>td:</display>
+			<childElements>
+				<el type="style"><display>link</display></el>
+				<el type="style"><display>visited</display></el>
+				<el type="style"><display>active</display></el>
+				<el type="style"><display>hover</display></el>
+			</childElements>
+		</el>
+		<el type="style">
+			<display>span:</display>
+			<childElements>
+				<el type="style"><display>link</display></el>
+				<el type="style"><display>visited</display></el>
+				<el type="style"><display>active</display></el>
+				<el type="style"><display>hover</display></el>
+			</childElements>
+		</el>
+
+
+	</elements>
+	<global>
+	</global>
+	<reservedWords>	
+	</reservedWords>
+</root>

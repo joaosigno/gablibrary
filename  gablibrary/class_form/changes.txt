@@ -1,0 +1,8 @@
+v0.2
+- added message-property
+
+v0.1
+
+- print icon can be changed via config. by default taken from the gablib icons
+- english and german available now
+- action property added

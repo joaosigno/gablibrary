@@ -1,0 +1,4 @@
+Version 1.0
+
+- TABS_CSS_LOCATION constant added to be able to set a custom stylesheet.
+- removed the disabled state when a tab is active. it was not possible to change the color of the text because disabled was always gray.

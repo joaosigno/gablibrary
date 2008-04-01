@@ -1,0 +1,6 @@
+v 0.2
+- Added Synchronous Algorithm: Rijndael - AES
+
+v 0.1
+- Hashing Alogrithms: MD5, SHA256 implemented
+- Synchronous Algorithm: GabLibCrypt

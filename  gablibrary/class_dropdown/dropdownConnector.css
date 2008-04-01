@@ -1,0 +1,29 @@
+table.dropdownConnector {
+	border:2px outset #eee;
+}
+
+table.dropdownConnector select {
+	width:100%;
+}
+
+table.dropdownConnector td {
+	background-color:#eee;
+	padding:1px;
+}
+
+table.dropdownConnector th {
+	background-color:#ddd;
+	padding:2px;
+	font-size:10px;
+	border-bottom:2px inset #eee;
+}
+
+div.dropdownConnector button {
+	width:20px;
+	height:20px;
+	margin:0px;
+	padding:0px;
+	font:8px tahoma;
+	background-color:transparent;
+	border:0px;
+}
