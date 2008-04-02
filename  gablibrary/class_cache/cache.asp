@@ -26,7 +26,7 @@ class Cache
 	'private members
 	private prefix
 	
-	private property get cachebase 'returns a dictionary which represents the cache. key = url of the rss. value = array(expires, HTML)
+	private property get cachebase 'returns a dictionary which represents the cache. key = name of the cache. value = array(expires, HTML)
 		set cachebase = nothing
 		if not isArray(application(prefix & name)) then
 			application(prefix & name) = array(server.createObject("scripting.dictionary"))
