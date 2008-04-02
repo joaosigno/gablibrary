@@ -245,7 +245,8 @@ class GeneratePage
 	'* isCallback 
 	'******************************************************************************************************************
 	private function isCallback()
-		isCallback = (ajaxed and lib.RFHas("gabLibPageAjaxed"))
+		isCallback = false
+		if ajaxed then isCallback = lib.RFHas("gabLibPageAjaxed")
 	end function
 	
 	'******************************************************************************************************************
