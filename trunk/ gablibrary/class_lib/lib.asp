@@ -111,18 +111,26 @@ class Library
 	'' @PARAM:			params [variant]: you choose how you provide your params. provide empty to call a procedure without parameters
 	'' @RETURN:			[variant] whatever the function returns
 	'**********************************************************************************************************
-	function exec(functionName, params)
-		on error resume next
-		set func = getRef(functionName)
-		available = (err = 0)
-		on error goto 0
-		if available then
-			if isEmpty(params) then
-				exec = func
-			else
-				exec = func(params)
-			end if
+	public function exec(functionName, params)
+		set func = getFunction(functionName)
+		if func is nothing then exit function
+		if isEmpty(params) then
+			exec = func
+		else
+			exec = func(params)
 		end if
+	end function
+	
+	'**********************************************************************************************************
+	'' @SDESCRIPTION:	gets a reference to a function/sub by a given name.
+	'' @DESCRIPTION:	if function was found it can be executed afterwards. eg. set f = getFunction("test") : f
+	'' @RETURN:			[object] reference to the function/sub or nothing if not found
+	'**********************************************************************************************************
+	public function getFunction(functionName)
+		set getFunction = nothing
+		on error resume next
+		set getFunction = getRef(functionName)
+		on error goto 0
 	end function
 	
 	'**********************************************************************************************************

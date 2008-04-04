@@ -1,4 +1,7 @@
-﻿VERSION 1.1
+﻿April 2008
+- added TestFixture. easy to implement unittests now.. check the test_testFixture.asp for how to use it
+
+VERSION 1.1
 
 March 2008
 - all umlaute have been changed to their html entities to fully support UTF-8. there might be some in javascript alert.
