@@ -17,7 +17,7 @@ host = "http://" & request.serverVariables("HTTP_HOST")
 
 set aErr = new ErrorHandler
 with aErr
-	.errorDuring = "loading a requested page. The Page (" & referredPage & ") cannot be found"
+	.errorDuring = "loading a requested page. The Page (" & requestedPage & ") cannot be found"
 	.debuggingVar = requestedPage
 	.alternativeText = "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable." &_
 						"Please try the following:" &_
@@ -27,7 +27,10 @@ with aErr
 	
 	'if the page was not reffered then we dont send email and dont log the error
 	'because it is not a real error. But if there is a referrer then we do everything.
-	if referredPage = empty then
+	'updated: David Rankin
+	'If someone else refers to a page on our server, we do not want to know about it, unless
+	'the referer is from the same host
+	if referredPage = empty or (InStr(referredPage, host) < 1 ) then
 		.notifyViaMail = false
 		.logging = false
 	end if
