@@ -113,6 +113,37 @@ class TestFixture
 	end function
 	
 	'**********************************************************************************************************
+	'' @SDESCRIPTION: 	expects a value to be contained within a given data structure
+	'' @PARAM:			data [array]: data must be an array. if data is no array then the assert will fail.
+	'**********************************************************************************************************
+	public sub assertHas(data, expected, msg)
+		assertStarted()
+		if not arrayContains(data, expected) then assertFailed expected, data, msg
+	end sub
+	
+	'**********************************************************************************************************
+	'' @SDESCRIPTION: 	expects a value NOT to be contained within a given data structure
+	'' @PARAM:			data [array]: data must be an array. if data is not an array then the assert will succeed (because its not in it)
+	'**********************************************************************************************************
+	public sub assertHasNot(data, expected, msg)
+		assertStarted()
+		if arrayContains(data, expected) then assertFailed expected, data, msg
+	end sub
+	
+	'**********************************************************************************************************
+	'* arrayContains 
+	'**********************************************************************************************************
+	private function arrayContains(arr, val)
+		arrayContains = true
+		if isArray(arr) then
+			for each d in arr
+				if d & "" = val & "" then exit function
+			next
+		end if
+		arrayContains = false
+	end function
+	
+	'**********************************************************************************************************
 	'' @SDESCRIPTION: 	expects two values not to be equal
 	'**********************************************************************************************************
 	public sub assertNotEqual(expected, actual, msg)

@@ -1,5 +1,7 @@
 ﻿April 2008
 - added TestFixture. easy to implement unittests now.. check the test_testFixture.asp for how to use it
+- added lib.range method which makes it easier to create array for a given range. e.g. months of the year (1..12)
+- added TestFixture.assertHas and TestFixture.assertHasNot - check documentation
 
 VERSION 1.1
 
