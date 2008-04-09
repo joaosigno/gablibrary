@@ -45,4 +45,12 @@ end sub
 sub test_7()
 	tf.assert 1 = 1, "assert"
 end sub
+
+sub test_8()
+	tf.assertHas array(1, 2, 3), 1, "assertHas"
+	tf.assertHas array("some", "ads", "x"), "ads", "assertHas"
+	tf.assertHas array(empty, null, 1), 1, "assertHas"
+	tf.assertHasNot "x", "1", "assertHasNot"
+	tf.assertHasNot array(1, 2, 3, 4), 0, "assertHasNot"
+end sub
 %>
