@@ -504,6 +504,83 @@ class Library
 	end function
 	
 	'******************************************************************************************************************
+	'' @SDESCRIPTION: 	deletes a record from a given database table.
+	'' @DESCRIPTION:	- its required that the id column is named "id" if condition is used with int.
+	''					- ID is parsed and only ID greater 0 are recognized
+	'' @PARAM:			tablename [string]: the name of the table you want to delete the record from
+	'' @PARAM:			condition [int], [string]: ID of the record or a condition e.g. "id = 20 AND cool = 1"
+	''					- if condition is a string then you need to ensure sql-safety with str.sqlsafe yourself.
+	'******************************************************************************************************************
+	public sub delete(tablename, condition)
+		tablename = trim(tablename)
+		if tablename = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
+		if condition = "" then exit sub
+		lib.getRecordset("DELETE FROM " & str.sqlSafe(tablename) & " WHERE " & getSQLCondition(condition))
+		p_numberOfDBAccess = p_numberOfDBAccess + 1
+	end sub
+	
+	'******************************************************************************************************************
+	'' @SDESCRIPTION: 	inserts a record into a given database table and returns the record ID
+	'' @DESCRIPTION:	- primary key column must be named ID
+	''					- the values are not type converted in any way. you need to do it yourself
+	'' @PARAM:			tablename [string]: name of the table
+	'' @PARAM:			data [array]: array which holds the columnames and its values. e.g. array("name", "jack johnson")
+	''					- length must be even otherwise error is thrown
+	'' @RETURN:			[int] ID of the inserted record
+	'******************************************************************************************************************
+	public function insert(tablename, data)
+		tablename = trim(tablename)
+		if tablename = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
+		if (uBound(data) + 1) mod 2 <> 0 then lib.throwError(array(100, "lib.insert", "data length must be even. array(column, value, ...) "))
+		set aRS = server.createObject("ADODB.Recordset")
+		aRS.open tablename, lib.databaseConnection, 1, 2, 2
+		aRS.addNew()
+		for i = 0 to ubound(data) step 2
+			aRS(data(i)) = data(i + 1)
+		next
+		aRS.update()
+		insert = aRS("id")
+		aRS.close()
+		set aRS = nothing
+		p_numberOfDBAccess = p_numberOfDBAccess + 1
+	end function
+	
+	'******************************************************************************************************************
+	'' @SDESCRIPTION: 	updates a record in a given database table
+	'' @DESCRIPTION:	- primary key column must be named ID if condition is int
+	''					- the values are not type converted in any way. you need to do it yourself
+	'' @PARAM:			tablename [string]: name of the table
+	'' @PARAM:			data [array]: array which holds the columnames and its values. e.g. array("name", "jack johnson")
+	''					- length must be even otherwise error is thrown
+	'' @PARAM:			condition [int], [string]: ID of the record or a condition e.g. "id = 20 AND cool = 1"
+	''					- if condition is a string then you need to ensure sql-safety with str.sqlsafe yourself.
+	'******************************************************************************************************************
+	public sub update(tablename, data, condition)
+		tablename = trim(tablename)
+		if tablename = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
+		set aRS = Server.CreateObject("ADODB.Recordset")
+		aRS.open "SELECT * FROM " & str.sqlSafe(tablename) & " WHERE " & getSQLCondition(condition), lib.databaseConnection, 1, 2
+		for i = 0 to ubound(data) step 2
+			aRS(data(i)) = data(i + 1)
+		next
+		aRS.update()
+		aRS.close()
+		set aRS = nothing
+		p_numberOfDBAccess = p_numberOfDBAccess + 1
+	end sub
+	
+	'******************************************************************************************************************
+	'* getSQLCondition - generates a condition string used for the WHERE clause. 
+	'******************************************************************************************************************
+	private function getSQLCondition(condition)
+		getSQLCondition = trim(condition)
+		if isNumeric(condition) then
+			rID = str.parse(condition, 0)
+			if rID > 0 then getSQLCondition = "id = " & rID
+		end if
+	end function
+	
+	'******************************************************************************************************************
 	'' @SDESCRIPTION: 	executes an sql-query and returns the first value of the first row.
 	'' @DESCRIPTION:	if there is no record given then the noRecordReplacer will be returned.
 	''					the returned value (if available) will be converted to the type of which the noRecordReplacer is.
@@ -520,6 +597,7 @@ class Library
 		set aRS = lib.getRecordset(sql)
 		if not aRS.eof then getScalar = str.parse(aRS(0) & "", noRecordReplacer)
 		set aRS = nothing
+		p_numberOfDBAccess = p_numberOfDBAccess + 1
 	end function
 	
 	'******************************************************************************************************************
