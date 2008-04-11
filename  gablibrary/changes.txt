@@ -2,6 +2,9 @@
 - added TestFixture. easy to implement unittests now.. check the test_testFixture.asp for how to use it
 - added lib.range method which makes it easier to create array for a given range. e.g. months of the year (1..12)
 - added TestFixture.assertHas and TestFixture.assertHasNot - check documentation
+- added lib.insert, lib.update, lib.delete - quicker record handling and more readable.
+	- e.g. lib.update "user", array("name", "michal"), 10 or with condition lib.update "user", array("deleted", 0), "active = 1 OR deleted = 0"
+	- e.g. lib.delete "user", 1
 
 VERSION 1.1
 
