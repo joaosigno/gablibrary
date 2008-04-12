@@ -516,7 +516,6 @@ class Library
 		if tablename = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
 		if condition = "" then exit sub
 		lib.getRecordset("DELETE FROM " & str.sqlSafe(tablename) & " WHERE " & getSQLCondition(condition))
-		p_numberOfDBAccess = p_numberOfDBAccess + 1
 	end sub
 	
 	'******************************************************************************************************************
@@ -597,7 +596,6 @@ class Library
 		set aRS = lib.getRecordset(sql)
 		if not aRS.eof then getScalar = str.parse(aRS(0) & "", noRecordReplacer)
 		set aRS = nothing
-		p_numberOfDBAccess = p_numberOfDBAccess + 1
 	end function
 	
 	'******************************************************************************************************************
