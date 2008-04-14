@@ -5,6 +5,9 @@
 - added lib.insert, lib.update, lib.delete - quicker record handling and more readable.
 	- e.g. lib.update "user", array("name", "michal"), 10 or with condition lib.update "user", array("deleted", 0), "active = 1 OR deleted = 0"
 	- e.g. lib.delete "user", 1
+- lib.toggle and lib.count added (database functions)
+- gab_library/test/ provides a console for unit testing.
+	- tests are of the whole server are displayed
 
 VERSION 1.1
 
