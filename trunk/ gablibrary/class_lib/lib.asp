@@ -512,10 +512,9 @@ class Library
 	''					- if condition is a string then you need to ensure sql-safety with str.sqlsafe yourself.
 	'******************************************************************************************************************
 	public sub delete(tablename, condition)
-		tablename = trim(tablename)
-		if tablename = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
+		if trim(tablename) = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
 		if condition = "" then exit sub
-		lib.getRecordset("DELETE FROM " & str.sqlSafe(tablename) & " WHERE " & getSQLCondition(condition))
+		getRecordset("DELETE FROM " & str.sqlSafe(tablename) & getWhereClause(condition))
 	end sub
 	
 	'******************************************************************************************************************
@@ -528,11 +527,10 @@ class Library
 	'' @RETURN:			[int] ID of the inserted record
 	'******************************************************************************************************************
 	public function insert(tablename, data)
-		tablename = trim(tablename)
-		if tablename = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
+		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
 		if (uBound(data) + 1) mod 2 <> 0 then lib.throwError(array(100, "lib.insert", "data length must be even. array(column, value, ...) "))
 		set aRS = server.createObject("ADODB.Recordset")
-		aRS.open tablename, lib.databaseConnection, 1, 2, 2
+		aRS.open tablename, databaseConnection, 1, 2, 2
 		aRS.addNew()
 		for i = 0 to ubound(data) step 2
 			aRS(data(i)) = data(i + 1)
@@ -555,10 +553,9 @@ class Library
 	''					- if condition is a string then you need to ensure sql-safety with str.sqlsafe yourself.
 	'******************************************************************************************************************
 	public sub update(tablename, data, condition)
-		tablename = trim(tablename)
-		if tablename = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
-		set aRS = Server.CreateObject("ADODB.Recordset")
-		aRS.open "SELECT * FROM " & str.sqlSafe(tablename) & " WHERE " & getSQLCondition(condition), lib.databaseConnection, 1, 2
+		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
+		set aRS = server.createObject("ADODB.Recordset")
+		aRS.open "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition), databaseConnection, 1, 2
 		for i = 0 to ubound(data) step 2
 			aRS(data(i)) = data(i + 1)
 		next
@@ -569,14 +566,40 @@ class Library
 	end sub
 	
 	'******************************************************************************************************************
-	'* getSQLCondition - generates a condition string used for the WHERE clause. 
+	'' @SDESCRIPTION: 	gets the recordcount for a given table.
+	'' @PARAM:			tablename [string]: name of the table
+	'' @PARAM:			condition [string]: condition for the count. e.g. "deleted = 0". leave empty to get all
+	'' @RETURN:			[int] number of records
 	'******************************************************************************************************************
-	private function getSQLCondition(condition)
-		getSQLCondition = trim(condition)
+	public function count(tablename, condition)
+		if trim(tablename) = "" then lib.throwError(array(100, "lib.count", "tablename cannot be empty"))
+		count = getScalar("SELECT COUNT(*) FROM " & str.SQLSafe(tablename) & lib.iif(condition <> "", " WHERE " & condition, ""), 0)
+	end function
+	
+	'******************************************************************************************************************
+	'' @SDESCRIPTION: 	toggles the state of a flag column. if the value is 1 its turned into 0 and vicaversa.
+	'' @DESCRIPTION:	useful if you dont delete records but mark them deleted. e.g. toggle("user", "deleted", 10)
+	'' @PARAM:			tablename [string]: name of the table
+	'' @PARAM:			columnName [string]: name of the flag column. must be a numeric column accepting 1 and 0
+	'' @PARAM:			condition [string], [int]: if number then treated as ID of the record otherwise condition for WHERE clause.
+	'******************************************************************************************************************
+	public sub toggle(tablename, columnName, condition)
+		if trim(tablename) = "" then lib.throwError(array(100, "lib.toggle", "tablename cannot be empty"))
+		if trim(columnName) = "" then lib.throwError(array(100, "lib.toggle", "columnname cannot be empty"))
+		sql = "UPDATE " & str.SQLSafe(tablename) & " SET " & str.SQLSafe(columnName) & " = not " & str.SQLSafe(columnName) & getWhereClause(condition)
+		getRecordset(sql)
+	end sub
+	
+	'******************************************************************************************************************
+	'* getWhereClause - generates the where clause for SQL queries 
+	'******************************************************************************************************************
+	private function getWhereClause(condition)
+		getWhereClause = trim(condition)
 		if isNumeric(condition) then
 			rID = str.parse(condition, 0)
-			if rID > 0 then getSQLCondition = "id = " & rID
+			if rID > 0 then getWhereClause = "id = " & rID
 		end if
+		if getWhereClause <> "" then getWhereClause = " WHERE " & getWhereClause
 	end function
 	
 	'******************************************************************************************************************
@@ -596,6 +619,7 @@ class Library
 		set aRS = lib.getRecordset(sql)
 		if not aRS.eof then getScalar = str.parse(aRS(0) & "", noRecordReplacer)
 		set aRS = nothing
+		p_numberOfDBAccess = p_numberOfDBAccess + 1
 	end function
 	
 	'******************************************************************************************************************
