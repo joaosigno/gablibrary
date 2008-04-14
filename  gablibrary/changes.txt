@@ -8,7 +8,8 @@
 - lib.toggle and lib.count added (database functions)
 - gab_library/test/ provides a console for unit testing.
 	- tests are of the whole server are displayed
-
+- lib.contains added: checks if a given value is available within a given datastructure
+	
 VERSION 1.1
 
 March 2008
