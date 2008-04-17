@@ -63,7 +63,7 @@ class datePicker
 		JSTarget				= empty
 		originallyLCID			= session.lcid
 		autoDisableNavi			= false
-		useStringBuilder		= true
+		useStringBuilder		= lib.useStringBuilder
 		
 		'this is the lcid the calendar uses.
 		'the lcid will be set to the old at the end

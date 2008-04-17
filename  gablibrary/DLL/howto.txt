@@ -1,0 +1,13 @@
+﻿** INSTALLING THE COM COMPONENT ON A SERVER BEFORE 2008
+
+regsvr32 stringbuilderVB.dll
+
+
+** INSTALLING THE COM COMPONENT ON A 2008 SERVER 
+- dont do it with regsvr!
+go to "component services > computers > my computer > COM+ applications > new application" and create a "server application",
+after this you can add DLLs to it which are visible to IIS later.
+
+
+
+michal 17.04.2008

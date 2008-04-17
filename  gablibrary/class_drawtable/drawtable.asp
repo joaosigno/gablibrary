@@ -198,7 +198,7 @@ class Drawtable
 		allowHTML				= true
 		restoreFilterOnSearch	= false
 		bigForTime				= 0
-		stringBuilderDLL		= true
+		stringBuilderDLL		= lib.useStringBuilder
 		headervariable			= empty
 		extendButtonBar			= empty
 		tableCellpadding		= 3

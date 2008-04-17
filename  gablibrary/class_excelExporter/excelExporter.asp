@@ -31,7 +31,7 @@ class ExcelExporter
 	'**********************************************************************************************************
 	public sub class_initialize()
 		maxHiddenFieldLength			= 100000
-		useStringBuilder				= true
+		useStringBuilder				= lib.useStringBuilder
 		stringBuilderInstanciated		= false
 	end sub
 	
