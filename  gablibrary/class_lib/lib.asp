@@ -110,6 +110,25 @@ class Library
 	end sub
 	
 	'**********************************************************************************************************
+	'' @SDESCRIPTION:	Detects the first loadable server component from a given list. 
+	'' @PARAM:			components [array]: names of the components you want to try to detect
+	'' @RETURN:			[string] name of the component which could be loaded first or empty if no one could be loaded
+	'**********************************************************************************************************
+	public function detectComponent(components)
+		tryLoadComponent = empty
+		for each c in components
+			on error resume next
+				server.createObject(c)
+				failed = err <> 0
+			on error goto 0
+			if not failed then
+				tryLoadComponent = c
+				exit for
+			end if
+		next
+	end function
+	
+	'**********************************************************************************************************
 	'' @SDESCRIPTION:	checks if a given datastructure contains a given value
 	'' @DESCRIPTION:	- returns false if the datastructure cannot be determined
 	'' @PARAM:			data [array], [dictionary]: the data structure which should be checked against.
@@ -140,8 +159,14 @@ class Library
 	public function range(startsWith, endsWith, interval)
 		if interval = 0 then lib.throwError("interval cannot be 0")
 		arr = array()
+		decimals = len(str.splitValue(startsWith, ",", -1))
+		decimalsE = len(str.splitValue(endsWith, ",", -1))
+		decimalsI = len(str.splitValue(interval, ",", -1))
+		if decimalsE > decimals then decimals = decimalsE
+		if decimalsI > decimals then decimals = decimalsI
 		for i = startsWith to endsWith step interval
 			redim preserve arr(uBound(arr) + 1)
+			i = round(i, decimals)
 			arr(uBound(arr)) = i
 		next
 		range = arr
@@ -554,13 +579,10 @@ class Library
 	'******************************************************************************************************************
 	public function insert(tablename, data)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
-		if (uBound(data) + 1) mod 2 <> 0 then lib.throwError(array(100, "lib.insert", "data length must be even. array(column, value, ...) "))
 		set aRS = server.createObject("ADODB.Recordset")
-		aRS.open tablename, databaseConnection, 1, 2, 2
+		aRS.open tablename, dataBaseConnection, 1, 2, 2
 		aRS.addNew()
-		for i = 0 to ubound(data) step 2
-			aRS(data(i)) = data(i + 1)
-		next
+		fillRSWithData aRS, data, "db.insert"
 		aRS.update()
 		insert = aRS("id")
 		aRS.close()
@@ -581,14 +603,30 @@ class Library
 	public sub update(tablename, data, condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
 		set aRS = server.createObject("ADODB.Recordset")
-		aRS.open "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition), databaseConnection, 1, 2
-		for i = 0 to ubound(data) step 2
-			aRS(data(i)) = data(i + 1)
-		next
+		aRS.open "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition), dataBaseConnection, 1, 2
+		fillRSWithData aRS, data, "db.update"
 		aRS.update()
 		aRS.close()
 		set aRS = nothing
 		p_numberOfDBAccess = p_numberOfDBAccess + 1
+	end sub
+	
+	'******************************************************************************************************************
+	'* fillRSWithData 
+	'******************************************************************************************************************
+	private sub fillRSWithData(byRef RS, dataArray, callingFunctionName)
+		if (uBound(dataArray) + 1) mod 2 <> 0 then lib.throwError(array(100, callingFunctionName, "data length must be even. array(column, value, ...) "))
+		for i = 0 to ubound(dataArray) step 2
+			desc = ""
+			col = dataArray(i)
+			val = dataArray(i + 1)
+			on error resume next
+				RS(col) = val
+				failed = err <> 0
+				if failed then desc = err.description
+			on error goto 0
+			if failed then lib.throwError (array(100, callingFunctionName, "Error setting '" & col & "' column to value '" & val & "'. " & desc))
+		next
 	end sub
 	
 	'******************************************************************************************************************
