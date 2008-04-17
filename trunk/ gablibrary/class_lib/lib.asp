@@ -34,7 +34,7 @@ set str = new StringOperations
 class Library
 
 	'private members
-	private uniqueID, p_numberOfDBAccess, p_extensionIcons, p_gablibIconsPath, p_browser, p_form
+	private uniqueID, p_numberOfDBAccess, p_extensionIcons, p_gablibIconsPath, p_browser, p_form, p_useStringBuilder
 	
 	'public members
 	public databaseConnection	''[ADODBConnection] Holds the Database-connection
@@ -43,6 +43,10 @@ class Library
 	public page					''[GeneratePage] currently executing page. just needed for control developers.
 	public FSO					''[FileSystemObject] an instance of fileSystemObject for quick use ;)
 	public registeredClasses	''[dictionary] collection of registered classes. key = name of the class (lcase)
+	
+	public property get useStringBuilder ''[bool] indicates if the stringbuilder should be used if possible or not.
+		useStringBuilder = p_useStringBuilder
+	end property
 	
 	public property set form(val) ''[NameValueCollection] sets the reference to the form which is used. when using a multipart/form-data form, then its useful to assign the collection to a components formcollection. e.g. W3Upload. ONLY ADVANCED USE!
 		'if the type is the same we dont set it because
@@ -91,6 +95,7 @@ class Library
 		uniqueID = 0
 		set custom = new CustomLib
 		p_browser = ""
+		p_useStringBuilder = init(GL_CONST_STRINGBUILDER, true)
 	end sub
 	
 	'***********************************************************************************************************

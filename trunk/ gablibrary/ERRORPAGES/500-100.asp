@@ -1,4 +1,4 @@
-<!--#include file="../class_page/generatePage.asp"-->
+﻿<!--#include file="../class_page/generatePage.asp"-->
 <!--#include file="../class_errorHandler/errorHandler.asp"-->
 <!--#include file="../class_textTemplate/TextTemplate.asp"-->
 <%

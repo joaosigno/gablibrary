@@ -110,7 +110,7 @@ class Dropdown
 		valuesDatasource			= array()
 		multiple					= false
 		disabled					= false
-		useStringBuilder			= true
+		useStringBuilder			= lib.useStringBuilder
 		autoDrawItems				= true
 		selectedFound				= false
 		commonFieldText				= empty

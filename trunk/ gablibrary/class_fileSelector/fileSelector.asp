@@ -89,7 +89,7 @@ class fileSelector
 		uniqueID					= 0
 		height						= 200
 		filesOpenable				= true
-		useStringBuilder			= true
+		useStringBuilder			= lib.useStringBuilder
 		multipleSelection			= true
 		showExtensionOfKnownTypes	= false
 		lastFileUnknownExtension	= false
