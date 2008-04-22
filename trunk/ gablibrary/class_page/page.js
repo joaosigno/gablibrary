@@ -46,6 +46,7 @@ gablib.callback = function(theAction, func, params, onComplete, url) {
 	params = params.merge({gabLibPageAjaxed: 1, gabLibPageAjaxedAction: theAction});
 	uri = window.location.href;
 	if (uri.endsWith('/') && url) uri += url;
+	if (url) uri = url;
 	new Ajax.Request(uri, {
 		method: 'post',
 		parameters: params,

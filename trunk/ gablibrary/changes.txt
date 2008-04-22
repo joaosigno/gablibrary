@@ -11,7 +11,8 @@
 - lib.contains added: checks if a given value is available within a given datastructure
 - lib.getRS() and lib.getUnlockedRS() added ... those should be used instead if getRecordset and getUnlockedRecordset. They
 	use parameters for the query as well.. those are automatically sql injection safe.
-
+- gablib.callback ... last parameter url: whenever it is given then its used. it used to only use it if the current url ended with a slash
+	
 VERSION 1.1
 
 March 2008
