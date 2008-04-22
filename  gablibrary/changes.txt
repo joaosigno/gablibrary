@@ -9,7 +9,9 @@
 - gab_library/test/ provides a console for unit testing.
 	- tests are of the whole server are displayed
 - lib.contains added: checks if a given value is available within a given datastructure
-	
+- lib.getRS() and lib.getUnlockedRS() added ... those should be used instead if getRecordset and getUnlockedRecordset. They
+	use parameters for the query as well.. those are automatically sql injection safe.
+
 VERSION 1.1
 
 March 2008

@@ -687,46 +687,77 @@ class Library
 	end function
 	
 	'******************************************************************************************************************
-	'' @DESCRIPTION: 	Default method which should be always used to get a LOCKED recordset. Example for use:
-	''					set rs = lib.getRecordset("SELECT * FROM users")
-	'' @PARAM:			sql [string]: Your SQL query
-	'' @RETURN:			[object] recordset-Object
+	'' @DESCRIPTION: 	Gets a LOCKED recordset from the currently opened database. Example of usage:
+	''					set RS = lib.getRS("SELECT * FROM users WHERE name = '{0}'", "john")
+	'' @PARAM:			sql [string]: Your SQL query. placeholder for params are {0}, {1}, ... check str.format() for details
+	'' @PARAM:			params [array], [string]: parameters for the query which are used within the sql query. Parameters
+	''					are made sql injection safe. Leave empty if no params are needed
+	'' @RETURN:			[recordset] recordset with data matching the sql query
 	'******************************************************************************************************************
-	public function getRecordset(sql)
-		if trim(sql) = "" then throwError(array(100, "lib.getRecordset", "SQL-Query cannot be empty"))
+	public function getRS(sql, params)
+		sql = parametrizeSQL(sql, params, "lib.getRS")
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
 		on error resume next
- 		set getRecordset = databaseConnection.execute(sql)
+ 		set getRS = databaseConnection.execute(sql)
 		if err <> 0 then
 			errdesc = err.description
 			on error goto 0
-			throwError(array(101, "lib.getRecordset", "Could not execute '" & sql & "'. Reason: " & errdesc, sql))
+			throwError(array(101, "lib.getRS", "Could not execute '" & sql & "'. Reason: " & errdesc, sql))
 		end if
 		on error goto 0
 		p_numberOfDBAccess = p_numberOfDBAccess + 1
+	end function
+	
+	'******************************************************************************************************************
+	'' @DESCRIPTION: 	Gets an UNLOCKED recordset from the currently opened database. check getRS() doc
+	'' @PARAM:			sql [string]: check getRS() doc
+	'' @PARAM:			params [array], [string]: check getRS() doc
+	'' @RETURN:			[recordset] recordset with data matching the sql query
+	'******************************************************************************************************************
+	public function getUnlockedRS(sql, params)
+		sql = parametrizeSQL(sql, params, "lib.getUnlockedRS")
+		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
+		on error resume next
+		set getUnlockedRS = server.createObject("ADODB.RecordSet")
+		getUnlockedRS.cursorLocation = 3
+		getUnlockedRS.cursorType = 3
+		getUnlockedRS.open sql, databaseConnection
+		if err <> 0 then
+			errdesc = err.description
+			on error goto 0
+			throwError(array(101, "lib.getUnlockedRS", "Could not execute '" & sql & "'. Reason: " & errdesc, sql))
+		end if
+		on error goto 0
+		p_numberOfDBAccess = p_numberOfDBAccess + 1
+	end function
+	
+	'******************************************************************************************************************
+	'* parametrizeSQL 
+	'******************************************************************************************************************
+	private function parametrizeSQL(sql, params, callingFunction)
+		if trim(sql) = "" then throwError(array(100, callingFunction, "SQL-Query cannot be empty"))
+		parametrizeSQL = sql
+		if not isEmpty(params) then
+			if not isArray(params) then params = array(params)
+			for i = 0 to uBound(params)
+				params(i) = str.sqlSafe(params(i))
+			next
+			parametrizeSQL = str.format(parametrizeSQL, params)
+		end if
+	end function
+	
+	'******************************************************************************************************************
+	'' @DESCRIPTION: 	OBSOLETE! use lib.getUnlockedRS().
+	'******************************************************************************************************************
+	public function getUnlockedRecordset(sql)
+		set getUnlockedRecordset = getUnlockedRS(sql, empty)
 	end Function
 	
 	'******************************************************************************************************************
-	'' @DESCRIPTION: 	Default method which should be always used to get an UNLOCKED recordset. Example for use:
-	''					set rs = lib.getUnlockedRecordset("SELECT * FROM users")
-	'' @PARAM:			sql [string]: Your SQL query
-	'' @RETURN:			[object] recordset-Object
+	'' @DESCRIPTION: 	OBSOLETE! Use getRS() instead.
 	'******************************************************************************************************************
-	public function getUnlockedRecordset(sql)
-		if trim(sql) = "" then throwError(array(100, "lib.getUnlockedRecordset", "SQL-Query cannot be empty"))
-		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
-		on error resume next
-		set getUnlockedRecordset = server.createObject("ADODB.RecordSet")
-		getUnlockedRecordset.cursorLocation = 3
-		getUnlockedRecordset.cursorType = 3
-		getUnlockedRecordset.open sql, databaseConnection
-		p_numberOfDBAccess = p_numberOfDBAccess + 1
-		if err <> 0 then
-			errdesc = err.description
-			on error goto 0
-			throwError(array(101, "lib.getUnlockedRecordset", "Could not execute '" & sql & "'. Reason: " & errdesc, sql))
-		end if
-		on error goto 0
+	public function getRecordset(sql)
+		set getRecordset = getRS(sql, empty)
 	end Function
 	
 	'******************************************************************************************************************
