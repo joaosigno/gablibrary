@@ -12,7 +12,8 @@
 - lib.getRS() and lib.getUnlockedRS() added ... those should be used instead if getRecordset and getUnlockedRecordset. They
 	use parameters for the query as well.. those are automatically sql injection safe.
 - gablib.callback ... last parameter url: whenever it is given then its used. it used to only use it if the current url ended with a slash
-	
+- validateable has an reflect() method now.. cool to use in combination with ajaxed. Just return the whole validateable instance	
+
 VERSION 1.1
 
 March 2008
