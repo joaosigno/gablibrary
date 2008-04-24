@@ -337,6 +337,7 @@ class GeneratePage
 	'* setHTTPHeader 
 	'******************************************************************************************************************
 	public sub setHTTPHeader()
+		lib.debug request.serverVariables("REQUEST_METHOD") & " on " & getLocation("FULL", true), 32
 		with response
 			.expires = 0
 			.buffer = buffering
@@ -369,7 +370,9 @@ class GeneratePage
 			end if
 			str.writeln("{ ""root"": {")
 			ajaxedStatus = 0
-			callback(left(lib.RF("gabLibPageAjaxedAction"), 255))
+			act = left(lib.RF("gabLibPageAjaxedAction"), 255)
+			lib.debug "CALLBACK with action '" & act & "' on " & getLocation("FULL", true), 32
+			callback(act)
 			if ajaxedStatus = 0 then str.write(" null ")
 			if ajaxedStatus = 1 then
 				str.writeln(vbcrlf & "} }")

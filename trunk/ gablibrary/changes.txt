@@ -1,4 +1,4 @@
-﻿April 2008
+April 2008
 - added TestFixture. easy to implement unittests now.. check the test_testFixture.asp for how to use it
 - added lib.range method which makes it easier to create array for a given range. e.g. months of the year (1..12)
 - added TestFixture.assertHas and TestFixture.assertHasNot - check documentation
@@ -13,6 +13,12 @@
 	use parameters for the query as well.. those are automatically sql injection safe.
 - gablib.callback ... last parameter url: whenever it is given then its used. it used to only use it if the current url ended with a slash
 - validateable has an reflect() method now.. cool to use in combination with ajaxed. Just return the whole validateable instance	
+- logger.splittingSize can be 0 .. means that the file should never split
+- logger default file extension is .log instead of .txt
+- added lib.debug which allows you to log debug messages to a logfile called dev.log.
+	- you can also colorize debug messages (use cygwin to tail your log and view it colorized)
+	- all database functions use lib.debug now so you can easily tail the log file and see whats going on
+	- also each page request is being logged now.
 
 VERSION 1.1
 
