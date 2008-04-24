@@ -513,6 +513,19 @@ class Library
 	end sub
 	
 	'******************************************************************************************************************
+	'' @DESCRIPTION: 	logs a debug message. only on the development environment
+	'' @PARAM:			msg [string]: message to debug
+	'' @PARAM:			color [int]: ansi color code. check at http://en.wikipedia.org/wiki/ANSI_escape_code
+	''					some values: 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white
+	''					41 red BG, 42, green BG, ....
+	'******************************************************************************************************************
+	public sub debug(msg, color)
+		if not consts.isDevelopment() then exit sub
+		if color = empty then color = 37
+		lib.logAndForget "dev", chr(27) & "[0;" & color & "m " & msg & chr(27) & "[1;37m"
+	end sub
+	
+	'******************************************************************************************************************
 	'' @SDESCRIPTION: 	Opposite of server.URLEncode
 	'' @PARAM:			- endcodedText [string]: your string which should be decoded. e.g: Haxn%20Text (%20 = Space)
 	'' @RETURN:			[string] decoded string
@@ -565,7 +578,9 @@ class Library
 	public sub delete(tablename, condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
 		if condition = "" then exit sub
-		getRecordset("DELETE FROM " & str.sqlSafe(tablename) & getWhereClause(condition))
+		sql = "DELETE FROM " & str.sqlSafe(tablename) & getWhereClause(condition)
+		debug sql, 36
+		getRecordset(sql)
 	end sub
 	
 	'******************************************************************************************************************
@@ -603,7 +618,9 @@ class Library
 	public sub update(tablename, data, condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
 		set aRS = server.createObject("ADODB.Recordset")
-		aRS.open "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition), dataBaseConnection, 1, 2
+		sql = "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition)
+		debug sql, 36
+		aRS.open sql, dataBaseConnection, 1, 2
 		fillRSWithData aRS, data, "db.update"
 		aRS.update()
 		aRS.close()
@@ -651,6 +668,7 @@ class Library
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.toggle", "tablename cannot be empty"))
 		if trim(columnName) = "" then lib.throwError(array(100, "lib.toggle", "columnname cannot be empty"))
 		sql = "UPDATE " & str.SQLSafe(tablename) & " SET " & str.SQLSafe(columnName) & " = not " & str.SQLSafe(columnName) & getWhereClause(condition)
+		debug sql, 36
 		getRecordset(sql)
 	end sub
 	
@@ -697,6 +715,7 @@ class Library
 	public function getRS(sql, params)
 		sql = parametrizeSQL(sql, params, "lib.getRS")
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
+		debug sql, 36
 		on error resume next
  		set getRS = databaseConnection.execute(sql)
 		if err <> 0 then
@@ -716,6 +735,7 @@ class Library
 	'******************************************************************************************************************
 	public function getUnlockedRS(sql, params)
 		sql = parametrizeSQL(sql, params, "lib.getUnlockedRS")
+		debug sql, 36
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
 		on error resume next
 		set getUnlockedRS = server.createObject("ADODB.RecordSet")
@@ -734,7 +754,7 @@ class Library
 	'******************************************************************************************************************
 	'* parametrizeSQL 
 	'******************************************************************************************************************
-	private function parametrizeSQL(sql, params, callingFunction)
+	private function parametrizeSQL(sql, byVal params, callingFunction)
 		if trim(sql) = "" then throwError(array(100, callingFunction, "SQL-Query cannot be empty"))
 		parametrizeSQL = sql
 		if not isEmpty(params) then

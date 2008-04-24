@@ -36,7 +36,7 @@ class Logger
 	private openAsASCII, openAsUnicode, openAsSystem
 	
 	public identification			''[string] the name of the log file, default is "common_logs"
-	public splittingSize			''[int] the maximum file size of the current log file in bytes, default is "100 000"
+	public splittingSize			''[int] the maximum file size of the current log file in bytes, default is "100 000". 0 = never split
 	public onlyOneLogFile			''[bool] if this flag is true and the splitting size has been reached, the old file will
 									''be deleted and a new one will be created
 	
@@ -60,7 +60,7 @@ class Logger
 		currentLogfilePath		= empty
 		logFileFromIndex		= empty
 		identification 			= "common_logs"
-		logfileExtension 		= "txt"
+		logfileExtension 		= "log"
 		logsPath				= str.ensureSlash(consts.logs_path)
 		splittingSize			= 100000
 		logMessagePrefix		= "[" & request.servervariables("REMOTE_ADDR") & " | " & PREFIX_PLACEHOLDER & "]" & vbTab
@@ -186,7 +186,7 @@ class Logger
 	'* needsToBeSplitted - returns true if the file size of the log file is bigger than the splittingSize
 	'**************************************************************************************************************
 	private function needsToBeSplitted()
-		needsToBeSplitted = (currentLogFile.size >= splittingSize)
+		needsToBeSplitted = (splittingSize <> 0 and currentLogFile.size >= splittingSize)
 	end function
 	
 	'**************************************************************************************************************
@@ -206,8 +206,12 @@ class Logger
 	'* getNewFileName - returns a new filename with the name and the date
 	'**************************************************************************************************************
 	private function getNewFileName()
-		getNewFileName = identification  & "_" & Year(now) & "_" & Month(now) & "_" & Day(now) & "_" & _
-						 Hour(now) & Minute(now) & Second(now) & "." & logFileExtension
+		if splittingSize = 0 then
+			getNewFileName = identification & "." & logFileExtension
+		else
+			getNewFileName = identification  & "_" & Year(now) & "_" & Month(now) & "_" & Day(now) & "_" & _
+				Hour(now) & Minute(now) & Second(now) & "." & logFileExtension
+		end if
 	end function
 	
 	'**************************************************************************************************************
