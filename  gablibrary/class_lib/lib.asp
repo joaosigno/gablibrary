@@ -575,7 +575,7 @@ class Library
 	'' @PARAM:			condition [int], [string]: ID of the record or a condition e.g. "id = 20 AND cool = 1"
 	''					- if condition is a string then you need to ensure sql-safety with str.sqlsafe yourself.
 	'******************************************************************************************************************
-	public sub delete(tablename, condition)
+	public sub delete(tablename, byVal condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
 		if condition = "" then exit sub
 		sql = "DELETE FROM " & str.sqlSafe(tablename) & getWhereClause(condition)
@@ -615,7 +615,7 @@ class Library
 	'' @PARAM:			condition [int], [string]: ID of the record or a condition e.g. "id = 20 AND cool = 1"
 	''					- if condition is a string then you need to ensure sql-safety with str.sqlsafe yourself.
 	'******************************************************************************************************************
-	public sub update(tablename, data, condition)
+	public sub update(tablename, data, byVal condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
 		set aRS = server.createObject("ADODB.Recordset")
 		sql = "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition)
@@ -675,7 +675,7 @@ class Library
 	'******************************************************************************************************************
 	'* getWhereClause - generates the where clause for SQL queries 
 	'******************************************************************************************************************
-	private function getWhereClause(condition)
+	private function getWhereClause(byVal condition)
 		getWhereClause = trim(condition)
 		if isNumeric(condition) then
 			rID = str.parse(condition, 0)
@@ -695,7 +695,7 @@ class Library
 	'' @RETURN:			[variant] the first value of the result converted to the type of noRecordReplacer
 	''					or the noRecordReplacer
 	'******************************************************************************************************************
-	public function getScalar(sql, noRecordReplacer)
+	public function getScalar(byVal sql, noRecordReplacer)
 		if trim(sql) = "" then throwError(array(100, "lib.getScalar", "SQL-Query cannot be empty"))
 		getScalar = noRecordReplacer
 		set aRS = lib.getRecordset(sql)
@@ -712,7 +712,7 @@ class Library
 	''					are made sql injection safe. Leave empty if no params are needed
 	'' @RETURN:			[recordset] recordset with data matching the sql query
 	'******************************************************************************************************************
-	public function getRS(sql, params)
+	public function getRS(byVal sql, params)
 		sql = parametrizeSQL(sql, params, "lib.getRS")
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
 		debug sql, 36
@@ -733,7 +733,7 @@ class Library
 	'' @PARAM:			params [array], [string]: check getRS() doc
 	'' @RETURN:			[recordset] recordset with data matching the sql query
 	'******************************************************************************************************************
-	public function getUnlockedRS(sql, params)
+	public function getUnlockedRS(byVal sql, params)
 		sql = parametrizeSQL(sql, params, "lib.getUnlockedRS")
 		debug sql, 36
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
@@ -754,7 +754,7 @@ class Library
 	'******************************************************************************************************************
 	'* parametrizeSQL 
 	'******************************************************************************************************************
-	private function parametrizeSQL(sql, byVal params, callingFunction)
+	private function parametrizeSQL(byVal sql, byVal params, callingFunction)
 		if trim(sql) = "" then throwError(array(100, callingFunction, "SQL-Query cannot be empty"))
 		parametrizeSQL = sql
 		if not isEmpty(params) then
@@ -769,14 +769,14 @@ class Library
 	'******************************************************************************************************************
 	'' @DESCRIPTION: 	OBSOLETE! use lib.getUnlockedRS().
 	'******************************************************************************************************************
-	public function getUnlockedRecordset(sql)
+	public function getUnlockedRecordset(byVal sql)
 		set getUnlockedRecordset = getUnlockedRS(sql, empty)
 	end Function
 	
 	'******************************************************************************************************************
 	'' @DESCRIPTION: 	OBSOLETE! Use getRS() instead.
 	'******************************************************************************************************************
-	public function getRecordset(sql)
+	public function getRecordset(byVal sql)
 		set getRecordset = getRS(sql, empty)
 	end Function
 	
