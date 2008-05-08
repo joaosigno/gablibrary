@@ -19,28 +19,21 @@
 class ExcelExporter
 
 	'private members
-	private maxHiddenFieldLength		
-	private p_output					
-	private stringBuilderInstanciated	
+	private maxHiddenFieldLength, p_output, stringBuilderInstanciated
 	
 	'public members
-	public useStringBuilder				''[bool] use stringBuilder for concating the output string?
+	public useStringBuilder				''[bool] OBSOLETE! use stringBuilder for concating the output string?
 	
 	'**********************************************************************************************************
 	'* constructor 
 	'**********************************************************************************************************
 	public sub class_initialize()
 		maxHiddenFieldLength			= 100000
-		useStringBuilder				= lib.useStringBuilder
 		stringBuilderInstanciated		= false
 	end sub
 	
 	public property get output ''[string] gets the current output-string
-		if useStringBuilder then
-			output = p_output.toString()
-		else
-			output = p_output
-		end if
+		output = p_output.toString()
 	end property
 	
 	'Format-styles: useful if you want to format your excelsheet and dont remember these cryptic values ;)
@@ -86,16 +79,11 @@ class ExcelExporter
 	'' @PARAM			inputStr [string]: ATTENTION: only strings with a maximum length of 40000 chars allowed
 	'**********************************************************************************************************
 	public sub addOutput(inputStr)
-		if useStringBuilder then
-			if not stringBuilderInstanciated then
-				set p_output = server.createObject("StringBuilderVB.StringBuilder")
-				p_output.init 40000, 7500
-				stringBuilderInstanciated = true
-			end if
-			p_output.append(inputStr)
-		else
-			p_output = p_output & inputStr
+		if not stringBuilderInstanciated then
+			set p_output = new StringBuilder
+			stringBuilderInstanciated = true
 		end if
+		p_output.append(inputStr)
 	end sub
 	
 	'**********************************************************************************************************

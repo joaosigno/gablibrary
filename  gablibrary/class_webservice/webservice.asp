@@ -83,6 +83,7 @@ class Webservice
 	public sub class_initialize()
 		lib.require(array("TextTemplate", "ErrorHandler", "GeneratePage"))
 		set myBase = new GeneratePage
+		myBase.loginRequired = false
 		set XMLDOM = server.createObject("Microsoft.XMLDOM")
 		set params = server.createObject("scripting.dictionary")
 		myBase.isXML = true

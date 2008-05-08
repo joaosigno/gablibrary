@@ -33,7 +33,7 @@ class datePicker
 	public minimumAllowedDate	''[date] the minimum allowed date. if empty then every date is selectable to the lower-side
 	public autoDisableNavi		''[bool] should the navigation be disabled if the allowed date cannot be reached
 								''e.g. if the previous month is not allowed the back-month-button will be disabled, etc.
-	public useStringBuilder		''[bool] use stringbuilder. default = true
+	public useStringBuilder		''[bool] OBSOLETE! use stringbuilder. default = true
 	public cssLocation			''[string] the path and file name to the css file. Gets the default from the config.asp
 	
 	private classLocation		'Absolute path of the class itself
@@ -63,7 +63,6 @@ class datePicker
 		JSTarget				= empty
 		originallyLCID			= session.lcid
 		autoDisableNavi			= false
-		useStringBuilder		= lib.useStringBuilder
 		
 		'this is the lcid the calendar uses.
 		'the lcid will be set to the old at the end
@@ -73,7 +72,7 @@ class datePicker
 	'Destruktor
 	private sub Class_Terminate()
 		session.lcid = originallyLCID
-		if useStringBuilder then set output = nothing
+		set output = nothing
 	end sub
 	
 	public property get holidayName() ''[string] Returns the name of a holiday which were calculated through isHoliday-method
@@ -92,7 +91,7 @@ class datePicker
 		printCalendar()
 		printFooter()
 		'if stringbuilder used we have to write the output
-		if useStringBuilder then response.write(output.toString())
+		response.write(output.toString())
 	end sub
 	
 	'***********************************************************************************************************
@@ -106,10 +105,7 @@ class datePicker
 	'* initOutputMethod 
 	'***********************************************************************************************************
 	private sub initOutputMethod()
-		if useStringBuilder then
-			set output = Server.CreateObject("StringBuilderVB.StringBuilder")
-			output.init 40000, 7500
-		end if
+		set output = new StringBuilder
 	end sub
 	
 	'***********************************************************************************************************
@@ -160,11 +156,7 @@ class datePicker
 	'* print 
 	'***********************************************************************************************************
 	private sub print(outputString)
-		if useStringBuilder then
-			output.append(outputString)
-		else
-			str.writeln(outputString)
-		end if
+		output.write(outputString)
 	end sub
 	
 	'***********************************************************************************************************

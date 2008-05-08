@@ -68,7 +68,7 @@ class dropdownItem
 		if dropdown.isCommonDropdown() then
 			dropdown.print(text)
 		else
-			dropdown.print("<label for=" & dropdown.name & index & ">" & text & "</label>")
+			dropdown.print("<label for=" & dropdown.name & dropdown.uniqueID & index & ">" & text & "</label>")
 		end if
 	end sub
 	
@@ -89,7 +89,7 @@ class dropdownItem
 				lib.iif(attributes <> empty, " " & attributes, empty) & _
 				"><input" & _
 				dropdown.getAttribute("type", lib.iif(dropdown.multipleSelectionType = DD_SELECTIONTYPE_MULTIPLE, "checkbox", "radio")) & _
-				dropdown.getAttribute("id", dropdown.name & index) & _
+				dropdown.getAttribute("id", dropdown.name & dropdown.uniqueID & index) & _
 				dropdown.getAttribute("name", dropdown.name) & _
 				dropdown.getAttribute("value", value) & _
 				lib.iif(selected, " checked=""checked""", empty) & ">")

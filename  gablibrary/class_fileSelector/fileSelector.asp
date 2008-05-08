@@ -16,14 +16,8 @@
 class fileSelector
 
 	'private members
-	private p_sourcePath				
-	private virtualSourcePath			
-	private classLocation				
-	private uniqueID					
-	private selectedFiles				
-	private output						
-	private imagePath					
-	private lastFileUnknownExtension	
+	private p_sourcePath, virtualSourcePath, classLocation, uniqueID, selectedFiles, output
+	private imagePath, lastFileUnknownExtension
 	
 	'public members
 	public fso							''[object] filesystem-object. its public that the client can use it too.
@@ -34,7 +28,7 @@ class fileSelector
 	public height						''[int] height of the control in pixels. 
 	public filesOpenable				''[bool] should the user be able to open the files on double-click? default = true
 	public showFiles					''[bool] show the files within folder? useful when you want only the folders. default = true
-	public useStringBuilder				''[bool] use the stringbuilder? DLL need to be installed. default = true
+	public useStringBuilder				''[bool] OBSOLETE! use the stringbuilder? DLL need to be installed. default = true
 	public multipleSelection			''[bool] multiple selection is allowed? default = true
 	public showExtensionOfKnownTypes	''[bool] show the extension of a known file-type. default = false
 										''a file is known if the icon is available. just copy the icon to the images-directory
@@ -89,7 +83,6 @@ class fileSelector
 		uniqueID					= 0
 		height						= 200
 		filesOpenable				= true
-		useStringBuilder			= lib.useStringBuilder
 		multipleSelection			= true
 		showExtensionOfKnownTypes	= false
 		lastFileUnknownExtension	= false
@@ -142,28 +135,21 @@ class fileSelector
 		else
 			print(sourcePath & " does not exist.")
 		end if
-		if useStringBuilder then response.write(output.toString())
+		response.write(output.toString())
 	end sub
 	
 	'**********************************************************************************************************
 	'* initStringBuilder 
 	'**********************************************************************************************************
 	private function initStringBuilder()
-		if useStringBuilder then
-			Set output = Server.CreateObject("StringBuilderVB.StringBuilder")
-			output.init 70000, 7500
-		end if
+		set output = new StringBuilder
 	end function
 	
 	'**********************************************************************************************************
 	'* print 
 	'**********************************************************************************************************
 	private sub print(outputStr)
-		if useStringBuilder then
-			output.append(outputStr)
-		else
-			response.write(outputStr)
-		end if
+		output.write(outputStr)
 	end sub
 	
 	'**********************************************************************************************************

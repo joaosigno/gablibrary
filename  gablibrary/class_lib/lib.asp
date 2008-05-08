@@ -1,9 +1,10 @@
-<% set lib = new Library %>
+﻿<% set lib = new Library %>
 <!--#include virtual="/gab_Library/class_constants/constants.asp"-->
 <!--#include virtual="/gab_Library/class_string/string.asp"-->
 <!--#include virtual="/gab_LibraryConfig/class_customLib.asp"-->
 <!--#include virtual="/gab_Library/class_createDropdown/createDropdown.asp"-->
 <!--#include virtual="/gab_library/class_logger/logger.asp"-->
+<!--#include virtual="/gab_Library/class_stringBuilder/stringBuilder.asp"-->
 <%
 '**************************************************************************************************************
 '* GAB_LIBRARY Copyright (C) 2003	
@@ -34,7 +35,7 @@ set str = new StringOperations
 class Library
 
 	'private members
-	private uniqueID, p_numberOfDBAccess, p_extensionIcons, p_gablibIconsPath, p_browser, p_form, p_useStringBuilder
+	private uniqueID, p_numberOfDBAccess, p_extensionIcons, p_gablibIconsPath, p_browser, p_form
 	
 	'public members
 	public databaseConnection	''[ADODBConnection] Holds the Database-connection
@@ -43,10 +44,6 @@ class Library
 	public page					''[GeneratePage] currently executing page. just needed for control developers.
 	public FSO					''[FileSystemObject] an instance of fileSystemObject for quick use ;)
 	public registeredClasses	''[dictionary] collection of registered classes. key = name of the class (lcase)
-	
-	public property get useStringBuilder ''[bool] indicates if the stringbuilder should be used if possible or not.
-		useStringBuilder = p_useStringBuilder
-	end property
 	
 	public property set form(val) ''[NameValueCollection] sets the reference to the form which is used. when using a multipart/form-data form, then its useful to assign the collection to a components formcollection. e.g. W3Upload. ONLY ADVANCED USE!
 		'if the type is the same we dont set it because
@@ -95,7 +92,6 @@ class Library
 		uniqueID = 0
 		set custom = new CustomLib
 		p_browser = ""
-		p_useStringBuilder = init(GL_CONST_STRINGBUILDER, true)
 	end sub
 	
 	'***********************************************************************************************************
@@ -115,14 +111,14 @@ class Library
 	'' @RETURN:			[string] name of the component which could be loaded first or empty if no one could be loaded
 	'**********************************************************************************************************
 	public function detectComponent(components)
-		tryLoadComponent = empty
+		detectComponent = empty
 		for each c in components
 			on error resume next
 				server.createObject(c)
 				failed = err <> 0
 			on error goto 0
 			if not failed then
-				tryLoadComponent = c
+				detectComponent = c
 				exit for
 			end if
 		next
@@ -578,9 +574,7 @@ class Library
 	public sub delete(tablename, byVal condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.delete", "tablename cannot be empty"))
 		if condition = "" then exit sub
-		sql = "DELETE FROM " & str.sqlSafe(tablename) & getWhereClause(condition)
-		debug sql, 36
-		getRecordset(sql)
+		getRS "DELETE FROM " & str.sqlSafe(tablename) & getWhereClause(condition), empty
 	end sub
 	
 	'******************************************************************************************************************
@@ -667,9 +661,7 @@ class Library
 	public sub toggle(tablename, columnName, condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.toggle", "tablename cannot be empty"))
 		if trim(columnName) = "" then lib.throwError(array(100, "lib.toggle", "columnname cannot be empty"))
-		sql = "UPDATE " & str.SQLSafe(tablename) & " SET " & str.SQLSafe(columnName) & " = not " & str.SQLSafe(columnName) & getWhereClause(condition)
-		debug sql, 36
-		getRecordset(sql)
+		getRS "UPDATE " & str.SQLSafe(tablename) & " SET " & str.SQLSafe(columnName) & " = not " & str.SQLSafe(columnName) & getWhereClause(condition), empty
 	end sub
 	
 	'******************************************************************************************************************
@@ -698,7 +690,7 @@ class Library
 	public function getScalar(byVal sql, noRecordReplacer)
 		if trim(sql) = "" then throwError(array(100, "lib.getScalar", "SQL-Query cannot be empty"))
 		getScalar = noRecordReplacer
-		set aRS = lib.getRecordset(sql)
+		set aRS = lib.getRS(sql, empty)
 		if not aRS.eof then getScalar = str.parse(aRS(0) & "", noRecordReplacer)
 		set aRS = nothing
 		p_numberOfDBAccess = p_numberOfDBAccess + 1
