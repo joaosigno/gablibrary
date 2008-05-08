@@ -541,7 +541,7 @@ class GeneratePage
 				loadJavascriptFile(consts.gabLibLocation & "class_page/prototype.js")
 				if not isFrameset then
 					str.writeln("<img id=""ajaxLoader"" class=""notForPrint"" style=""position:absolute;right:10px;bottom:10px;display:none;z-index:10000;"" src=""" & consts.stdapp("images/loading_ajax.gif") & """>")
-					lib.execJS("Ajax.Responders.register({ onCreate: function() { $('ajaxLoader').show(); }, onComplete: function() { $('ajaxLoader').hide(); } }); ")
+					lib.execJS("Ajax.Responders.register({ onCreate: function() { $('ajaxLoader').show(); }, onComplete: function() { if(Ajax.activeRequestCount==0)$('ajaxLoader').hide(); } }); ")
 				end if
 			end if
 			

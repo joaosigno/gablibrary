@@ -19,6 +19,11 @@ April 2008
 	- you can also colorize debug messages (use cygwin to tail your log and view it colorized)
 	- all database functions use lib.debug now so you can easily tail the log file and see whats going on
 	- also each page request is being logged now.
+- BUGFIX: when using more multiple dropdowns in one page => IDs of the items could be the same and so the labels didnt really work. added a dropdown.uniqueID property to fix this
+- stringbuilder wrapper class added. it supports now stringBuilderVB and .net System.IO.StringWriter (which is really fast)
+	- stringbuilder is automatically loaded 
+	- use stringbuilder.write method if possible. this chooses always the most efficient way for the output
+	- all components are using the new stringbuilder now. lib.useStringBuilder has been removed now because not needed anymore
 
 VERSION 1.1
 

@@ -90,7 +90,7 @@ class Drawtable
 	public excelTxt					''[string] Your own Text or IMAGE for the Export to Excel button.
 	public allowHtml				''[bool] Allow HTML-Tags in tabledata? ATTENTION! SETTING IT "FALSE" WILL CAUSE SPEED REDUCTION!!! default: true
 	public restoreFilterOnSearch	''[bool] do you want to remember the seted filter when using the fulltextsearch?
-	public stringBuilderDLL			''[bool] - is the stringBuilder-DLL available? StringBuilderDLL makes the table extremly fast!
+	public stringBuilderDLL			''[bool] OBSOLETE! - is the stringBuilder-DLL available? StringBuilderDLL makes the table extremly fast!
 	public extendButtonBar			''[string] Name of the function you want to execute in the buttonbar. Function must return the output! e.g. You need an extra button in the button-bar
 	public tableCellpadding			''[int] Cellpadding of the table. default = 3
 	public tableCellspacing			''[int] Cellspacing of the table. default = 1
@@ -198,7 +198,6 @@ class Drawtable
 		allowHTML				= true
 		restoreFilterOnSearch	= false
 		bigForTime				= 0
-		stringBuilderDLL		= lib.useStringBuilder
 		headervariable			= empty
 		extendButtonBar			= empty
 		tableCellpadding		= 3
@@ -258,11 +257,9 @@ class Drawtable
 		genTable()
 		
 		'if we have stringbuilder then we show the output
-		if stringBuilderDLL then
-			str.write(output.toString)
-			set output = nothing
-			set headervariable = nothing
-		end if
+		str.write(output.toString())
+		set output = nothing
+		set headervariable = nothing
 	end function
 	
 	'******************************************************************************************************************
@@ -433,12 +430,8 @@ class Drawtable
 	' init_StringBuilder
 	'**************************************************************************************************************
 	private function init_StringBuilder()
-		if stringBuilderDLL then
-			Set output = Server.CreateObject("StringBuilderVB.StringBuilder")
-			output.Init 40000, 7500
-			Set headervariable = Server.CreateObject("StringBuilderVB.StringBuilder")
-			headervariable.Init 5000,1000
-		end if
+		set output = new StringBuilder
+		Set headervariable = new StringBuilder
 	end function
 	
 	'**************************************************************************************************************
@@ -930,11 +923,7 @@ class Drawtable
 		if lib.browser = "IE" then addToOutput("<thead>")
 		'show header first time. if nothing found also headers will be shown
 		printHeader myFields,commonSort
-		if stringBuilderDll then
-			addToOutput(headerVariable.toString)
-		else
-			addToOutput(headervariable)
-		end if
+		addToOutput(headerVariable.toString)
 		
 		'we write the current sort as value.
 		addToOutput(hiddenFieldString("sortValue", mysort))
@@ -972,11 +961,7 @@ class Drawtable
 					'SHOW US THE HEADERS. EVERY X LINE.
 					if headersPerRow <> 0 then
 						if not counter = 0 and counter mod headersPerRow = 0 then
-							if stringBuilderDll then
-								addToOutput(headerVariable.toString)
-							else
-								addToOutput(headervariable)
-							end if
+							addToOutput(headerVariable.toString())
 						end if
 					end if
 					
@@ -1369,22 +1354,14 @@ class Drawtable
 	'* addToOutput 
 	'******************************************************************************************************************
 	private sub addToOutput(str)
-		if stringBuilderDLL then
-			output.append str & vbCrLf
-		else
-			response.write str & vbCrLf
-		end if
+		output.write(str & vbCrLf)
 	end sub
 	
 	'******************************************************************************************************************
 	'* addToHeaderVariable 
 	'******************************************************************************************************************
 	private function addToHeaderVariable(str)
-		if stringBuilderDLL then
-			headerVariable.append str & vbCrLf
-		else
-			headerVariable = headerVariable & str & vbCrLf
-		end if
+		headerVariable.append(str & vbCrLf)
 	end function
 	
 end class

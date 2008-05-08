@@ -62,7 +62,7 @@ class Dropdown
 	public size						''[int] number of displayed rows if its a multiple dropdown. default = 1. If its not a common-multiple-dropdown
 									''then the size is used as pixels for the height of the dropdown.
 	public disabled					''[bool] indicates whether the control is disabled or not. default = false
-	public useStringBuilder			''[bool] indicates if stringbuilder should be used for rendering. DLL-must be installed. default = true
+	public useStringBuilder			''[bool] OBSOLETE! indicates if stringbuilder should be used for rendering. DLL-must be installed. default = true
 	public commonFieldText			''[string] text of the common-field. e.g. --- please select a value ---
 	public commonFieldValue			''[string] value for the common-field. default = 0
 	public multipleSelectionType	''[int] a value of the SELECTIONTYPE-Enumeration. Set this property if you want to change the
@@ -76,6 +76,7 @@ class Dropdown
 	public connectedTo				''[DropdownConnector] connect the dropdown to another one using a DropdownConnector
 	public enableAdding				''[bool] set this to true to enable adding a new item to the dropdown. enableAdding = false
 									''only for advanced use. Attention: cssClass, styles, etc will always apply just to the dropdown
+	public uniqueID					''[int] a unique (on the page) id of the dropdown
 	
 	public property let selectedValue(val) ''[string], [array] what value(s) is selected. array needed if multiple dropdown
 		if isArray(val) then
@@ -102,33 +103,33 @@ class Dropdown
 	'* constructor 
 	'**********************************************************************************************************
 	public sub class_initialize()
-		tmpDatasourceLength			= -1
-		size						= 1
-		currentIteration			= 0
-		commonFieldValue			= 0
-		p_selectedValue				= array()
-		valuesDatasource			= array()
-		multiple					= false
-		disabled					= false
-		useStringBuilder			= lib.useStringBuilder
-		autoDrawItems				= true
-		selectedFound				= false
-		commonFieldText				= empty
-		output	 					= empty
-		ID							= "dropdown_" & lib.getUniqueID()
-		connectedTo					= empty
-		outputMethod				= DD_OUTPUT_DIRECT
-		datasourceType				= DD_DATASOURCE_ARRAY
-		multipleSelectionType		= DD_SELECTIONTYPE_COMMON
-		enableAdding				= false
-		cssLocation					= lib.init(GL_DD_CSSLOCATION, controlLocation & "dropdown.css")
+		tmpDatasourceLength		= -1
+		size					= 1
+		currentIteration		= 0
+		commonFieldValue		= 0
+		p_selectedValue			= array()
+		valuesDatasource		= array()
+		multiple				= false
+		disabled				= false
+		autoDrawItems			= true
+		selectedFound			= false
+		commonFieldText			= empty
+		output	 				= empty
+		ID						= "dropdown_" & lib.getUniqueID()
+		connectedTo				= empty
+		outputMethod			= DD_OUTPUT_DIRECT
+		datasourceType			= DD_DATASOURCE_ARRAY
+		multipleSelectionType	= DD_SELECTIONTYPE_COMMON
+		enableAdding			= false
+		cssLocation				= lib.init(GL_DD_CSSLOCATION, controlLocation & "dropdown.css")
+		uniqueID				= lib.getUniqueID()
 	end sub
 	
 	'**********************************************************************************************************
 	'* destructor 
 	'**********************************************************************************************************
 	private sub class_terminate()
-		if useStringBuilder then set output = nothing
+		set output = nothing
 		set connectedTo = nothing
 	end sub
 	
@@ -138,7 +139,7 @@ class Dropdown
 	public sub draw()
 		outputMethod = DD_OUTPUT_DIRECT
 		renderControl()
-		if useStringBuilder then response.write(getOutput())
+		response.write(getOutput())
 	end sub
 	
 	'**********************************************************************************************************
@@ -293,10 +294,7 @@ class Dropdown
 	' initStringBuilder 
 	'**************************************************************************************************************
 	private sub initStringBuilder()
-		if useStringBuilder then
-			set output = Server.CreateObject("StringBuilderVB.StringBuilder")
-			output.init 40000, 7500
-		end if
+		set output = new StringBuilder
 	end sub
 	
 	'**********************************************************************************************************
@@ -433,11 +431,7 @@ class Dropdown
 	' getOutput 
 	'**********************************************************************************************************
 	private function getOutput()
-		if useStringBuilder then
-			getOutput = output.toString()
-		else
-			getOutput = output
-		end if
+		getOutput = output.toString()
 	end function
 	
 	'**************************************************************************************************************
@@ -446,14 +440,10 @@ class Dropdown
 	'' @PARAM:			value [string] the value to print
 	'**************************************************************************************************************
 	public sub print(value)
-		if useStringBuilder then
-			output.append(value)
+		if outputMethod = DD_OUTPUT_DIRECT then
+			response.write(value)
 		else
-			if outputMethod = DD_OUTPUT_DIRECT then
-				response.write(value)
-			else
-				output = output & value
-			end if
+			output.append(value)
 		end if
 	end sub
 
