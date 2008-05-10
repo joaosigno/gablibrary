@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/gab_Library/class_page/generatePage.asp"-->
+﻿<!--#include virtual="/gab_library/class_page/generatePage.asp"-->
 <%
 '**************************************************************************************************************
 '* License refer to license.txt		
@@ -15,6 +15,7 @@
 ''					- if you need to debug your failures then turn on the 'debug' property
 ''					- create a setup sub if you need a procedure which will be called before every test
 ''					- run the fixture with the run-method
+''					TODO: built some asserts for response and request (ala ruby on rails)
 '' @REQUIRES:		-
 '' @VERSION:		0.1
 
@@ -27,6 +28,7 @@ class TestFixture
 	'public members
 	public debug			''[bool] turn this on to debug your tests. error handlin is turned off then. default = false
 	public lineBreak		''[string] the line break which should be used between each message. default = <br>
+	public requestTimeout	''[int] timout for page requests. e.g. when using asserResponse() default = 3
 	
 	'**********************************************************************************************************
 	'* constructor 
@@ -40,6 +42,7 @@ class TestFixture
 		assertsInCurrentTest = 0
 		debug = false
 		lineBreak = "<br>"
+		requestTimeout = 3
 	end sub
 	
 	'**********************************************************************************************************
@@ -75,6 +78,111 @@ class TestFixture
 			println(str.format("{4}: {0} tests progressed ({1} errors). {2} assertions made ({3} failed).", _
 				array(testsMade, testsFailed, assertsMade, assertsFailed, testfile)))
 		end if
+	end sub
+	
+	'**********************************************************************************************************
+	'' @SDESCRIPTION: 	checks if a given url contains a wanted response (defined with a regex pattern)
+	'' @DESCRIPTION:	- will fail if the url cannot be reached
+	''					- the regular expression will be executed case INsensitive
+	''					- if debug is on then the whole response will be shown if the assert fails
+	''					- assert will fail if the page does not return SUCCESS status code (200)
+	'' @PARAM:			url [string], [array]: url to request.
+	''					- if a string then it will be requested with GET
+	''					- if an array then array(method, url)
+	''					- only full (http://...) or virtual (starting with /) urls are allowed
+	'' @PARAM:			params [array]: parameters for the request. even fields are names, odd fields the values
+	''					- if POST request then send as POST values. 
+	''					- if GET request then send via querystring. 
+	''					- if querystring values needed on the POST request then use within the URL directly
+	''					- provide 'empty' if no parameters are needed
+	'' @PARAM:			pattern [string]: regex pattern which will be checked against after url has been fetched
+	'**********************************************************************************************************
+	public sub assertResponse(byVal url, byVal params, pattern, msg)
+		assertStarted()
+		if not isArray(url) then url = array("get", url)
+		if uBound(url) <> 1 then lib.throwError("TestFixture.assertResponse() url parameter has wrong length")
+		uri = url(1)
+		set req = getRequest(url(0), uri, params, requestTimeout)
+		resp = req.responseText
+		if req.status <> 200 then
+			assertFailed uri & " match '" & pattern & "'", "Status-code: " & req.status, msg
+		elseif not str.matching(resp, pattern, true) then
+			assertFailed uri & " match '" & pattern & "'", lib.iif(debug, resp, left(resp, 200)), msg
+		end if
+		set xmlhttp = nothing
+	end sub
+	
+	'**********************************************************************************************************
+	'* request 
+	'**********************************************************************************************************
+	private function getRequest(byVal method, byVal url, byVal params, byVal timeout)
+		if str.startsWith(url, "/") then
+			protocol = lib.iif(lcase(request.serverVariables("HTTPS")) = "off", "http://", "https://")
+			url = protocol & request.serverVariables("SERVER_NAME") & url
+		end if
+		if isArray(params) then
+			if (uBound(params) + 1) mod 2 <> 0 then lib.throwError("getRequest() params must have an even length")
+			for i = 0 to uBound(params) step 2
+				pQS = pQS & params(i) & "=" & server.URLEncode(params(i + 1)) & "&"
+			next
+		end if
+		'4.0 version cannot be used due to the following problem on WIN2003 server
+		'http://support.microsoft.com/default.aspx?scid=kb;en-us;820882#6
+		set getRequest = server.createObject("Msxml2.ServerXMLHTTP.3.0")
+		timeout = timeout * 1000
+		with getRequest
+			'resolve, connect, send, receive
+			.setTimeouts timeout, timeout, timeout, timeout
+			if lcase(method) = "get" then
+				if not str.endsWith(url, "?") then url = url & "?"
+				.open "GET", url & pQS, false
+				.send()
+			elseif lcase(method) = "post" then
+				.open "POST", url, false
+				.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+				.setRequestHeader "Encoding", "UTF-8"
+				.send(pQS)
+			else
+				lib.throwError("Not supported method '" & uCase(method) & "' for " & url)
+			end if
+		end with
+	end function
+	
+	'**********************************************************************************************************
+	'' @SDESCRIPTION: 	expects a string to exist in a given file.
+	'' @DESCRIPTION:	- will fail if the file does not exist at all as well
+	''					- case sensitive
+	'**********************************************************************************************************
+	public sub assertInFile(virtualFilePath, stringToFind, msg)
+		assertStarted()
+		if not lib.fso.fileExists(server.mapPath(virtualFilePath)) then
+			assertFailed stringToFind, virtualFilePath & " file not found", msg
+			exit sub
+		end if
+		with server.createObject("ADODB.Stream")
+			.charset = "utf-8"
+			.open()
+			.loadFromFile(server.mapPath(virtualFilePath))
+			if instr(.readText(-1), stringToFind) = 0 then assertFailed stringToFind, virtualFilePath, msg
+			.close()
+		end with
+	end sub
+	
+	'**********************************************************************************************************
+	'' @SDESCRIPTION: 	expects a string NOT to exist in a given file.
+	'' @DESCRIPTION:	- will succeed if the file does not exists
+	''					- case sensitive
+	'**********************************************************************************************************
+	public sub assertNotInFile(virtualFilePath, stringToFind, msg)
+		assertStarted()
+		if not lib.fso.fileExists(server.mapPath(virtualFilePath)) then exit sub
+		with server.createObject("ADODB.Stream")
+			.charset = "utf-8"
+			.open()
+			.loadFromFile(server.mapPath(virtualFilePath))
+			if instr(.readText(-1), stringToFind) > 0 then assertFailed virtualFilePath, stringToFind, msg
+			.close()
+		end with
 	end sub
 	
 	'**********************************************************************************************************
@@ -236,5 +344,4 @@ class TestFixture
 	end sub
 
 end class
-lib.registerClass("TestFixture")
 %>

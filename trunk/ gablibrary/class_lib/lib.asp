@@ -661,7 +661,7 @@ class Library
 	public sub toggle(tablename, columnName, condition)
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.toggle", "tablename cannot be empty"))
 		if trim(columnName) = "" then lib.throwError(array(100, "lib.toggle", "columnname cannot be empty"))
-		getRS "UPDATE " & str.SQLSafe(tablename) & " SET " & str.SQLSafe(columnName) & " = not " & str.SQLSafe(columnName) & getWhereClause(condition), empty
+		getRS "UPDATE " & str.SQLSafe(tablename) & " SET " & str.SQLSafe(columnName) & " = 1 - " & str.SQLSafe(columnName) & getWhereClause(condition), empty
 	end sub
 	
 	'******************************************************************************************************************

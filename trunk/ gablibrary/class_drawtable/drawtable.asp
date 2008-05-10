@@ -1268,12 +1268,10 @@ class Drawtable
 		colsAmount = 0
 		for each col in allTableColumns.items
 			if colsAmount = 0 then
-				colCSSClass = " class=firstColumn"
+				col.cssClass = "firstColumn " & col.cssClass
 			'if there is no filterbar and no fast delete then we need to mark the last column
 			elseif colsAmount = allTableColumns.count - 1 and not (fastDelete or showFilterBar) then
-				colCSSClass = " class=lastColumn"
-			else
-				colCSSClass = empty
+				col.cssClass = "lastColumn " & col.cssClass
 			end if
 			
 			if col.colType = "radiobutton" then
@@ -1284,7 +1282,7 @@ class Drawtable
 					checked = ""
 					xlsExporter.addOutput("<td></td>")
 				end if
-				addToOutput("	<td align=center " & colCSSClass & " " & col.tdAttributes & " ><input type=radio name=rb_" & currentRecordID & " value=" & col.value & checked & " onclick=""changeBG('" & col.value & "', " & currentRecordID & ");""" & lib.iif(col.disabled or rowObject.disabled, " disabled", empty) & "></td>")
+				addToOutput("	<td align=center class=""" & col.cssClass & """ " & col.tdAttributes & " ><input type=radio name=rb_" & currentRecordID & " value=" & col.value & checked & " onclick=""changeBG('" & col.value & "', " & currentRecordID & ");""" & lib.iif(col.disabled or rowObject.disabled, " disabled", empty) & "></td>")
 			else
 				'we execute the displayfunction if needed
 				if col.displayFunction <> "" then
@@ -1343,7 +1341,7 @@ class Drawtable
 					tdRowJavascript = empty
 				end if
 				
-				addToOutput("	<td " & colCSSClass & " " & col.tdAttributes & tdRowJavascript & ">" & editUrlBegin & field0 & editUrlEnd & "</td>")
+				addToOutput("	<td class=""" & col.cssClass & """ " & col.tdAttributes & tdRowJavascript & ">" & editUrlBegin & field0 & editUrlEnd & "</td>")
 				xlsExporter.addOutput("<td>" & field0 & "</td>")
 			end if
 			colsAmount = colsAmount + 1
