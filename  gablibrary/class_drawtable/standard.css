@@ -100,35 +100,39 @@ td, select, input {
 /* PRINT DEFINITIONS */
 @media print {
 
-body,td {
-	background-color:none;
-}
-a, a:visited, a:active, .navklein, .navklein:active,.navklein:visited, body, td { 
-	font-family:"Times New Roman";
-	color:#000000;
-	font-size: 10pt;  
-}
-.head { 
-	background-color:#CECECE;
-	font-family:"Times New Roman";
-	color:#000000;
-}
-.noprint {
-	display: none;
-}
-.headlineBG {
-	background-color:#ffffff;
-}
-.headline { 
-	background-color:#FFFFFF;
-	font-family:"Times New Roman";
-	font-size: 11pt;color:#000000;
-}
-.filterBG {
-	background-color:#ffffff;
-}
-.dotting {
-	border-top:0px solid #000000;
-}
+	div.tableContainer {overflow: visible;	}
+	thead	{display: table-header-group;	}
+	table>tbody	{overflow: visible; }
+	
+	body,td {
+		background-color:none;
+	}
+	a, a:visited, a:active, .navklein, .navklein:active,.navklein:visited, body, td { 
+		font-family:"Times New Roman";
+		color:#000000;
+		font-size: 10pt;  
+	}
+	.head { 
+		background-color:#CECECE;
+		font-family:"Times New Roman";
+		color:#000000;
+	}
+	.noprint {
+		display: none;
+	}
+	.headlineBG {
+		background-color:#ffffff;
+	}
+	.headline { 
+		background-color:#FFFFFF;
+		font-family:"Times New Roman";
+		font-size: 11pt;color:#000000;
+	}
+	.filterBG {
+		background-color:#ffffff;
+	}
+	.dotting {
+		border-top:0px solid #000000;
+	}
 
 }

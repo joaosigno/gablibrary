@@ -595,12 +595,13 @@ class StringOperations
 	'' @DESCRIPTION:	Its just like the string.format method in .NET. so if you provide "my Name is {0}" as
 	''					your input then the {0} will be replaced by the first field of your array. and so on.
 	'' @PARAM:			str [string]: the source string
-	'' @PARAM:			arr [array]: the array with your values
+	'' @PARAM:			values [array], [string]: your values which replace the placeholders. if string then only one value otherwise use array
 	'' @RETURN:			[string] changed string
 	'**************************************************************************************************************
-	public function format(byVal str, arr)
-		for i = 0 to ubound(arr)
-			str = replace(str, "{" & i & "}", cstr(arr(i)))
+	public function format(byVal str, byVal values)
+		if not isArray(values) then values = array(values)
+		for i = 0 to ubound(values)
+			str = replace(str, "{" & i & "}", cstr(values(i)))
 		next
 		format = str
 	end function

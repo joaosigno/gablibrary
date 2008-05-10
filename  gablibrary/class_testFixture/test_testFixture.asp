@@ -1,6 +1,7 @@
-﻿<!--#include virtual="/gab_Library/class_testFixture/testFixture.asp"-->
+﻿<!--#include file="testFixture.asp"-->
 <%
 set tf = new TestFixture
+tf.debug = true
 tf.run()
 
 sub test_1()
@@ -52,5 +53,11 @@ sub test_8()
 	tf.assertHas array(empty, null, 1), 1, "assertHas"
 	tf.assertHasNot "x", "1", "assertHasNot"
 	tf.assertHasNot array(1, 2, 3, 4), 0, "assertHasNot"
+end sub
+
+sub test_9()
+	tf.assertInFile "test_file.txt", "test_testFixture.asp", "'test_testFixture.asp' should be in the test_file.txt"
+	tf.assertNotInFile "test_file.txt.no", "test_testFixture.asp", "'test_file.txt.no' does not exists and so it should not contain any matches"
+	tf.assertNotInFile "test_file.txt", "jack johnson", "test_file.txt should not contain 'jack johnson'"
 end sub
 %>

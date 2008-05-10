@@ -172,19 +172,21 @@ class tableSessionObject
 	''					Session Object.
 	'************************************************************************************************************
 	public sub InitializeSessionObject()
-		if lib.page.isPostback() then
-			set tableSessionDict = Server.CreateObject("Scripting.Dictionary")
-			
-			tableSessionDict.Add "pageurl", Request.ServerVariables("URL")
-			tableSessionDict.Add "pagenumber", Request("actualPageNumber")
-			tableSessionDict.Add "commonsort", Request("sortValue")
-			tableSessionDict.Add "searchvalue", Request("fullsearchtext")
+		set tableSessionDict = lib.newDict(empty)
+		searchValue = request("fullsearchtext")
+		
+		'we allow to set the settings if page was posted or if it was not posted but a search value is
+		'given through the querystring. with this we can achieve to call a table with a given search termn
+		if lib.page.isPostback() or (not lib.page.isPostback() and searchValue <> "") then
+			tableSessionDict.Add "pageurl", request.ServerVariables("URL")
+			tableSessionDict.Add "pagenumber", request("actualPageNumber")
+			tableSessionDict.Add "commonsort", request("sortValue")
+			tableSessionDict.Add "searchvalue", searchValue
 			
 			for each field in lib.form
 				if (instr(lCase(field), "fltrfield_")) then tableSessionDict.Add field, lib.RF(field)
 			next
-			
-			set Session("tableObject") = tableSessionDict
+			set session("tableObject") = tableSessionDict
 			set tableSessionDict = nothing
 		end if
 	end sub

@@ -22,6 +22,7 @@ class columnRadioButton
 	public colType				''Dont touch this!
 	public isNumber				''true/false - is this a column with numbers?
 	public disabled				''[bool] indicates if the radiobuttons are disabled or not? default = false
+	public cssClass				''[string] some css class(es)
 	
 	'Konstruktor => set the default values
 	private sub Class_Initialize()

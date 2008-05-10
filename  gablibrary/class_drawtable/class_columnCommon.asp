@@ -24,6 +24,7 @@ class columnCommon
 								''drawtable will be ignored. you can make your own links then
 	public isFiltered			''[bool] indicates if a "basic" filter will be added automaically with this column. 
 								''just a standard textbox filter. default = false
+	public cssClass				''[string] some css class(es)
 	
 	'Konstruktor => set the default values
 	private sub Class_Initialize()

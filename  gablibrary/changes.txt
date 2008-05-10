@@ -24,7 +24,11 @@ April 2008
 	- stringbuilder is automatically loaded 
 	- use stringbuilder.write method if possible. this chooses always the most efficient way for the output
 	- all components are using the new stringbuilder now. lib.useStringBuilder has been removed now because not needed anymore
-
+- Drawtable:
+	- added columnCommon.cssClass and radioButtonColumn.cssClass. with these attributes its possible now to assign css classes to columns... this didnt work before!
+	- column headers are now printed on every page when printing. (if custom stylesheet used then check the drawtables updated print style definition)
+	- fullsearchText can be provided through querystring as well now .. this allows us to call a page and prefilter the data with a given term ;)
+	
 VERSION 1.1
 
 March 2008
