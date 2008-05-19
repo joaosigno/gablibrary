@@ -102,12 +102,21 @@ class TestFixture
 		if not isArray(url) then url = array("get", url)
 		if uBound(url) <> 1 then lib.throwError("TestFixture.assertResponse() url parameter has wrong length")
 		uri = url(1)
-		set req = getRequest(url(0), uri, params, requestTimeout)
+		'we want to catch all errors when getting the request, because we dont want
+		'an error. we rather want the assert to fail
+		on error resume next
+			set req = getRequest(url(0), uri, params, requestTimeout)
+			if err <> 0 then eDesc = err.description
+		on error goto 0
+		if eDesc <> "" then
+			assertFailed uri, eDesc, msg
+			exit sub
+		end if
 		resp = req.responseText
 		if req.status <> 200 then
 			assertFailed uri & " match '" & pattern & "'", "Status-code: " & req.status, msg
 		elseif not str.matching(resp, pattern, true) then
-			assertFailed uri & " match '" & pattern & "'", lib.iif(debug, resp, left(resp, 200)), msg
+			assertFailed uri & " match '" & pattern & "'", lib.iif(debug, resp, str.shorten(resp, 200, "...")), msg
 		end if
 		set xmlhttp = nothing
 	end sub

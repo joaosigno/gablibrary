@@ -1,5 +1,4 @@
 ﻿<!--#include file="../class_lib/lib.asp"-->
-<!--#include file="../class_debuggingConsole/debuggingConsole.asp"-->
 <!--#include file="../class_JSON/JSON.asp"-->
 <!--#include virtual="/gab_libraryConfig/_generatepage.asp"-->
 <%
@@ -30,7 +29,7 @@ class GeneratePage
 
 	private p_access_denied_url, startTime, p_title, p_maintenanceSite
 	private printCssLocation, standardCssLocation
-	private standardModCssLocation, debugConsole, p_plain
+	private standardModCssLocation, p_plain
 	private loadedSources, p_ajaxed, ajaxedStatus, p_JSO
 	
 	private property get JSO
@@ -56,7 +55,7 @@ class GeneratePage
 	public buffering				''[bool] should the output be buffered? if false then e.g. response.redirect does not work. default = true
 									''if turning this off then the all ASP errors which are thrown after some response has been made wont be handled.
 									''this is only important if using the 500-100.asp errorpage
-	public debugMode				''[bool] Turn on the debugmode? class_debuggingConsole
+	public debugMode				''[bool] OBSOLETE! Turn on the debugmode? class_debuggingConsole.
 	public drawBody					''[bool] Should the body be drawn? e.g. if you use frameset then you dont need body
 	public devWarning				''[bool] display a warning if the page is on development-server.
 	public pageEnterEffect			''[bool] enable page-Enter Effect. Only IE. Fade Effect!
@@ -120,6 +119,10 @@ class GeneratePage
 		p_title = value
 	end property
 	
+	private property get callbackAction
+		callbackAction = left(lib.RF("gabLibPageAjaxedAction"), 255)
+	end property
+	
 	'************************************************************************************************************
 	' constructor 
 	'************************************************************************************************************
@@ -149,7 +152,6 @@ class GeneratePage
 		loadCss					= true
 		frameSetter				= false
 		HTTPHeader				= true
-		debugMode				= false
 		drawBody				= true
 		devWarning				= true
 		pageEnterEffect			= false
@@ -199,7 +201,6 @@ class GeneratePage
 		setHTTPHeader()
 		checkMaintenanceWork()
 		checkLogin()
-		initDebugger()
 		openDatabaseConnection()
 		checkAccess()
 		checkModalDialog()
@@ -212,7 +213,6 @@ class GeneratePage
 		drawCustomFooter()
 		drawPageFooter()
 		closeDatabaseConnection()
-		drawDebugger()
 		destruct()
 	end function
 	
@@ -309,12 +309,7 @@ class GeneratePage
 	'* openDatabaseConnection 
 	'******************************************************************************************************************
 	public sub openDatabaseConnection()
-		if DBConnection then
-			lib.custom.establishDatabaseConnection DBConnectionParameter
-			if debugMode then
-				if lib.custom.isWebadmin() then debugConsole.grabDatabaseInfo(lib.databaseConnection)
-			end if
-		end if
+		if DBConnection then lib.custom.establishDatabaseConnection DBConnectionParameter
 	end sub
 	
 	'******************************************************************************************************************
@@ -330,14 +325,38 @@ class GeneratePage
 	'* closeDatabaseConnection 
 	'******************************************************************************************************************
 	public sub closeDatabaseConnection()
-		if DBConnection then lib.databaseConnection.close()
+		if DBConnection then
+			lib.databaseConnection.close()
+			doLog(lib.numberOfDBAccess & " database accesses." & getLocation("FULL", true))
+		end if
+	end sub
+	
+	'******************************************************************************************************************
+	'* logRequestDetails 
+	'******************************************************************************************************************
+	private sub logRequestDetails()
+		if not lib.logger.logsOnLevel(1) then exit sub
+		method = request.serverVariables("request_method")
+		if isCallback() then method = "CALLBACK (" & callbackAction & ")"
+		pwd = "********"
+		lines = array(method & " " & getLocation("FULL", true))
+		for each f in request.form
+			redim preserve lines(uBound(lines) + 1)
+			'we hide all fields if they contain "password" in the fieldname
+			lines(uBound(lines)) = "RF(""" & f & """): " & lib.iif(str.matching(f, "password", true), pwd, lib.RF(f))
+		next
+		for each f in request.queryString
+			redim preserve lines(uBound(lines) + 1)
+			lines(uBound(lines)) = "QS(""" & f & """): " & lib.iif(str.matching(f, "password", true), pwd, lib.QS(f))
+		next
+		doLog(lines)
 	end sub
 	
 	'******************************************************************************************************************
 	'* setHTTPHeader 
 	'******************************************************************************************************************
 	public sub setHTTPHeader()
-		lib.debug request.serverVariables("REQUEST_METHOD") & " on " & getLocation("FULL", true), 32
+		logRequestDetails()
 		with response
 			.expires = 0
 			.buffer = buffering
@@ -370,9 +389,7 @@ class GeneratePage
 			end if
 			str.writeln("{ ""root"": {")
 			ajaxedStatus = 0
-			act = left(lib.RF("gabLibPageAjaxedAction"), 255)
-			lib.debug "CALLBACK with action '" & act & "' on " & getLocation("FULL", true), 32
-			callback(act)
+			callback(callbackAction)
 			if ajaxedStatus = 0 then str.write(" null ")
 			if ajaxedStatus = 1 then
 				str.writeln(vbcrlf & "} }")
@@ -382,6 +399,13 @@ class GeneratePage
 		else
 			main()
 		end if
+	end sub
+	
+	'******************************************************************************************************************
+	'* doLog 
+	'******************************************************************************************************************
+	private sub doLog(msg)
+		lib.logger.log 1, msg, 33
 	end sub
 	
 	'******************************************************************************************************************
@@ -623,35 +647,19 @@ class GeneratePage
 	end function
 	
 	'******************************************************************************************************************
-	'* initDebugger 
+	'' @SDESCRIPTION:	OBSOLETE!
 	'******************************************************************************************************************
 	public sub initDebugger()
-		if debugMode then
-			if not lib.custom.isWebadmin() then exit sub
-			set debugConsole = new DebuggingConsole
-			with debugConsole
-				.enabled = true
-				.allVars = true
-				.show = "0,1,1,1,0,0,0,0,0,0,0,0" 'variables, Querystring and form are opened
-			end with
-		end if
 	end sub
 	
 	'******************************************************************************************************************
-	'* drawDebugger 
+	'' @SDESCRIPTION:	OBSOLETE!
 	'******************************************************************************************************************
 	public sub drawDebugger()
-		if debugMode and not isXML and not isCallback() then
-			if lib.custom.isWebAdmin() then
-				debugConsole.print "Number of Database accesses", lib.numberOfDBAccess
-				debugConsole.draw()
-			end if
-			set debugConsole = Nothing
-		end if
 	end sub
 	
 	'******************************************************************************************************************
-	'' @SDESCRIPTION:	Adds a variable to the debug-informations. 
+	'' @SDESCRIPTION:	OBSOLETE! Adds a variable to the debug-informations. lib.logger.debug() instead
 	'' @DESCRIPTION:	Will be displayed if you use debugMode = true otherwise the variable wont be stored. 
 	''					If you do this in the whole page for all important vars then you wont need to do it later again.
 	''					Just debugMode enable/disable will also disable all debugvars.
@@ -659,7 +667,6 @@ class GeneratePage
 	'' @PARAM:			var [variable]: The variable itself
 	'******************************************************************************************************************
 	public sub addDebugVar(description, byVal var)
-		if debugMode then debugConsole.print description, var
 	end sub
 	
 	'******************************************************************************************************************

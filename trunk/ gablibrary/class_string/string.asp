@@ -19,6 +19,25 @@
 class StringOperations
 
 	'******************************************************************************************
+	'' @SDESCRIPTION:	performs a replace with a regular expression pattern
+	'' @DESCRIPTION:	e.g. surrounding all numbers of a string with brackets: <code>str.rReplace("i am 20 and he is 10", "(\d)", "($1)", true)</code>
+	'' @PARAM:			val [string]: the value you want to replace the matches
+	'' @PARAM:			pattern [string]: regular expression pattern
+	'' @PARAM:			replaceWith [string]: a string which is used for the replacement of the matches
+	''					- $1, $2, .. can be used as placeholders for grouped expressions of the regex pattern
+	'' @PARAM:			ignoreCase [bool]: ignore the case on comparison
+	'' @RETURN:			[string] returns the new string with replacements made. if no replacements made then the same string is returned as given on input
+	'******************************************************************************************
+	public function rReplace(val, pattern, replaceWith, ignoreCase)
+		set re = new regexp
+		re.ignorecase = ignoreCase
+		re.global = true
+		re.pattern = pattern & ""
+		rReplace = re.replace(val & "", replaceWith)
+		set re = nothing
+	end function
+	
+	'******************************************************************************************
 	'' @SDESCRIPTION:	checks if a given string is matching a given regular expression pattern
 	'' @PARAM:			val [string]: the value which needs to be checked against the pattern
 	'' @PARAM:			ignoreCase [bool]: ignore the case on comparison

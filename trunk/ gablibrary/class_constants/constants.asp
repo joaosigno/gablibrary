@@ -1,4 +1,4 @@
-﻿<!--#include virtual="/gab_LibraryConfig.asp"-->
+<!--#include virtual="/gab_LibraryConfig.asp"-->
 <%
 '**************************************************************************************************************
 '* GAB_LIBRARY Copyright (C) 2003	
@@ -26,7 +26,7 @@ class Constants
 	private p_hostIP, p_smtp_server, p_logo, p_logo_Small
 	private p_automated_bot_email, p_automated_bot_name
 	private p_email_send_on_error, p_maintenance_work
-	private p_logs_path, p_liveServerName, p_NotAvailable, p_userFiles
+	private p_logs_path, p_liveServerName, p_NotAvailable, p_userFiles, p_liveWebservicesName
 	private p_webadmins, p_allowed_on_maintenance, p_onlyLiveServer, p_UTF8, p_webservicesHost
 	
 	'******************************************************************************************************************
@@ -35,6 +35,7 @@ class Constants
 	public sub class_Initialize()
 		'the liveserver stuff needs to be initialized first
 		p_liveServerName 			= initVar(GL_CONST_LIVERSERVERNAME, "localhost")
+		p_liveWebservicesName		= initVar(GL_CONST_LIVEWEBSERVICESHOST, "localhost")
 		p_onlyLiveServer			= initVar(GL_CONST_ONLYLIVESERVER, false)
 		
 		'the rest of the vars
@@ -58,6 +59,11 @@ class Constants
 		p_UTF8 						= init(GL_CONST_UTF8, GL_CONST_UTF8_DEV, true)
 		p_webservicesHost			= init(GL_CONST_WEBSERVICESHOST, GL_CONST_WEBSERVICESHOST_DEV, "http://localhost/")
 	end sub
+	
+	public property get env ''[string] gets the environment. 'dev' or 'live'
+		env = "dev"
+		if not isDevelopment() then env = "live"
+	end property
 	
 	public property get webservicesHost ''[bool] host where the webservices are running. OBSOLETE! only for backwards compatibility with old webservice component
 		webservicesHost = p_webservicesHost
