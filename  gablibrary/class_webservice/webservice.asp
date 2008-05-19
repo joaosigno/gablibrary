@@ -57,7 +57,7 @@ class Webservice
 		ERRCODE_CUSTOM = 1
 	end property
 	
-	public property get ERRCODE_WRONGHOST ''[int] OBSOLETE! used to indicate that the webservice has been executed on the wrong host.
+	public property get ERRCODE_WRONGHOST ''[int] used to indicate that the webservice has been executed on the wrong host.
 		ERRCODE_WRONGHOST = 2
 	end property
 	

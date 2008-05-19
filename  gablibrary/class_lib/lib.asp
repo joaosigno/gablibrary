@@ -31,6 +31,7 @@
 dim consts, lib, str
 set consts = new Constants
 set str = new StringOperations
+set lib.logger = new Logger
 
 class Library
 
@@ -44,6 +45,7 @@ class Library
 	public page					''[GeneratePage] currently executing page. just needed for control developers.
 	public FSO					''[FileSystemObject] an instance of fileSystemObject for quick use ;)
 	public registeredClasses	''[dictionary] collection of registered classes. key = name of the class (lcase)
+	public logger				''[Logger] holds a logger instance for logging.
 	
 	public property set form(val) ''[NameValueCollection] sets the reference to the form which is used. when using a multipart/form-data form, then its useful to assign the collection to a components formcollection. e.g. W3Upload. ONLY ADVANCED USE!
 		'if the type is the same we dont set it because
@@ -238,6 +240,7 @@ class Library
 			source = request.serverVariables("SCRIPT_NAME")
 			if lib.QS(empty) <> "" then source = source & "?" & lib.QS(empty)
 		end if
+		logger.error(source & ": " & description)
 		'user errors start after 512 (VB spec)
 		err.raise nr, source, description
 	end sub
@@ -356,11 +359,13 @@ class Library
 		str.writeln("Erroro: ")
 		if not isArray(msg) then
 			str.write(str.HTMLEncode(msg))
+			lib.logger.error(msg)
 		else
 			str.write(vbCrLf)
 			for each m in msg
 				str.write(str.HTMLEncode(m) & vbCrLf)
 			next
+			lib.logger.error(msg)
 		end if
 		str.end()
 	end sub
@@ -509,19 +514,6 @@ class Library
 	end sub
 	
 	'******************************************************************************************************************
-	'' @DESCRIPTION: 	logs a debug message. only on the development environment
-	'' @PARAM:			msg [string]: message to debug
-	'' @PARAM:			color [int]: ansi color code. check at http://en.wikipedia.org/wiki/ANSI_escape_code
-	''					some values: 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white
-	''					41 red BG, 42, green BG, ....
-	'******************************************************************************************************************
-	public sub debug(msg, color)
-		if not consts.isDevelopment() then exit sub
-		if color = empty then color = 37
-		lib.logAndForget "dev", chr(27) & "[0;" & color & "m " & msg & chr(27) & "[1;37m"
-	end sub
-	
-	'******************************************************************************************************************
 	'' @SDESCRIPTION: 	Opposite of server.URLEncode
 	'' @PARAM:			- endcodedText [string]: your string which should be decoded. e.g: Haxn%20Text (%20 = Space)
 	'' @RETURN:			[string] decoded string
@@ -613,7 +605,7 @@ class Library
 		if trim(tablename) = "" then lib.throwError(array(100, "lib.insert", "tablename cannot be empty"))
 		set aRS = server.createObject("ADODB.Recordset")
 		sql = "SELECT * FROM " & str.sqlSafe(tablename) & getWhereClause(condition)
-		debug sql, 36
+		me.logger.log 1, sql, "0;36"
 		aRS.open sql, dataBaseConnection, 1, 2
 		fillRSWithData aRS, data, "db.update"
 		aRS.update()
@@ -707,7 +699,7 @@ class Library
 	public function getRS(byVal sql, params)
 		sql = parametrizeSQL(sql, params, "lib.getRS")
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
-		debug sql, 36
+		me.logger.log 1, sql, "0;36"
 		on error resume next
  		set getRS = databaseConnection.execute(sql)
 		if err <> 0 then
@@ -727,7 +719,7 @@ class Library
 	'******************************************************************************************************************
 	public function getUnlockedRS(byVal sql, params)
 		sql = parametrizeSQL(sql, params, "lib.getUnlockedRS")
-		debug sql, 36
+		me.logger.log 1, sql, "0;36"
 		if databaseConnection is nothing then lib.error("lib.databaseConnection is nothing. Check lib.custom.establishDatabaseConnection")
 		on error resume next
 		set getUnlockedRS = server.createObject("ADODB.RecordSet")
@@ -762,6 +754,7 @@ class Library
 	'' @DESCRIPTION: 	OBSOLETE! use lib.getUnlockedRS().
 	'******************************************************************************************************************
 	public function getUnlockedRecordset(byVal sql)
+		me.logger.warn("Library.getUnlockedRecordset(" & sql & ") is obsolete.")
 		set getUnlockedRecordset = getUnlockedRS(sql, empty)
 	end Function
 	
@@ -769,6 +762,7 @@ class Library
 	'' @DESCRIPTION: 	OBSOLETE! Use getRS() instead.
 	'******************************************************************************************************************
 	public function getRecordset(byVal sql)
+		me.logger.warn("Library.getRecordset(" & sql & ") is obsolete.")
 		set getRecordset = getRS(sql, empty)
 	end Function
 	
