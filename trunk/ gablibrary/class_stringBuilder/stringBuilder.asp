@@ -51,7 +51,7 @@ class StringBuilder
 	'' @DESCRIPTION:	- its recommended to use this instead of append() when rendering html markup. it wil allways use this fastest method. if stringbuilder available then using stringbuilder otherwise direct output to response.
 	''					- note: be sure that on the place you use write() it can output directly to the response if needed
 	'**********************************************************************************************************
-	public sub write(val)
+	public default sub write(val)
 		if isEmpty(component) then
 			str.write(val)
 		else
